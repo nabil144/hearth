@@ -1,150 +1,1202 @@
 {
   "traditions": [
-    { "id": "greek", "name": "Greek", "sensitivity": "literary" },
-    { "id": "norse", "name": "Norse", "sensitivity": "literary" },
-    { "id": "egyptian", "name": "Egyptian", "sensitivity": "literary" },
-    { "id": "hindu", "name": "Hindu", "sensitivity": "do-not-ship" }
+    {
+      "id": "greek",
+      "name": "Greek",
+      "sensitivity": "literary"
+    },
+    {
+      "id": "norse",
+      "name": "Norse",
+      "sensitivity": "literary"
+    },
+    {
+      "id": "egyptian",
+      "name": "Egyptian",
+      "sensitivity": "literary"
+    },
+    {
+      "id": "hindu",
+      "name": "Hindu",
+      "sensitivity": "do-not-ship"
+    }
   ],
-
   "sources": [
-    { "id": "theog-116-138", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 116-138", "paraphrase": "First Chaos, then Gaia. Gaia bears Ouranos, then the Titans with him, Kronos last." },
-    { "id": "theog-154-210", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 154-210", "paraphrase": "Ouranos hides his children inside Gaia. She forges a sickle. Kronos ambushes his father and cuts. Blood makes the Erinyes and Giants. Foam makes Aphrodite." },
-    { "id": "theog-453-491", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 453-491", "paraphrase": "Rhea bears Kronos six children. He swallows each. She bears Zeus in Crete and hands Kronos a stone." },
-    { "id": "theog-492-506", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 492-506", "paraphrase": "Zeus grows. Kronos vomits the stone, then the children. Zeus sets the stone at Pytho. He frees the Cyclopes, who give him thunder." },
-    { "id": "theog-617-735", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 617-735", "paraphrase": "Ten years of war. Zeus frees the Hundred-Handers. The Titans lose and go under Tartarus." },
-    { "id": "theog-883-885", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 883-885", "paraphrase": "After the war the gods, at Gaia's urging, ask Zeus to be king." },
-    { "id": "theog-921", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "line 921", "paraphrase": "Last, Zeus makes Hera his wife." },
-    { "id": "theog-270-283", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 270-283", "paraphrase": "Phorkys and Keto bear the Gorgons. Medusa alone is mortal. Poseidon lies with her in a meadow. From her cut neck spring Chrysaor and Pegasus." },
-    { "id": "hymn-hestia-29", "tradition": "greek", "work": "Homeric Hymn 29, to Hestia", "locator": "lines 1-6", "paraphrase": "Hestia has a seat in every house of gods and men. Without her no feast begins or ends." },
-    { "id": "iliad-5-370", "tradition": "greek", "work": "Homer, Iliad", "locator": "book 5, lines 370-372", "paraphrase": "Wounded Aphrodite runs to her mother Dione." },
-    { "id": "iliad-15-187", "tradition": "greek", "work": "Homer, Iliad", "locator": "book 15, lines 187-193", "paraphrase": "Poseidon says the three sons of Kronos drew lots. Sea to him, underworld to Hades, sky to Zeus. Earth and Olympus shared." },
-    { "id": "wd-60-105", "tradition": "greek", "work": "Hesiod, Works and Days", "locator": "lines 60-105", "paraphrase": "Zeus orders a woman made. Pandora opens the jar. Hope stays inside." },
-    { "id": "ovid-met-4-790", "tradition": "greek", "work": "Ovid, Metamorphoses", "locator": "book 4, lines 790-803", "paraphrase": "Medusa was famous for her hair. Neptune violates her in Minerva's temple. Minerva turns the hair to snakes." },
-    { "id": "erasmus-adagia", "tradition": "greek", "work": "Erasmus, Adagia", "locator": "1508 edition, entry on Pandora", "paraphrase": "Erasmus renders Hesiod's pithos (a storage jar) as pyxis (a box). The box is his." },
-    { "id": "gylf-34", "tradition": "norse", "work": "Snorri Sturluson, Prose Edda, Gylfaginning", "locator": "chapter 34", "paraphrase": "Loki's children with Angrboda. The gods bind Fenrir with Gleipnir. Tyr loses his hand." }
+    {
+      "id": "theog-116-138",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 116-138",
+      "paraphrase": "First Chaos, then Gaia. Gaia bears Ouranos, then the Titans with him, Kronos last."
+    },
+    {
+      "id": "theog-154-210",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 154-210",
+      "paraphrase": "Ouranos hides his children inside Gaia. She forges a sickle. Kronos ambushes his father and cuts. Blood makes the Erinyes and Giants. Foam makes Aphrodite."
+    },
+    {
+      "id": "theog-453-491",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 453-491",
+      "paraphrase": "Rhea bears Kronos six children. He swallows each. She bears Zeus in Crete and hands Kronos a stone."
+    },
+    {
+      "id": "theog-492-506",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 492-506",
+      "paraphrase": "Zeus grows. Kronos vomits the stone, then the children. Zeus sets the stone at Pytho. He frees the Cyclopes, who give him thunder."
+    },
+    {
+      "id": "theog-617-735",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 617-735",
+      "paraphrase": "Ten years of war. Zeus frees the Hundred-Handers. The Titans lose and go under Tartarus."
+    },
+    {
+      "id": "theog-883-885",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 883-885",
+      "paraphrase": "After the war the gods, at Gaia's urging, ask Zeus to be king."
+    },
+    {
+      "id": "theog-921",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "line 921",
+      "paraphrase": "Last, Zeus makes Hera his wife."
+    },
+    {
+      "id": "theog-270-283",
+      "tradition": "greek",
+      "work": "Hesiod, Theogony",
+      "locator": "lines 270-283",
+      "paraphrase": "Phorkys and Keto bear the Gorgons. Medusa alone is mortal. Poseidon lies with her in a meadow. From her cut neck spring Chrysaor and Pegasus."
+    },
+    {
+      "id": "hymn-hestia-29",
+      "tradition": "greek",
+      "work": "Homeric Hymn 29, to Hestia",
+      "locator": "lines 1-6",
+      "paraphrase": "Hestia has a seat in every house of gods and men. Without her no feast begins or ends."
+    },
+    {
+      "id": "iliad-5-370",
+      "tradition": "greek",
+      "work": "Homer, Iliad",
+      "locator": "book 5, lines 370-372",
+      "paraphrase": "Wounded Aphrodite runs to her mother Dione."
+    },
+    {
+      "id": "iliad-15-187",
+      "tradition": "greek",
+      "work": "Homer, Iliad",
+      "locator": "book 15, lines 187-193",
+      "paraphrase": "Poseidon says the three sons of Kronos drew lots. Sea to him, underworld to Hades, sky to Zeus. Earth and Olympus shared."
+    },
+    {
+      "id": "wd-60-105",
+      "tradition": "greek",
+      "work": "Hesiod, Works and Days",
+      "locator": "lines 60-105",
+      "paraphrase": "Zeus orders a woman made. Pandora opens the jar. Hope stays inside."
+    },
+    {
+      "id": "ovid-met-4-790",
+      "tradition": "greek",
+      "work": "Ovid, Metamorphoses",
+      "locator": "book 4, lines 790-803",
+      "paraphrase": "Medusa was famous for her hair. Neptune violates her in Minerva's temple. Minerva turns the hair to snakes."
+    },
+    {
+      "id": "erasmus-adagia",
+      "tradition": "greek",
+      "work": "Erasmus, Adagia",
+      "locator": "1508 edition, entry on Pandora",
+      "paraphrase": "Erasmus renders Hesiod's pithos (a storage jar) as pyxis (a box). The box is his."
+    },
+    {
+      "id": "gylf-34",
+      "tradition": "norse",
+      "work": "Snorri Sturluson, Prose Edda, Gylfaginning",
+      "locator": "chapter 34",
+      "paraphrase": "Loki's children with Angrboda. The gods bind Fenrir with Gleipnir. Tyr loses his hand."
+    }
   ],
-
   "entities": [
-    { "id": "chaos", "kind": "place", "name": "Chaos", "parents": [] },
-    { "id": "gaia", "kind": "god", "name": "Gaia", "parents": [] },
-    { "id": "ouranos", "kind": "god", "name": "Ouranos", "parents": ["gaia"] },
-    { "id": "kronos", "kind": "god", "name": "Kronos", "parents": ["gaia", "ouranos"] },
-    { "id": "rhea", "kind": "god", "name": "Rhea", "parents": ["gaia", "ouranos"] },
-    { "id": "hestia", "kind": "god", "name": "Hestia", "parents": ["kronos", "rhea"] },
-    { "id": "demeter", "kind": "god", "name": "Demeter", "parents": ["kronos", "rhea"] },
-    { "id": "hera", "kind": "god", "name": "Hera", "parents": ["kronos", "rhea"] },
-    { "id": "hades", "kind": "god", "name": "Hades", "parents": ["kronos", "rhea"] },
-    { "id": "poseidon", "kind": "god", "name": "Poseidon", "parents": ["kronos", "rhea"] },
-    { "id": "zeus", "kind": "god", "name": "Zeus", "parents": ["kronos", "rhea"] },
-    { "id": "aphrodite", "kind": "god", "name": "Aphrodite", "parents": [] },
-    { "id": "medusa", "kind": "monster", "name": "Medusa", "parents": ["phorkys", "keto"] },
-    { "id": "phorkys", "kind": "god", "name": "Phorkys", "parents": [] },
-    { "id": "keto", "kind": "god", "name": "Keto", "parents": [] },
-    { "id": "hundred-handers", "kind": "monster", "name": "The Hundred-Handers", "parents": ["gaia", "ouranos"] },
-    { "id": "sickle", "kind": "object", "name": "The adamant sickle", "parents": [] },
-    { "id": "stone", "kind": "object", "name": "The swaddled stone", "parents": [] },
-    { "id": "jar", "kind": "object", "name": "Pandora's jar", "parents": [] }
+    {
+      "id": "chaos",
+      "kind": "place",
+      "name": "Chaos",
+      "parents": []
+    },
+    {
+      "id": "gaia",
+      "kind": "god",
+      "name": "Gaia",
+      "parents": []
+    },
+    {
+      "id": "ouranos",
+      "kind": "god",
+      "name": "Ouranos",
+      "parents": [
+        "gaia"
+      ]
+    },
+    {
+      "id": "kronos",
+      "kind": "god",
+      "name": "Kronos",
+      "parents": [
+        "gaia",
+        "ouranos"
+      ]
+    },
+    {
+      "id": "rhea",
+      "kind": "god",
+      "name": "Rhea",
+      "parents": [
+        "gaia",
+        "ouranos"
+      ]
+    },
+    {
+      "id": "hestia",
+      "kind": "god",
+      "name": "Hestia",
+      "parents": [
+        "kronos",
+        "rhea"
+      ]
+    },
+    {
+      "id": "demeter",
+      "kind": "god",
+      "name": "Demeter",
+      "parents": [
+        "kronos",
+        "rhea"
+      ]
+    },
+    {
+      "id": "hera",
+      "kind": "god",
+      "name": "Hera",
+      "parents": [
+        "kronos",
+        "rhea"
+      ]
+    },
+    {
+      "id": "hades",
+      "kind": "god",
+      "name": "Hades",
+      "parents": [
+        "kronos",
+        "rhea"
+      ]
+    },
+    {
+      "id": "poseidon",
+      "kind": "god",
+      "name": "Poseidon",
+      "parents": [
+        "kronos",
+        "rhea"
+      ]
+    },
+    {
+      "id": "zeus",
+      "kind": "god",
+      "name": "Zeus",
+      "parents": [
+        "kronos",
+        "rhea"
+      ]
+    },
+    {
+      "id": "aphrodite",
+      "kind": "god",
+      "name": "Aphrodite",
+      "parents": []
+    },
+    {
+      "id": "medusa",
+      "kind": "monster",
+      "name": "Medusa",
+      "parents": [
+        "phorkys",
+        "keto"
+      ]
+    },
+    {
+      "id": "phorkys",
+      "kind": "god",
+      "name": "Phorkys",
+      "parents": []
+    },
+    {
+      "id": "keto",
+      "kind": "god",
+      "name": "Keto",
+      "parents": []
+    },
+    {
+      "id": "hundred-handers",
+      "kind": "monster",
+      "name": "The Hundred-Handers",
+      "parents": [
+        "gaia",
+        "ouranos"
+      ]
+    },
+    {
+      "id": "sickle",
+      "kind": "object",
+      "name": "The adamant sickle",
+      "parents": []
+    },
+    {
+      "id": "stone",
+      "kind": "object",
+      "name": "The swaddled stone",
+      "parents": []
+    },
+    {
+      "id": "jar",
+      "kind": "object",
+      "name": "Pandora's jar",
+      "parents": []
+    }
   ],
-
   "claims": [
-    { "id": "c-siblings", "confidence": "attested", "source": "theog-453-491", "entities": ["hestia", "demeter", "hera", "hades", "poseidon", "zeus"], "text": "Rhea bore Kronos six children: Hestia, Demeter, Hera, Hades, Poseidon, and Zeus, in that order." },
-    { "id": "c-prophecy", "confidence": "attested", "source": "theog-453-491", "entities": ["kronos", "gaia", "ouranos"], "text": "Kronos swallowed his children because Gaia and Ouranos had told him his own son would overthrow him." },
-    { "id": "c-stone", "confidence": "attested", "source": "theog-453-491", "entities": ["stone", "kronos", "rhea"], "text": "Rhea gave Kronos a stone wrapped in swaddling. He swallowed it thinking it was Zeus." },
-    { "id": "c-crete", "confidence": "attested", "source": "theog-453-491", "entities": ["zeus", "rhea", "gaia"], "text": "Rhea bore Zeus in Crete, at Lyktos, and Gaia hid him in a cave on Mount Aigaion." },
-    { "id": "c-pytho", "confidence": "attested", "source": "theog-492-506", "entities": ["stone", "zeus"], "text": "Kronos vomited the stone first. Zeus set it in the ground at Pytho, under Parnassos, as a sign." },
-    { "id": "c-hestia-first", "confidence": "attested", "source": "hymn-hestia-29", "entities": ["hestia"], "text": "Hestia has a seat in every house of gods and mortals. No feast begins or ends without a share for her." },
-    { "id": "c-hera-wife", "confidence": "attested", "source": "theog-921", "entities": ["hera", "zeus"], "text": "Zeus made his sister Hera his last wife." },
-    { "id": "c-roman-names", "confidence": "common-version", "source": "theog-453-491", "entities": ["hestia", "demeter", "hera", "hades", "poseidon", "zeus"], "text": "The Roman names are Vesta, Ceres, Juno, Pluto, Neptune, and Jupiter. Hesiod never uses them." },
-    { "id": "c-ten-years", "confidence": "attested", "source": "theog-617-735", "entities": ["zeus", "kronos"], "text": "The Titans and the gods fought for ten full years with no end in sight." },
-    { "id": "c-hundred-handers", "confidence": "attested", "source": "theog-617-735", "entities": ["hundred-handers", "zeus"], "text": "Zeus won by freeing the Hundred-Handers, whom Ouranos had bound under the earth. They threw three hundred rocks at a time." },
-    { "id": "c-anvil", "confidence": "attested", "source": "theog-617-735", "entities": ["hundred-handers"], "text": "Tartarus is as far below the earth as the sky is above it. A bronze anvil would fall nine days and nights from earth to reach it." },
-    { "id": "c-king-by-asking", "confidence": "attested", "source": "theog-883-885", "entities": ["zeus", "gaia"], "text": "After the war the gods asked Zeus to be their king, at Gaia's urging." },
-    { "id": "c-sickle", "confidence": "attested", "source": "theog-154-210", "entities": ["sickle", "gaia", "kronos", "ouranos"], "text": "Gaia made a sickle of adamant. Kronos took it and cut his father Ouranos from ambush." },
-    { "id": "c-aphrodite-foam", "confidence": "attested", "source": "theog-154-210", "entities": ["aphrodite", "ouranos"], "text": "Aphrodite grew from the foam around Ouranos's severed flesh and came ashore at Cyprus." },
-    { "id": "c-aphrodite-dione", "confidence": "attested", "source": "iliad-5-370", "entities": ["aphrodite", "zeus"], "text": "Aphrodite is the daughter of Zeus and Dione." },
-    { "id": "c-lots", "confidence": "attested", "source": "iliad-15-187", "entities": ["zeus", "poseidon", "hades"], "text": "The three brothers drew lots. Zeus got the sky, Poseidon the sea, Hades the dark below." },
-    { "id": "c-medusa-born", "confidence": "attested", "source": "theog-270-283", "entities": ["medusa", "poseidon"], "text": "Medusa was born a Gorgon, one of three sisters, and the only mortal one." },
-    { "id": "c-medusa-made", "confidence": "common-version", "source": "ovid-met-4-790", "entities": ["medusa", "poseidon"], "text": "Medusa was a beautiful woman until Athena turned her hair to snakes." },
-    { "id": "c-jar", "confidence": "attested", "source": "wd-60-105", "entities": ["jar"], "text": "Pandora opened a jar, not a box. Only Hope stayed inside." },
-    { "id": "c-box", "confidence": "later-invention", "source": "erasmus-adagia", "entities": ["jar"], "text": "Pandora's box is a sixteenth-century Latin slip. Hesiod wrote pithos, a jar taller than a person." }
+    {
+      "id": "c-siblings",
+      "confidence": "attested",
+      "source": "theog-453-491",
+      "entities": [
+        "hestia",
+        "demeter",
+        "hera",
+        "hades",
+        "poseidon",
+        "zeus"
+      ],
+      "text": "Rhea bore Kronos six children: Hestia, Demeter, Hera, Hades, Poseidon, and Zeus, in that order."
+    },
+    {
+      "id": "c-prophecy",
+      "confidence": "attested",
+      "source": "theog-453-491",
+      "entities": [
+        "kronos",
+        "gaia",
+        "ouranos"
+      ],
+      "text": "Kronos swallowed his children because Gaia and Ouranos had told him his own son would overthrow him."
+    },
+    {
+      "id": "c-stone",
+      "confidence": "attested",
+      "source": "theog-453-491",
+      "entities": [
+        "stone",
+        "kronos",
+        "rhea"
+      ],
+      "text": "Rhea gave Kronos a stone wrapped in swaddling. He swallowed it thinking it was Zeus."
+    },
+    {
+      "id": "c-crete",
+      "confidence": "attested",
+      "source": "theog-453-491",
+      "entities": [
+        "zeus",
+        "rhea",
+        "gaia"
+      ],
+      "text": "Rhea bore Zeus in Crete, at Lyktos, and Gaia hid him in a cave on Mount Aigaion."
+    },
+    {
+      "id": "c-pytho",
+      "confidence": "attested",
+      "source": "theog-492-506",
+      "entities": [
+        "stone",
+        "zeus"
+      ],
+      "text": "Kronos vomited the stone first. Zeus set it in the ground at Pytho, under Parnassos, as a sign."
+    },
+    {
+      "id": "c-hestia-first",
+      "confidence": "attested",
+      "source": "hymn-hestia-29",
+      "entities": [
+        "hestia"
+      ],
+      "text": "Hestia has a seat in every house of gods and mortals. No feast begins or ends without a share for her."
+    },
+    {
+      "id": "c-hera-wife",
+      "confidence": "attested",
+      "source": "theog-921",
+      "entities": [
+        "hera",
+        "zeus"
+      ],
+      "text": "Zeus made his sister Hera his last wife."
+    },
+    {
+      "id": "c-roman-names",
+      "confidence": "common-version",
+      "source": "theog-453-491",
+      "entities": [
+        "hestia",
+        "demeter",
+        "hera",
+        "hades",
+        "poseidon",
+        "zeus"
+      ],
+      "text": "The Roman names are Vesta, Ceres, Juno, Pluto, Neptune, and Jupiter. Hesiod never uses them."
+    },
+    {
+      "id": "c-ten-years",
+      "confidence": "attested",
+      "source": "theog-617-735",
+      "entities": [
+        "zeus",
+        "kronos"
+      ],
+      "text": "The Titans and the gods fought for ten full years with no end in sight."
+    },
+    {
+      "id": "c-hundred-handers",
+      "confidence": "attested",
+      "source": "theog-617-735",
+      "entities": [
+        "hundred-handers",
+        "zeus"
+      ],
+      "text": "Zeus won by freeing the Hundred-Handers, whom Ouranos had bound under the earth. They threw three hundred rocks at a time."
+    },
+    {
+      "id": "c-anvil",
+      "confidence": "attested",
+      "source": "theog-617-735",
+      "entities": [
+        "hundred-handers"
+      ],
+      "text": "Tartarus is as far below the earth as the sky is above it. A bronze anvil would fall nine days and nights from earth to reach it."
+    },
+    {
+      "id": "c-king-by-asking",
+      "confidence": "attested",
+      "source": "theog-883-885",
+      "entities": [
+        "zeus",
+        "gaia"
+      ],
+      "text": "After the war the gods asked Zeus to be their king, at Gaia's urging."
+    },
+    {
+      "id": "c-sickle",
+      "confidence": "attested",
+      "source": "theog-154-210",
+      "entities": [
+        "sickle",
+        "gaia",
+        "kronos",
+        "ouranos"
+      ],
+      "text": "Gaia made a sickle of adamant. Kronos took it and cut his father Ouranos from ambush."
+    },
+    {
+      "id": "c-aphrodite-foam",
+      "confidence": "attested",
+      "source": "theog-154-210",
+      "entities": [
+        "aphrodite",
+        "ouranos"
+      ],
+      "text": "Aphrodite grew from the foam around Ouranos's severed flesh and came ashore at Cyprus."
+    },
+    {
+      "id": "c-aphrodite-dione",
+      "confidence": "attested",
+      "source": "iliad-5-370",
+      "entities": [
+        "aphrodite",
+        "zeus"
+      ],
+      "text": "Aphrodite is the daughter of Zeus and Dione."
+    },
+    {
+      "id": "c-lots",
+      "confidence": "attested",
+      "source": "iliad-15-187",
+      "entities": [
+        "zeus",
+        "poseidon",
+        "hades"
+      ],
+      "text": "The three brothers drew lots. Zeus got the sky, Poseidon the sea, Hades the dark below."
+    },
+    {
+      "id": "c-medusa-born",
+      "confidence": "attested",
+      "source": "theog-270-283",
+      "entities": [
+        "medusa",
+        "poseidon"
+      ],
+      "text": "Medusa was born a Gorgon, one of three sisters, and the only mortal one."
+    },
+    {
+      "id": "c-medusa-made",
+      "confidence": "common-version",
+      "source": "ovid-met-4-790",
+      "entities": [
+        "medusa",
+        "poseidon"
+      ],
+      "text": "Medusa was a beautiful woman until Athena turned her hair to snakes."
+    },
+    {
+      "id": "c-jar",
+      "confidence": "attested",
+      "source": "wd-60-105",
+      "entities": [
+        "jar"
+      ],
+      "text": "Pandora opened a jar, not a box. Only Hope stayed inside."
+    },
+    {
+      "id": "c-box",
+      "confidence": "later-invention",
+      "source": "erasmus-adagia",
+      "entities": [
+        "jar"
+      ],
+      "text": "Pandora's box is a sixteenth-century Latin slip. Hesiod wrote pithos, a jar taller than a person."
+    }
   ],
-
   "variants": [
-    { "id": "v-aphrodite", "question": "Where does Aphrodite come from?", "claims": ["c-aphrodite-foam", "c-aphrodite-dione"], "note": "Hesiod and Homer disagree. Neither is the correction of the other. Both are the product." },
-    { "id": "v-medusa", "question": "Was Medusa born a monster?", "claims": ["c-medusa-born", "c-medusa-made"], "note": "The version most people know is Roman and seven centuries later than Hesiod." },
-    { "id": "v-pandora", "question": "Box or jar?", "claims": ["c-jar", "c-box"], "note": "A translation slip that outlived the text it was translating." },
-    { "id": "v-kingship", "question": "How did Zeus, the youngest, end up with the sky?", "claims": ["c-king-by-asking", "c-lots"], "note": "Hesiod has the gods ask him. Homer has the brothers draw lots. Both texts are in the same century." }
+    {
+      "id": "v-aphrodite",
+      "question": "Where does Aphrodite come from?",
+      "claims": [
+        "c-aphrodite-foam",
+        "c-aphrodite-dione"
+      ],
+      "note": "Hesiod and Homer disagree. Neither is the correction of the other. Both are the product."
+    },
+    {
+      "id": "v-medusa",
+      "question": "Was Medusa born a monster?",
+      "claims": [
+        "c-medusa-born",
+        "c-medusa-made"
+      ],
+      "note": "The version most people know is Roman and seven centuries later than Hesiod."
+    },
+    {
+      "id": "v-pandora",
+      "question": "Box or jar?",
+      "claims": [
+        "c-jar",
+        "c-box"
+      ],
+      "note": "A translation slip that outlived the text it was translating."
+    },
+    {
+      "id": "v-kingship",
+      "question": "How did Zeus, the youngest, end up with the sky?",
+      "claims": [
+        "c-king-by-asking",
+        "c-lots"
+      ],
+      "note": "Hesiod has the gods ask him. Homer has the brothers draw lots. Both texts are in the same century."
+    }
   ],
-
   "cards": [
-    { "id": "k-prophecy", "claim": "c-prophecy", "prompt": "Why did Kronos swallow his children?", "options": ["He was hungry", "A prophecy said his son would overthrow him", "Rhea asked him to", "To make them immortal"], "answer": 1 },
-    { "id": "k-stone", "claim": "c-stone", "prompt": "What did Rhea hand Kronos instead of the baby?", "options": ["A goat", "A stone in swaddling", "Nothing", "A different baby"], "answer": 1 },
-    { "id": "k-crete", "claim": "c-crete", "prompt": "Where was Zeus born, in Hesiod?", "options": ["Olympus", "Crete", "Delphi", "Athens"], "answer": 1 },
-    { "id": "k-pytho", "claim": "c-pytho", "prompt": "What did Zeus do with the stone Kronos vomited?", "options": ["Threw it into the sea", "Set it up at Pytho as a sign", "Gave it to Rhea", "Crushed it"], "answer": 1 },
-    { "id": "k-siblings", "claim": "c-siblings", "prompt": "Which of these is not a child of Kronos and Rhea?", "options": ["Hestia", "Hera", "Athena", "Hades"], "answer": 2 },
-    { "id": "k-order", "claim": "c-siblings", "prompt": "Who was born first, in Hesiod's list?", "options": ["Zeus", "Hera", "Hestia", "Poseidon"], "answer": 2 },
-    { "id": "k-hestia", "claim": "c-hestia-first", "prompt": "Why does Hestia get a share at every feast?", "options": ["She cooks it", "She is the eldest and the hearth itself", "Zeus ordered it", "She has no temple"], "answer": 1 },
-    { "id": "k-roman", "claim": "c-roman-names", "prompt": "Which name is Roman, not in Hesiod?", "options": ["Hades", "Demeter", "Neptune", "Hera"], "answer": 2 },
-    { "id": "k-ten-years", "claim": "c-ten-years", "prompt": "How long did the war with the Titans last?", "options": ["One day", "Nine days", "Ten years", "A hundred years"], "answer": 2 },
-    { "id": "k-hundred-handers", "claim": "c-hundred-handers", "prompt": "Who turned the war for Zeus?", "options": ["The Cyclopes alone", "The Hundred-Handers, freed from under the earth", "Aphrodite", "Prometheus"], "answer": 1 },
-    { "id": "k-anvil", "claim": "c-anvil", "prompt": "How long does Hesiod's bronze anvil fall from earth to Tartarus?", "options": ["One night", "Nine days and nights", "Ten years", "Forever"], "answer": 1 },
-    { "id": "k-sickle", "claim": "c-sickle", "prompt": "Who forged the sickle?", "options": ["Kronos", "Gaia", "Ouranos", "Hephaistos"], "answer": 1 },
-    { "id": "k-aphrodite-hesiod", "claim": "c-aphrodite-foam", "prompt": "In Hesiod, not in Homer, Aphrodite comes from", "options": ["Zeus and Dione", "The sea foam", "Hera", "A shell Poseidon made"], "answer": 1 },
-    { "id": "k-lots", "claim": "c-lots", "prompt": "In the Iliad, how did the brothers divide the world?", "options": ["Zeus chose", "They fought", "They drew lots", "Kronos willed it"], "answer": 2 },
-    { "id": "k-jar", "claim": "c-jar", "prompt": "What did Pandora open?", "options": ["A box", "A jar", "A door", "A chest"], "answer": 1 },
-    { "id": "k-medusa", "claim": "c-medusa-born", "prompt": "In Hesiod, not in Ovid, Medusa is", "options": ["A punished priestess", "A Gorgon from birth", "A daughter of Athena", "A sea nymph"], "answer": 1 }
+    {
+      "id": "k-prophecy",
+      "claim": "c-prophecy",
+      "prompt": "Why did Kronos swallow his children?",
+      "options": [
+        "He was hungry",
+        "A prophecy said his son would overthrow him",
+        "Rhea asked him to",
+        "To make them immortal"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-stone",
+      "claim": "c-stone",
+      "prompt": "What did Rhea hand Kronos instead of the baby?",
+      "options": [
+        "A goat",
+        "A stone in swaddling",
+        "Nothing",
+        "A different baby"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-crete",
+      "claim": "c-crete",
+      "prompt": "Where was Zeus born, in Hesiod?",
+      "options": [
+        "Olympus",
+        "Crete",
+        "Delphi",
+        "Athens"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-pytho",
+      "claim": "c-pytho",
+      "prompt": "What did Zeus do with the stone Kronos vomited?",
+      "options": [
+        "Threw it into the sea",
+        "Set it up at Pytho as a sign",
+        "Gave it to Rhea",
+        "Crushed it"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-siblings",
+      "claim": "c-siblings",
+      "prompt": "Which of these is not a child of Kronos and Rhea?",
+      "options": [
+        "Hestia",
+        "Hera",
+        "Athena",
+        "Hades"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "k-order",
+      "claim": "c-siblings",
+      "prompt": "Who was born first, in Hesiod's list?",
+      "options": [
+        "Zeus",
+        "Hera",
+        "Hestia",
+        "Poseidon"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "k-hestia",
+      "claim": "c-hestia-first",
+      "prompt": "Why does Hestia get a share at every feast?",
+      "options": [
+        "She cooks it",
+        "She is the eldest and the hearth itself",
+        "Zeus ordered it",
+        "She has no temple"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-roman",
+      "claim": "c-roman-names",
+      "prompt": "Which name is Roman, not in Hesiod?",
+      "options": [
+        "Hades",
+        "Demeter",
+        "Neptune",
+        "Hera"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "k-ten-years",
+      "claim": "c-ten-years",
+      "prompt": "How long did the war with the Titans last?",
+      "options": [
+        "One day",
+        "Nine days",
+        "Ten years",
+        "A hundred years"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "k-hundred-handers",
+      "claim": "c-hundred-handers",
+      "prompt": "Who turned the war for Zeus?",
+      "options": [
+        "The Cyclopes alone",
+        "The Hundred-Handers, freed from under the earth",
+        "Aphrodite",
+        "Prometheus"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-anvil",
+      "claim": "c-anvil",
+      "prompt": "How long does Hesiod's bronze anvil fall from earth to Tartarus?",
+      "options": [
+        "One night",
+        "Nine days and nights",
+        "Ten years",
+        "Forever"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-sickle",
+      "claim": "c-sickle",
+      "prompt": "Who forged the sickle?",
+      "options": [
+        "Kronos",
+        "Gaia",
+        "Ouranos",
+        "Hephaistos"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-aphrodite-hesiod",
+      "claim": "c-aphrodite-foam",
+      "prompt": "In Hesiod, not in Homer, Aphrodite comes from",
+      "options": [
+        "Zeus and Dione",
+        "The sea foam",
+        "Hera",
+        "A shell Poseidon made"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-lots",
+      "claim": "c-lots",
+      "prompt": "In the Iliad, how did the brothers divide the world?",
+      "options": [
+        "Zeus chose",
+        "They fought",
+        "They drew lots",
+        "Kronos willed it"
+      ],
+      "answer": 2
+    },
+    {
+      "id": "k-jar",
+      "claim": "c-jar",
+      "prompt": "What did Pandora open?",
+      "options": [
+        "A box",
+        "A jar",
+        "A door",
+        "A chest"
+      ],
+      "answer": 1
+    },
+    {
+      "id": "k-medusa",
+      "claim": "c-medusa-born",
+      "prompt": "In Hesiod, not in Ovid, Medusa is",
+      "options": [
+        "A punished priestess",
+        "A Gorgon from birth",
+        "A daughter of Athena",
+        "A sea nymph"
+      ],
+      "answer": 1
+    }
   ],
-
   "lessons": [
-    { "id": "greek-01", "n": 1, "tradition": "greek", "title": "Before there were gods", "hook": "The first thing was not a god. It was a gap.", "minutes": 5, "sources": ["theog-116-138"], "claims": [], "beats": [] },
-    { "id": "greek-02", "n": 2, "tradition": "greek", "title": "The sickle", "hook": "The sky would not stop. His mother handed his son a blade.", "minutes": 5, "sources": ["theog-154-210"], "claims": ["c-sickle", "c-aphrodite-foam"], "variant": "v-aphrodite", "beats": [] },
-
-    { "id": "greek-03", "n": 3, "tradition": "greek", "title": "The father who ate", "hook": "Kronos had heard a prophecy. He solved it at dinner.", "minutes": 5, "sources": ["theog-453-491", "theog-492-506"], "claims": ["c-prophecy", "c-siblings", "c-stone", "c-crete", "c-pytho"],
+    {
+      "id": "greek-01",
+      "n": 1,
+      "tradition": "greek",
+      "title": "Before there were gods",
+      "hook": "The first thing was not a god. It was a gap.",
+      "minutes": 5,
+      "sources": [
+        "theog-116-138"
+      ],
+      "claims": [],
+      "beats": []
+    },
+    {
+      "id": "greek-02",
+      "n": 2,
+      "tradition": "greek",
+      "title": "The sickle",
+      "hook": "The sky would not stop. His mother handed his son a blade.",
+      "minutes": 5,
+      "sources": [
+        "theog-154-210"
+      ],
+      "claims": [
+        "c-sickle",
+        "c-aphrodite-foam"
+      ],
+      "variant": "v-aphrodite",
+      "beats": []
+    },
+    {
+      "id": "greek-03",
+      "n": 3,
+      "tradition": "greek",
+      "title": "The father who ate",
+      "hook": "Kronos had heard a prophecy. He solved it at dinner.",
+      "minutes": 5,
+      "sources": [
+        "theog-453-491",
+        "theog-492-506"
+      ],
+      "claims": [
+        "c-prophecy",
+        "c-siblings",
+        "c-stone",
+        "c-crete",
+        "c-pytho"
+      ],
       "beats": [
-        { "kind": "still", "still": null, "text": "Kronos is king now. He took the sky from his father with a sickle, and he knows exactly what a son can do to a father, because he did it. So when his own parents, Gaia and Ouranos, tell him that he too is fated to fall to a son of his, he believes them. Hesiod says he learned it from them directly. Earth and starry Sky, the two people who would know." },
-        { "kind": "still", "still": null, "text": "His wife is Rhea, his own sister. She starts bearing children. Hestia first. Then Demeter. Then Hera, with the golden sandals. Then Hades, who Hesiod calls pitiless in heart. Then Poseidon, the Earth-Shaker. And as each one arrives, Hesiod says, as each one comes from the womb to its mother's knees, Kronos swallows it. Whole. Five children. Five times." },
-        { "kind": "still", "still": null, "text": "Rhea does not fight him. She grieves, Hesiod says, with a grief that will not stop. And when she is about to bear the sixth, she goes to her parents. To Gaia and to Ouranos, the same two who gave Kronos the prophecy in the first place. She asks them for a plan. Some way to give birth in secret and make the father pay." },
-        { "kind": "still", "still": null, "text": "They send her to Crete. To Lyktos, a rich town, at night. Gaia herself takes the baby when he is born and carries him to a cave on Mount Aigaion, deep in the wooded hills, and hides him there. So the youngest child of the king of the gods starts life in a hole in the ground on an island, with his grandmother. Nobody on Olympus knows he exists." },
-        { "kind": "check", "card": "k-stone", "text": "Now. Rhea has to go back to Kronos with something in her arms. What does she give him?" },
-        { "kind": "still", "still": null, "text": "A stone. A great stone, wrapped in swaddling clothes, and she puts it in his hands, and Kronos takes it and pushes it down into his belly. Hesiod's word is that he did not notice. He did not notice that a stone had been left in place of his son, and that the son was alive, and safe, and about to grow up very fast." },
-        { "kind": "still", "still": null, "text": "He does grow fast. And when he is ready, Kronos is tricked again, this time by Gaia, into bringing everything back up. The stone comes first. Then, one by one, the five. Zeus takes that stone and sets it in the ground at Pytho, under the cliffs of Parnassos, the place we call Delphi. A marker. Hesiod says it was set there to be a sign and a wonder for mortals afterward. The first monument in Greek myth is a rock a god was fooled into swallowing." },
-        { "kind": "still", "still": null, "text": "So that is the family at the end of chapter three. A father who ate his children to stop a prophecy, and by eating them, made it come true. A mother who went to her parents for a trick. Five siblings who spent years inside their father, and a sixth who grew up in a cave. Tomorrow, those six. Most people can name one of them." },
-        { "kind": "recall" }
-      ] },
-
-    { "id": "greek-04", "n": 4, "tradition": "greek", "title": "Zeus's siblings", "hook": "Most people can't name them. They ruled the world.", "minutes": 5, "sources": ["theog-453-491", "theog-921", "hymn-hestia-29", "theog-883-885", "iliad-15-187"], "claims": ["c-siblings", "c-hestia-first", "c-hera-wife", "c-roman-names", "c-king-by-asking", "c-lots"], "variant": "v-kingship",
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-0.jpg",
+            "title": "Saturn",
+            "maker": "Sir Nicolas Dorigny",
+            "date": "1695",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/821716"
+          },
+          "text": "Kronos is king now. He took the sky from his father with a sickle, and he knows exactly what a son can do to a father, because he did it. So when his own parents, Gaia and Ouranos, tell him that he too is fated to fall to a son of his, he believes them. Hesiod says he learned it from them directly. Earth and starry Sky, the two people who would know."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-1.jpg",
+            "title": "Plate 1: Saturn in a niche devouring his son, standing before a scythe, from \"Mythological Gods and Goddesses\"",
+            "maker": "Giovanni Jacopo Caraglio",
+            "date": "1526",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/368120"
+          },
+          "text": "His wife is Rhea, his own sister. She starts bearing children. Hestia first. Then Demeter. Then Hera, with the golden sandals. Then Hades, who Hesiod calls pitiless in heart. Then Poseidon, the Earth-Shaker. And as each one arrives, Hesiod says, as each one comes from the womb to its mother's knees, Kronos swallows it. Whole. Five children. Five times."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-2.jpg",
+            "title": "Plate 2: Ops standing in a niche with her hands at her breasts, looking to her left, with animals behind her, from \"Mythological Gods and Goddesses\"",
+            "maker": "Giovanni Jacopo Caraglio",
+            "date": "1526",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/368122"
+          },
+          "text": "Rhea does not fight him. She grieves, Hesiod says, with a grief that will not stop. And when she is about to bear the sixth, she goes to her parents. To Gaia and to Ouranos, the same two who gave Kronos the prophecy in the first place. She asks them for a plan. Some way to give birth in secret and make the father pay."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-3.jpg",
+            "title": "Jupiter suckled by the goat Amalthea",
+            "maker": "Giulio Bonasone",
+            "date": "1531–76",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/372895"
+          },
+          "text": "They send her to Crete. To Lyktos, a rich town, at night. Gaia herself takes the baby when he is born and carries him to a cave on Mount Aigaion, deep in the wooded hills, and hides him there. So the youngest child of the king of the gods starts life in a hole in the ground on an island, with his grandmother. Nobody on Olympus knows he exists."
+        },
+        {
+          "kind": "check",
+          "card": "k-stone",
+          "text": "Now. Rhea has to go back to Kronos with something in her arms. What does she give him?"
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-5.jpg",
+            "title": "Rhea Outwitting Saturn",
+            "maker": "Edme Bouchardon",
+            "date": "18th century",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/359646"
+          },
+          "text": "A stone. A great stone, wrapped in swaddling clothes, and she puts it in his hands, and Kronos takes it and pushes it down into his belly. Hesiod's word is that he did not notice. He did not notice that a stone had been left in place of his son, and that the son was alive, and safe, and about to grow up very fast."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-6.jpg",
+            "title": "Terracotta amphora (jar)",
+            "maker": "Andokides",
+            "date": "ca. 530 BCE",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/255154"
+          },
+          "text": "He does grow fast. And when he is ready, Kronos is tricked again, this time by Gaia, into bringing everything back up. The stone comes first. Then, one by one, the five. Zeus takes that stone and sets it in the ground at Pytho, under the cliffs of Parnassos, the place we call Delphi. A marker. Hesiod says it was set there to be a sign and a wonder for mortals afterward. The first monument in Greek myth is a rock a god was fooled into swallowing."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-03-7.jpg",
+            "title": "Saturn and Rhea",
+            "maker": "Giuseppe Diamantini",
+            "date": "1680–1700",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/829370"
+          },
+          "text": "So that is the family at the end of chapter three. A father who ate his children to stop a prophecy, and by eating them, made it come true. A mother who went to her parents for a trick. Five siblings who spent years inside their father, and a sixth who grew up in a cave. Tomorrow, those six. Most people can name one of them."
+        },
+        {
+          "kind": "recall"
+        }
+      ]
+    },
+    {
+      "id": "greek-04",
+      "n": 4,
+      "tradition": "greek",
+      "title": "Zeus's siblings",
+      "hook": "Most people can't name them. They ruled the world.",
+      "minutes": 5,
+      "sources": [
+        "theog-453-491",
+        "theog-921",
+        "hymn-hestia-29",
+        "theog-883-885",
+        "iliad-15-187"
+      ],
+      "claims": [
+        "c-siblings",
+        "c-hestia-first",
+        "c-hera-wife",
+        "c-roman-names",
+        "c-king-by-asking",
+        "c-lots"
+      ],
+      "variant": "v-kingship",
       "beats": [
-        { "kind": "still", "still": null, "text": "Everyone knows Zeus. Ask a room who his brothers and sisters are and the room goes quiet. Which is strange, because Hesiod names them in a single breath, one line, and every one of them ended up with a piece of the world. Six children of Kronos and Rhea. Let's take them in the order Hesiod gives, which is the order they were born, which is the order they were swallowed." },
-        { "kind": "still", "still": null, "text": "Hestia. The eldest. First into her father, and so, when he brought them all back up, the last one out. Hestia is the hearth. Not the goddess of the hearth, the fire itself in the middle of the house. She has almost no stories, and that is her story. The Homeric Hymn to Hestia says she has a seat in every house, of gods and of mortals, and that no feast begins or ends without a pour for her. The oldest child is the one everyone forgets and everyone feeds first." },
-        { "kind": "still", "still": null, "text": "Demeter. Second born. Grain. The one who decides whether anything grows this year. She will get her own chapter, because she is the only Olympian who ever brought the gods to their knees without lifting a weapon. She simply stopped the harvest until they gave her back her daughter. Hold that. It is coming." },
-        { "kind": "still", "still": null, "text": "Hera. Third. Golden-sandaled, Hesiod calls her. Hera is Zeus's sister first, and only much later, in line 921 of the Theogony, his wife. His last wife, after a string of others. So the queen of heaven is also the older sister of the king. The marriage that runs Olympus is a marriage between the third child and the sixth." },
-        { "kind": "still", "still": null, "text": "Hades. Fourth. Hesiod gives him two words. Strong, and pitiless. And an address. He dwells under the earth. That is all. No trident, no throne room yet, no dog. He is a brother in a list, and he will end up with the largest kingdom of the three, the one everyone eventually moves to." },
-        { "kind": "check", "card": "k-siblings", "text": "Quick check before the last two. Which of these is not a child of Kronos and Rhea?" },
-        { "kind": "still", "still": null, "text": "Poseidon. Fifth. The loud-crashing Earth-Shaker. In Hesiod he is the sea and the earthquake both, which makes sense if you have lived on a Greek island. He is the one who will later lie with Medusa in a spring meadow, in a different chapter with a different ending than the one you learned." },
-        { "kind": "still", "still": null, "text": "And Zeus. Sixth. The baby. The one raised in a cave in Crete while his siblings were in the dark inside their father. Here is the thing Hesiod does not quite explain. Why does the youngest end up with the sky? Hesiod says that after the war, the gods asked him to rule, at Gaia's urging. Homer, in the Iliad, has Poseidon say something different. The three brothers drew lots. Two texts, one century, two answers. You do not have to pick." },
-        { "kind": "variant", "variant": "v-kingship", "text": "Hesiod says they asked him. Homer says they drew lots. Both stay on the card." },
-        { "kind": "still", "still": null, "text": "One more thing. If the names felt slightly wrong to you, if you were waiting for Vesta and Ceres and Juno and Pluto and Neptune and Jupiter, that is because the version most of us learned in school is Roman. Same six children. Latin names. Hesiod, seven hundred years before Ovid, never used one of them. The Greek family is meaner and older, and now you can name all six." },
-        { "kind": "recall" }
-      ] },
-
-    { "id": "greek-05", "n": 5, "tradition": "greek", "title": "Ten years of war", "hook": "The old gods lost. Then they were buried.", "minutes": 6, "sources": ["theog-617-735"], "claims": ["c-ten-years", "c-hundred-handers", "c-anvil"],
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-0.jpg",
+            "title": "Plate 3: Jupiter emerging from a niche, riding an eagle and holding a thunderbolt in his left hand, from \"Mythological Gods and Goddesses\"",
+            "maker": "Giovanni Jacopo Caraglio",
+            "date": "1526",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/368123"
+          },
+          "text": "Everyone knows Zeus. Ask a room who his brothers and sisters are and the room goes quiet. Which is strange, because Hesiod names them in a single breath, one line, and every one of them ended up with a piece of the world. Six children of Kronos and Rhea. Let's take them in the order Hesiod gives, which is the order they were born, which is the order they were swallowed."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-1.jpg",
+            "title": "The Vestal",
+            "maker": "Clodion (Claude Michel)",
+            "date": "ca. 1770",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/200812"
+          },
+          "text": "Hestia. The eldest. First into her father, and so, when he brought them all back up, the last one out. Hestia is the hearth. Not the goddess of the hearth, the fire itself in the middle of the house. She has almost no stories, and that is her story. The Homeric Hymn to Hestia says she has a seat in every house, of gods and of mortals, and that no feast begins or ends without a pour for her. The oldest child is the one everyone forgets and everyone feeds first."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-2.jpg",
+            "title": "Ceres",
+            "maker": "Augustin Pajou",
+            "date": "ca. 1768–70",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/206711"
+          },
+          "text": "Demeter. Second born. Grain. The one who decides whether anything grows this year. She will get her own chapter, because she is the only Olympian who ever brought the gods to their knees without lifting a weapon. She simply stopped the harvest until they gave her back her daughter. Hold that. It is coming."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-3.jpg",
+            "title": "Juno and the peacock",
+            "maker": "Alessandro Vittoria (Alessandro Vittoria di Vigilio della Volpa)",
+            "date": "late 16th century",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/207645"
+          },
+          "text": "Hera. Third. Golden-sandaled, Hesiod calls her. Hera is Zeus's sister first, and only much later, in line 921 of the Theogony, his wife. His last wife, after a string of others. So the queen of heaven is also the older sister of the king. The marriage that runs Olympus is a marriage between the third child and the sixth."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-4.jpg",
+            "title": "Plate 7: Pluto in a niche, holding a bident, with Cerberus next to him, from \"Mythological Gods and Goddesses\"",
+            "maker": "Giovanni Jacopo Caraglio",
+            "date": "1526",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/368128"
+          },
+          "text": "Hades. Fourth. Hesiod gives him two words. Strong, and pitiless. And an address. He dwells under the earth. That is all. No trident, no throne room yet, no queen. He is a brother in a list, and he will end up with the largest kingdom of the three, the one everyone eventually moves to."
+        },
+        {
+          "kind": "check",
+          "card": "k-siblings",
+          "text": "Quick check before the last two. Which of these is not a child of Kronos and Rhea?"
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-6.jpg",
+            "title": "Plate 5: Neptune standing in a niche holding a trident, with a hippocampus (sea-horse) behind him, from \"Mythological Gods and Goddesses\"",
+            "maker": "Giovanni Jacopo Caraglio",
+            "date": "1526",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/368125"
+          },
+          "text": "Poseidon. Fifth. The loud-crashing Earth-Shaker. In Hesiod he is the sea and the earthquake both, which makes sense if you have lived on a Greek island. He is the one who will later lie with Medusa in a spring meadow, in a different chapter with a different ending than the one you learned."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-7.jpg",
+            "title": "Jupiter, Neptune and Pluto dividing the universe, from \"Division of the Universe\"",
+            "maker": "Giulio Bonasone",
+            "date": "1531–76",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/392646"
+          },
+          "text": "And Zeus. Sixth. The baby. The one raised in a cave in Crete while his siblings were in the dark inside their father. Here is the thing Hesiod does not quite explain. Why does the youngest end up with the sky? Hesiod says that after the war, the gods asked him to rule, at Gaia's urging. Homer, in the Iliad, has Poseidon say something different. The three brothers drew lots. Two texts, one century, two answers. You do not have to pick."
+        },
+        {
+          "kind": "variant",
+          "variant": "v-kingship",
+          "text": "Hesiod says they asked him. Homer says they drew lots. Both stay on the card."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-04-9.jpg",
+            "title": "Bronze statuette of Jupiter Capitolinus",
+            "maker": "Roman",
+            "date": "1st–2nd century CE",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/246686"
+          },
+          "text": "One more thing. If the names felt slightly wrong to you, if you were waiting for Vesta and Ceres and Juno and Pluto and Neptune and Jupiter, that is because the version most of us learned in school is Roman. Same six children. Latin names. Hesiod, seven hundred years before Ovid, never used one of them. The Greek family is meaner and older, and now you can name all six."
+        },
+        {
+          "kind": "recall"
+        }
+      ]
+    },
+    {
+      "id": "greek-05",
+      "n": 5,
+      "tradition": "greek",
+      "title": "Ten years of war",
+      "hook": "The old gods lost. Then they were buried.",
+      "minutes": 6,
+      "sources": [
+        "theog-617-735"
+      ],
+      "claims": [
+        "c-ten-years",
+        "c-hundred-handers",
+        "c-anvil"
+      ],
       "beats": [
-        { "kind": "still", "still": null, "text": "Before the war, go back one generation. Ouranos, the sky, had three sons he could not stand to look at. Kottos, Briareos, and Gyges. A hundred arms each, fifty heads. Hesiod calls them overbearing. Ouranos bound them and put them under the wide earth, in pain, at the edge of everything. They sat there the whole time Kronos ruled. Nobody let them out." },
-        { "kind": "still", "still": null, "text": "Then the children of Kronos come back up out of their father, and the war starts. Titans on one side, from Mount Othrys. The new gods on the other, from Olympus. Hesiod gives the length exactly. Ten full years. No end in sight. Both sides evenly matched, the earth shaking under them, and nothing moving. A stalemate between two generations of the same family." },
-        { "kind": "still", "still": null, "text": "It is Gaia who breaks it. Again. She tells the gods the war turns on the three prisoners under the earth. So Zeus goes down and unbinds them, and brings them up into the light, and gives them nectar and ambrosia, the food of the gods, and a speech. Fight with us, he says, and remember who freed you. Kottos answers for the three. We know, he says. We know what you did. We will fight." },
-        { "kind": "still", "still": null, "text": "Then Hesiod stops being a genealogy and becomes a war film. Zeus comes down from Olympus throwing thunderbolts with both hands. The forests burn. The ocean boils. The whole earth screams, he says, and the sky groans, and the heat reaches down as far as Chaos. If you were standing there, Hesiod says, it would have looked and sounded as if earth and sky were colliding." },
-        { "kind": "check", "card": "k-ten-years", "text": "How long had the war lasted before the Hundred-Handers joined?" },
-        { "kind": "still", "still": null, "text": "The Hundred-Handers go in front. Three hundred rocks at a time, Hesiod says, one from each hand, a wall of stone flying at the Titans and burying them. Then the gods bind them and send them down under the wide earth, to Tartarus. As far below the earth as the sky is above it. Hesiod measures it. A bronze anvil dropped from the sky would fall nine days and nine nights to reach the earth, and another nine to reach Tartarus. That is how far the losers went." },
-        { "kind": "still", "still": null, "text": "So the war was won by the prisoners. Not by the thunderbolt alone, and not by cleverness. By three monsters Ouranos had buried because he was ashamed of them, and Kronos had left buried because it was convenient. The new king is the one who went down and let them out. Remember that when we get to Prometheus, and what Zeus does to a friend who helps him too much. Tomorrow, the lots. Three brothers, one world, and how they split it." },
-        { "kind": "recall" }
-      ] },
-
-    { "id": "greek-06", "n": 6, "tradition": "greek", "title": "The lots", "hook": "Three brothers. One world. They gambled for it.", "minutes": 4, "sources": ["iliad-15-187"], "claims": ["c-lots"], "beats": [] },
-    { "id": "greek-07", "n": 7, "tradition": "greek", "title": "Fire", "hook": "Prometheus stole it in a fennel stalk.", "minutes": 5, "sources": [], "claims": [], "beats": [] },
-    { "id": "greek-08", "n": 8, "tradition": "greek", "title": "The jar", "hook": "There was never a box.", "minutes": 5, "sources": ["wd-60-105", "erasmus-adagia"], "claims": ["c-jar", "c-box"], "variant": "v-pandora", "beats": [] },
-    { "id": "greek-09", "n": 9, "tradition": "greek", "title": "The headache", "hook": "Zeus swallowed a wife. Then his skull split.", "minutes": 5, "sources": [], "claims": [], "beats": [] },
-    { "id": "greek-10", "n": 10, "tradition": "greek", "title": "The mother who stopped the harvest", "hook": "Demeter did not fight the gods. She starved them.", "minutes": 6, "sources": [], "claims": [], "beats": [] },
-    { "id": "greek-11", "n": 11, "tradition": "greek", "title": "The Medusa you know is late", "hook": "Hesiod's Medusa was born that way. Ovid's was punished.", "minutes": 5, "sources": ["theog-270-283", "ovid-met-4-790"], "claims": ["c-medusa-born", "c-medusa-made"], "variant": "v-medusa", "beats": [] },
-    { "id": "greek-12", "n": 12, "tradition": "greek", "title": "Battle. The family", "hook": "Timed. Every wrong answer shows you the line.", "minutes": 3, "sources": [], "claims": ["c-siblings", "c-stone", "c-sickle", "c-lots", "c-jar"], "beats": [] }
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-05-0.jpg",
+            "title": "Tityus Punished in Hell",
+            "maker": "Cornelis Cort",
+            "date": "1566",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/383995"
+          },
+          "text": "Before the war, go back one generation. Ouranos, the sky, had three sons he could not stand to look at. Kottos, Briareos, and Gyges. A hundred arms each, fifty heads. Hesiod calls them overbearing. Ouranos bound them and put them under the wide earth, in pain, at the edge of everything. They sat there the whole time Kronos ruled. Nobody let them out."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-05-1.jpg",
+            "title": "Battle of the Titans",
+            "maker": "Francesco Allegrini",
+            "date": "1624–63",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/338045"
+          },
+          "text": "Then the children of Kronos come back up out of their father, and the war starts. Titans on one side, from Mount Othrys. The new gods on the other, from Olympus. Hesiod gives the length exactly. Ten full years. No end in sight. Both sides evenly matched, the earth shaking under them, and nothing moving. A stalemate between two generations of the same family."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-05-2.jpg",
+            "title": "Cybele",
+            "maker": "Antonio Fantuzzi",
+            "date": "1543",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/336765"
+          },
+          "text": "It is Gaia who breaks it. Again. She tells the gods the war turns on the three prisoners under the earth. So Zeus goes down and unbinds them, and brings them up into the light, and gives them nectar and ambrosia, the food of the gods, and a speech. Fight with us, he says, and remember who freed you. Kottos answers for the three. We know, he says. We know what you did. We will fight."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-05-3.jpg",
+            "title": "Jupiter with a thunderbolt",
+            "maker": "Joseph de Levis",
+            "date": "late 16th–early 17th century",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/195182"
+          },
+          "text": "Then Hesiod stops being a genealogy and becomes a war film. Zeus comes down from Olympus throwing thunderbolts with both hands. The forests burn. The ocean boils. The whole earth screams, he says, and the sky groans, and the heat reaches down as far as Chaos. If you were standing there, Hesiod says, it would have looked and sounded as if earth and sky were colliding."
+        },
+        {
+          "kind": "check",
+          "card": "k-ten-years",
+          "text": "How long had the war lasted before the Hundred-Handers joined?"
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-05-5.jpg",
+            "title": "Fall of the Giants",
+            "maker": "Bartolomeo Coriolano",
+            "date": "1638",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/361919"
+          },
+          "text": "The Hundred-Handers go in front. Three hundred rocks at a time, Hesiod says, one from each hand, a wall of stone flying at the Titans and burying them. Then the gods bind them and send them down under the wide earth, to Tartarus. As far below the earth as the sky is above it. Hesiod measures it. A bronze anvil dropped from the sky would fall nine days and nine nights to reach the earth, and another nine to reach Tartarus. That is how far the losers went."
+        },
+        {
+          "kind": "still",
+          "still": {
+            "src": "stills/greek-05-6.jpg",
+            "title": "The Reign of Jupiter",
+            "maker": "",
+            "date": "ca. 1550–70",
+            "credit": "The Metropolitan Museum of Art, CC0",
+            "url": "https://www.metmuseum.org/art/collection/search/208568"
+          },
+          "text": "So the war was won by the prisoners. Not by the thunderbolt alone, and not by cleverness. By three monsters Ouranos had buried because he was ashamed of them, and Kronos had left buried because it was convenient. The new king is the one who went down and let them out. Remember that when we get to Prometheus, and what Zeus does to a friend who helps him too much. Tomorrow, the lots. Three brothers, one world, and how they split it."
+        },
+        {
+          "kind": "recall"
+        }
+      ]
+    },
+    {
+      "id": "greek-06",
+      "n": 6,
+      "tradition": "greek",
+      "title": "The lots",
+      "hook": "Three brothers. One world. They gambled for it.",
+      "minutes": 4,
+      "sources": [
+        "iliad-15-187"
+      ],
+      "claims": [
+        "c-lots"
+      ],
+      "beats": []
+    },
+    {
+      "id": "greek-07",
+      "n": 7,
+      "tradition": "greek",
+      "title": "Fire",
+      "hook": "Prometheus stole it in a fennel stalk.",
+      "minutes": 5,
+      "sources": [],
+      "claims": [],
+      "beats": []
+    },
+    {
+      "id": "greek-08",
+      "n": 8,
+      "tradition": "greek",
+      "title": "The jar",
+      "hook": "There was never a box.",
+      "minutes": 5,
+      "sources": [
+        "wd-60-105",
+        "erasmus-adagia"
+      ],
+      "claims": [
+        "c-jar",
+        "c-box"
+      ],
+      "variant": "v-pandora",
+      "beats": []
+    },
+    {
+      "id": "greek-09",
+      "n": 9,
+      "tradition": "greek",
+      "title": "The headache",
+      "hook": "Zeus swallowed a wife. Then his skull split.",
+      "minutes": 5,
+      "sources": [],
+      "claims": [],
+      "beats": []
+    },
+    {
+      "id": "greek-10",
+      "n": 10,
+      "tradition": "greek",
+      "title": "The mother who stopped the harvest",
+      "hook": "Demeter did not fight the gods. She starved them.",
+      "minutes": 6,
+      "sources": [],
+      "claims": [],
+      "beats": []
+    },
+    {
+      "id": "greek-11",
+      "n": 11,
+      "tradition": "greek",
+      "title": "The Medusa you know is late",
+      "hook": "Hesiod's Medusa was born that way. Ovid's was punished.",
+      "minutes": 5,
+      "sources": [
+        "theog-270-283",
+        "ovid-met-4-790"
+      ],
+      "claims": [
+        "c-medusa-born",
+        "c-medusa-made"
+      ],
+      "variant": "v-medusa",
+      "beats": []
+    },
+    {
+      "id": "greek-12",
+      "n": 12,
+      "tradition": "greek",
+      "title": "Battle. The family",
+      "hook": "Timed. Every wrong answer shows you the line.",
+      "minutes": 3,
+      "sources": [],
+      "claims": [
+        "c-siblings",
+        "c-stone",
+        "c-sickle",
+        "c-lots",
+        "c-jar"
+      ],
+      "beats": []
+    }
   ]
 }
