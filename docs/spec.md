@@ -35,7 +35,7 @@ The shape is the same one the plan names. `content/greek.json` is the first inst
 ## Rules of the nightly loop
 
 1. One chapter a night at most, from the tradition the user is in.
-2. Narration first. The transcript scrolls with the voice. Screen off keeps playing.
+2. Narration over a sequence of original stills, one picture per beat, Paladin's format. Six to nine stills a chapter. Screen off keeps the voice playing. The transcript is a toggle, not the screen.
 3. One family check in the middle, bound to a Claim the chapter already said.
 4. When the chapter carries a Variant, both versions show side by side. The user is not asked to pick.
 5. Three recall cards after. At least one may come from a previous chapter.

@@ -7,7 +7,7 @@ Five screens. A tab bar with three tabs, Tonight, Family, and Mythologies. Lesso
 | Screen | Purpose | Entry | Exit | Mockup |
 |---|---|---|---|---|
 | Tonight | Tonight's chapter and the review cards that are still warm. Three layouts under test. | Tab, notification, home-screen icon | Lesson, Battle on Sundays | `design/today-a.html`, `today-b.html`, `today-c.html` |
-| Lesson | Narration with a scrolling transcript, one family check, the variant fork when the chapter has one, three recall cards. | Tonight | Back to Tonight | `design/lesson.html` |
+| Lesson | A voice over six to nine original stills, one caption per still. The family check and the variant fork are slides in the same sequence. Three recall cards at the end. Transcript behind a toggle. | Tonight | Back to Tonight | `design/lesson.html` |
 | Family | The genealogy graph of the tradition so far. Tap a name for its one-line claim and cite. Variant edges stay visible. | Tab, any name in a lesson | Lesson of the tapped figure | `design/family.html` |
 | Battle | Weekly timed recall over the cycle so far. Wrong answers show the source line. | Tonight on Sundays | Back to Tonight | `design/battle.html` |
 | Mythologies | The shelf of traditions and epics, comparative weeks, seals, and the two Hearth+ prices. | Tab | Lesson 1 of a tradition | `design/mythologies.html` |

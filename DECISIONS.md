@@ -15,6 +15,8 @@ One entry per decision that shaped the work, newest at the bottom.
 - Prices in the mock are the plan's two numbers. $39.99 a year, $6.99 a month. No trial, no ladder.
 - GitHub Pages serves `design/` from `main` so the mockups open on any phone without the laptop firewall dance. The `serve-md` route still works locally.
 
+- The first Lesson mock was a scrolling transcript. Wrong. The plan says a Lesson is "original script, audio, original stills," which is Paladin's format, a voice over a sequence of pictures with quiz cards cut in. The transcript hid the one thing Paladin does well. Lesson is now a stills player. Nine slides for chapter 2: six stills, the family check, the variant fork, the recall set. Tap right to advance, left to go back. Transcript is a toggle. Stills are emoji placeholders until there is a drawing budget. Spec rule 2 changed to match.
+
 ## Checkpoints that need the owner
 
 - Pick a Tonight layout after a week on the phone. Delete the other two.

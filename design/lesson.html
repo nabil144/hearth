@@ -1,56 +1,124 @@
 <!doctype html>
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Lesson. The sickle</title><link rel="stylesheet" href="shared.css"></head>
+<title>Lesson. The sickle</title><link rel="stylesheet" href="shared.css">
+<style>
+  .screen { padding-top: 48px; }
+  .dots { display: flex; gap: 4px; margin: 0 0 10px; }
+  .dots i { flex: 1; height: 3px; border-radius: 2px; background: var(--line); }
+  .dots i.done { background: var(--gold); }
+  .dots i.now { background: var(--ember); }
+  .still { position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden; border: 1px solid var(--line); display: grid; place-items: center; text-align: center; padding: 24px; }
+  .still .art { font-size: 120px; line-height: 1; filter: drop-shadow(0 12px 30px rgba(0,0,0,.6)); }
+  .still .label { position: absolute; top: 14px; left: 16px; font-size: 12px; color: rgba(243,233,216,.7); text-transform: uppercase; letter-spacing: .1em; }
+  .still .tap { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
+  .still .tap div { cursor: pointer; }
+  .caption { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 22px; line-height: 1.35; margin: 18px 4px 6px; min-height: 90px; }
+  .slide { display: none; }
+  .slide.on { display: block; }
+  .mini { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 14px; margin-top: 8px; }
+  .mini b { color: var(--text); }
+  .toggle { border: 1px solid var(--line); background: none; color: var(--gold); border-radius: 999px; padding: 6px 12px; font: inherit; font-size: 13px; }
+  .transcript { display: none; margin-top: 12px; }
+  .transcript.on { display: block; }
+</style></head>
 <body>
 <div class="nav"><a href="today-a.html">A one telling</a><a href="today-b.html">B family first</a><a href="today-c.html">C gossip first</a><a class="on" href="lesson.html">Lesson</a><a href="family.html">Family</a><a href="battle.html">Battle</a><a href="mythologies.html">Library</a></div>
 <main class="screen">
-  <div class="eyebrow">Chapter 2 of 12 · Greek</div>
-  <h1>The sickle</h1>
-  <p class="sub">Hesiod, Theogony 154-210 · 5 min</p>
+  <div class="dots" id="dots"></div>
+  <div class="mini"><span>Chapter 2 of 12 · <b>The sickle</b></span><span id="pos">1 / 9</span></div>
 
-  <section class="card">
-    <div class="play"><div class="disc">❙❙</div><div class="t"><b>1:52 / 5:10</b><span>Narration. The transcript scrolls with the voice.</span></div></div>
-    <div class="bar"><i></i></div>
+  <section class="slide on">
+    <div class="still" style="background: radial-gradient(circle at 50% 70%, #3b2a1a, #120e0b)"><span class="label">Still 1 · Gaia and Ouranos</span><div class="art">🌑</div></div>
+    <p class="caption">Ouranos would not stop. Every child Gaia bore, he pushed back inside her.</p>
+  </section>
+  <section class="slide">
+    <div class="still" style="background: radial-gradient(circle at 50% 30%, #2a3040, #120e0b)"><span class="label">Still 2 · the weight</span><div class="art">🏔️</div></div>
+    <p class="caption">She groaned under the weight of them. Titans, Cyclopes, the Hundred-Handers, all held in the dark.</p>
+  </section>
+  <section class="slide">
+    <div class="still" style="background: radial-gradient(circle at 50% 50%, #4a3a20, #120e0b)"><span class="label">Still 3 · the adamant</span><div class="art">🔪</div></div>
+    <p class="caption">So she made a thing. Grey adamant, the hardest stuff there was, shaped into a sickle with jagged teeth.</p>
+  </section>
+  <section class="slide">
+    <div class="still" style="background: radial-gradient(circle at 50% 60%, #3a2418, #120e0b)"><span class="label">Still 4 · the youngest</span><div class="art">🧒</div></div>
+    <p class="caption">She showed it to her children and asked who would use it. Only the youngest answered. Kronos.</p>
   </section>
 
-  <section class="card script" style="margin-top:12px">
-    <p class="later">Ouranos would not stop. Every child Gaia bore, he pushed back inside her. She groaned under the weight.</p>
-    <p class="now">So she made a thing. Grey adamant, the hardest stuff there was, shaped into a sickle with jagged teeth. She showed it to her children and asked who would use it. Only the youngest answered.</p>
-    <p class="later">Kronos waited in ambush. His father came down with the night. The boy reached out with his left hand.</p>
-  </section>
-
-  <section class="card" style="margin-top:12px">
-    <div class="eyebrow">Family check</div>
-    <div class="title" style="font-size:22px">Who forged the sickle?</div>
-    <button class="opt" onclick="pick(this,false)">Kronos</button>
-    <button class="opt" onclick="pick(this,true)">Gaia</button>
-    <button class="opt" onclick="pick(this,false)">Ouranos</button>
-    <button class="opt" onclick="pick(this,false)">Hephaistos</button>
-    <p id="why" class="meta" hidden style="margin:12px 0 0">Gaia made it and asked her children to use it. Kronos only took it. <span class="cite">Theogony 159-172</span></p>
-  </section>
-
-  <section class="card" style="margin-top:12px">
-    <div class="eyebrow">Two versions</div>
-    <div class="title" style="font-size:22px">Where does Aphrodite come from?</div>
-    <div class="fork">
-      <div class="side"><b>Hesiod</b>From the foam around what Kronos threw into the sea. She walks ashore at Cyprus.<div class="cite">Theogony 188-200</div></div>
-      <div class="side"><b>Homer</b>Daughter of Zeus and Dione. Wounded at Troy, she runs to her mother.<div class="cite">Iliad 5.370-372</div></div>
+  <section class="slide">
+    <div class="card">
+      <div class="eyebrow">Family check</div>
+      <div class="title" style="font-size:22px">Who forged the sickle?</div>
+      <button class="opt" onclick="pick(this,false)">Kronos</button>
+      <button class="opt" onclick="pick(this,true)">Gaia</button>
+      <button class="opt" onclick="pick(this,false)">Ouranos</button>
+      <button class="opt" onclick="pick(this,false)">Hephaistos</button>
+      <p id="why" class="meta" hidden style="margin:12px 0 0">Gaia made it and asked her children to use it. Kronos only took it. <span class="cite">Theogony 159-172</span></p>
     </div>
-    <p class="meta" style="margin:12px 0 0">You are not asked to pick. The recall card will ask "in Hesiod" or "in Homer".</p>
+    <p class="meta" style="text-align:center;margin-top:10px">The voice pauses here. Tap an answer to keep going.</p>
   </section>
 
-  <section class="card" style="margin-top:12px">
-    <div class="eyebrow">Recall · 3 cards</div>
-    <div class="row"><div class="g">🪨</div><div class="t"><b>What did Rhea hand Kronos?</b><span>From chapter 3, yesterday</span></div></div>
-    <div class="row"><div class="g">🌊</div><div class="t"><b>In Hesiod, Aphrodite comes from</b><span>New tonight</span></div></div>
-    <div class="row"><div class="g">🔪</div><div class="t"><b>Who forged the sickle?</b><span>New tonight</span></div></div>
-    <div class="actions"><button class="btn primary">Start recall</button></div>
+  <section class="slide">
+    <div class="still" style="background: radial-gradient(circle at 50% 20%, #1b2438, #120e0b)"><span class="label">Still 5 · the ambush</span><div class="art">🌌</div></div>
+    <p class="caption">Kronos waited in ambush. His father came down with the night. The boy reached out with his left hand.</p>
   </section>
+  <section class="slide">
+    <div class="still" style="background: radial-gradient(circle at 50% 80%, #4a1e18, #120e0b)"><span class="label">Still 6 · the blood</span><div class="art">🩸</div></div>
+    <p class="caption">Where the blood fell on the earth, she bore the Erinyes and the Giants. Nothing from this night was wasted.</p>
+  </section>
+
+  <section class="slide">
+    <div class="card">
+      <div class="eyebrow">Two versions</div>
+      <div class="title" style="font-size:22px">Where does Aphrodite come from?</div>
+      <div class="fork">
+        <div class="side"><div class="art" style="font-size:44px;text-align:center;margin-bottom:8px">🌊</div><b>Hesiod</b>From the foam around what Kronos threw into the sea. She walks ashore at Cyprus.<div class="cite">Theogony 188-200</div></div>
+        <div class="side"><div class="art" style="font-size:44px;text-align:center;margin-bottom:8px">⚡</div><b>Homer</b>Daughter of Zeus and Dione. Wounded at Troy, she runs to her mother.<div class="cite">Iliad 5.370-372</div></div>
+      </div>
+      <p class="meta" style="margin:12px 0 0">You are not asked to pick. The recall card will ask "in Hesiod" or "in Homer".</p>
+    </div>
+  </section>
+
+  <section class="slide">
+    <div class="card">
+      <div class="eyebrow">Recall · 3 cards</div>
+      <div class="row"><div class="g">🪨</div><div class="t"><b>What did Rhea hand Kronos?</b><span>From chapter 3, yesterday</span></div></div>
+      <div class="row"><div class="g">🌊</div><div class="t"><b>In Hesiod, Aphrodite comes from</b><span>New tonight</span></div></div>
+      <div class="row"><div class="g">🔪</div><div class="t"><b>Who forged the sickle?</b><span>New tonight</span></div></div>
+      <div class="actions"><button class="btn primary">Start recall</button></div>
+    </div>
+  </section>
+
+  <div class="play" style="margin-top:14px"><div class="disc" onclick="step(1)">▶</div><div class="t"><b id="clock">0:00 / 5:10</b><span>Tap the right half of a picture to go on, left to go back. Screen off keeps the voice going.</span></div><button class="toggle" onclick="document.getElementById('tr').classList.toggle('on')">Transcript</button></div>
+  <div id="tr" class="transcript card script">
+    <p class="later">Ouranos would not stop. Every child Gaia bore, he pushed back inside her. She groaned under the weight.</p>
+    <p class="later">So she made a thing. Grey adamant, the hardest stuff there was, shaped into a sickle with jagged teeth. She showed it to her children and asked who would use it. Only the youngest answered.</p>
+    <p class="later">Kronos waited in ambush. His father came down with the night. The boy reached out with his left hand.</p>
+  </div>
 </main>
 <script>
+const slides = [...document.querySelectorAll('.slide')];
+const dots = document.getElementById('dots');
+slides.forEach(() => dots.appendChild(document.createElement('i')));
+let i = 0;
+const secs = [0, 34, 71, 108, 140, 140, 176, 214, 250];
+function render() {
+  slides.forEach((s, k) => s.classList.toggle('on', k === i));
+  [...dots.children].forEach((d, k) => { d.className = k < i ? 'done' : k === i ? 'now' : ''; });
+  document.getElementById('pos').textContent = `${i + 1} / ${slides.length}`;
+  const t = secs[i]; document.getElementById('clock').textContent = `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')} / 5:10`;
+}
+function step(d) { i = Math.min(slides.length - 1, Math.max(0, i + d)); render(); }
+document.querySelectorAll('.still').forEach((s) => {
+  const tap = document.createElement('div'); tap.className = 'tap';
+  const l = document.createElement('div'); l.onclick = () => step(-1);
+  const r = document.createElement('div'); r.onclick = () => step(1);
+  tap.append(l, r); s.appendChild(tap);
+});
+document.addEventListener('keydown', (e) => { if (e.key === 'ArrowRight') step(1); if (e.key === 'ArrowLeft') step(-1); });
 function pick(el, right) {
   el.classList.add(right ? 'right' : 'wrong');
-  if (right) document.getElementById('why').hidden = false;
+  if (right) { document.getElementById('why').hidden = false; setTimeout(() => step(1), 1400); }
 }
+render();
 </script>
 </body></html>
