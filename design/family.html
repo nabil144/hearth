@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Family. The Greek graph</title><link rel="stylesheet" href="shared.css"></head>
+<body>
+<div class="nav"><a href="today-a.html">A one telling</a><a href="today-b.html">B family first</a><a href="today-c.html">C gossip first</a><a href="lesson.html">Lesson</a><a class="on" href="family.html">Family</a><a href="battle.html">Battle</a><a href="mythologies.html">Library</a></div>
+<main class="screen">
+  <h1>Family</h1>
+  <p class="sub">Greek · 11 of 18 figures met · tap a name</p>
+
+  <section class="card">
+    <div class="tree">
+      <div class="gen"><button class="node dim" onclick="show('chaos')">Chaos</button></div>
+      <div class="link">│</div>
+      <div class="gen"><button class="node" onclick="show('gaia')">Gaia</button><span class="link" style="align-self:center">+</span><button class="node" onclick="show('ouranos')">Ouranos</button></div>
+      <div class="link">│</div>
+      <div class="gen"><button class="node" onclick="show('kronos')">Kronos</button><span class="link" style="align-self:center">+</span><button class="node" onclick="show('rhea')">Rhea</button><button class="node dim">10 more Titans</button></div>
+      <div class="link">│</div>
+      <div class="gen"><button class="node" onclick="show('hestia')">Hestia</button><button class="node" onclick="show('demeter')">Demeter</button><button class="node" onclick="show('hera')">Hera</button><button class="node" onclick="show('hades')">Hades</button><button class="node" onclick="show('poseidon')">Poseidon</button><button class="node hot" onclick="show('zeus')">Zeus</button></div>
+      <div class="link">│</div>
+      <div class="gen"><button class="node dim">Athena</button><button class="node dim">Apollo</button><button class="node dim">Ares</button><button class="node dim">+9 not yet told</button></div>
+    </div>
+    <div class="meta" style="text-align:center;margin-top:10px">Dim names wait for their chapter. Nothing here is a quiz.</div>
+  </section>
+
+  <section id="d" class="card" style="margin-top:12px">
+    <div class="eyebrow">Zeus</div>
+    <div class="title" style="font-size:22px">Youngest of six. Kept out of his father's stomach by a stone.</div>
+    <div><span class="pill att">attested</span><span class="cite">Hesiod, Theogony 453-491</span></div>
+    <div class="meta" style="margin-top:12px">Also in the graph: the lots with Poseidon and Hades <span class="cite">Iliad 15.187-193</span></div>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <div class="eyebrow">Loose edge</div>
+    <div class="title" style="font-size:22px">Aphrodite has two sets of parents</div>
+    <div class="fork">
+      <div class="side"><b>Hesiod</b>Ouranos, by the sea foam.</div>
+      <div class="side"><b>Homer</b>Zeus and Dione.</div>
+    </div>
+    <div class="meta" style="margin-top:10px">The graph keeps both edges. That is the point of the graph.</div>
+  </section>
+</main>
+<nav class="tabbar"><div><i>🔥</i>Tonight</div><div class="on"><i>⟡</i>Family</div><div><i>📚</i>Mythologies</div></nav>
+<script>
+const facts = {
+  chaos: ['Chaos', 'Not a god. The gap that was there first.', 'Hesiod, Theogony 116'],
+  gaia: ['Gaia', 'Earth. Mother of the sky, then of everything the sky fathered on her. Forged the sickle.', 'Hesiod, Theogony 116-138, 159-162'],
+  ouranos: ['Ouranos', 'Sky. Hid his children inside their mother. Cut by his son.', 'Hesiod, Theogony 154-182'],
+  kronos: ['Kronos', 'Youngest Titan. Took the sickle. Later ate his own children.', 'Hesiod, Theogony 167-182, 459-467'],
+  rhea: ['Rhea', 'Bore six. Hid the sixth in Crete and handed her husband a stone.', 'Hesiod, Theogony 453-491'],
+  hestia: ['Hestia', 'Firstborn of Kronos and Rhea. Hearth. The one people forget.', 'Hesiod, Theogony 454'],
+  demeter: ['Demeter', 'Second born. Grain. Stopped the harvest for her daughter.', 'Hesiod, Theogony 454'],
+  hera: ['Hera', 'Third born. Later Zeus\'s wife, so both sister and queen.', 'Hesiod, Theogony 454, 921'],
+  hades: ['Hades', 'Fourth born. Drew the dark below by lot.', 'Hesiod, Theogony 455; Iliad 15.187-193'],
+  poseidon: ['Poseidon', 'Fifth born. Drew the sea by lot. Lay with Medusa in a meadow.', 'Hesiod, Theogony 456, 278-279'],
+  zeus: ['Zeus', 'Youngest of six. Kept out of his father\'s stomach by a stone.', 'Hesiod, Theogony 453-491'],
+};
+function show(id) {
+  const [name, line, cite] = facts[id];
+  const d = document.getElementById('d');
+  d.querySelector('.eyebrow').textContent = name;
+  d.querySelector('.title').textContent = line;
+  d.querySelector('.cite').textContent = cite;
+  document.querySelectorAll('.node.hot').forEach(n => n.classList.remove('hot'));
+  event.currentTarget.classList.add('hot');
+}
+</script>
+</body></html>

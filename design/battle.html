@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Battle. The family</title><link rel="stylesheet" href="shared.css"></head>
+<body>
+<div class="nav"><a href="today-a.html">A one telling</a><a href="today-b.html">B family first</a><a href="today-c.html">C gossip first</a><a href="lesson.html">Lesson</a><a href="family.html">Family</a><a class="on" href="battle.html">Battle</a><a href="mythologies.html">Library</a></div>
+<main class="screen">
+  <div class="eyebrow">Sunday battle · Greek · 7 of 12</div>
+  <h1>The family</h1>
+  <div class="timer"><i></i></div>
+
+  <section class="card">
+    <div class="meta">Question 7</div>
+    <div class="title" style="font-size:24px">In the Iliad, how did Zeus, Poseidon, and Hades divide the world?</div>
+    <button class="opt" onclick="pick(this,false)">Zeus chose, as the eldest</button>
+    <button class="opt" onclick="pick(this,false)">They fought for ten years</button>
+    <button class="opt" onclick="pick(this,true)">They drew lots</button>
+    <button class="opt" onclick="pick(this,false)">Kronos willed it before he fell</button>
+  </section>
+
+  <section id="miss" class="card" hidden style="margin-top:12px;border-color:var(--bad)">
+    <div class="eyebrow" style="color:var(--bad)">Not that one</div>
+    <div class="title" style="font-size:20px">Poseidon says it himself. Three brothers, three lots. Sea, dark, sky. Zeus was the youngest.</div>
+    <div><span class="pill att">attested</span><span class="cite">Homer, Iliad 15.187-193</span></div>
+    <div class="meta" style="margin-top:10px">This card comes back next week.</div>
+  </section>
+
+  <section id="hit" class="card" hidden style="margin-top:12px;border-color:var(--ok)">
+    <div class="eyebrow" style="color:var(--ok)">Held</div>
+    <div class="title" style="font-size:20px">Lots. Poseidon tells it in book 15.</div>
+    <div><span class="cite">Homer, Iliad 15.187-193</span></div>
+  </section>
+
+  <div class="section">So far</div>
+  <div class="card" style="padding:4px 20px">
+    <div class="row"><div class="t"><b>6 held · 0 missed</b><span>Fastest: the stone, 1.8 s</span></div><div class="big" style="margin:0;font-size:32px">6</div></div>
+  </div>
+  <p class="quiet">No leaderboard. The seal for this cycle needs 10 of 12 held twice.</p>
+</main>
+<script>
+function pick(el, right) {
+  document.querySelectorAll('.opt').forEach(o => o.disabled = true);
+  el.classList.add(right ? 'right' : 'wrong');
+  document.getElementById(right ? 'hit' : 'miss').hidden = false;
+}
+</script>
+</body></html>

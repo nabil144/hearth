@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lesson. The sickle</title><link rel="stylesheet" href="shared.css"></head>
+<body>
+<div class="nav"><a href="today-a.html">A one telling</a><a href="today-b.html">B family first</a><a href="today-c.html">C gossip first</a><a class="on" href="lesson.html">Lesson</a><a href="family.html">Family</a><a href="battle.html">Battle</a><a href="mythologies.html">Library</a></div>
+<main class="screen">
+  <div class="eyebrow">Chapter 2 of 12 · Greek</div>
+  <h1>The sickle</h1>
+  <p class="sub">Hesiod, Theogony 154-210 · 5 min</p>
+
+  <section class="card">
+    <div class="play"><div class="disc">❙❙</div><div class="t"><b>1:52 / 5:10</b><span>Narration. The transcript scrolls with the voice.</span></div></div>
+    <div class="bar"><i></i></div>
+  </section>
+
+  <section class="card script" style="margin-top:12px">
+    <p class="later">Ouranos would not stop. Every child Gaia bore, he pushed back inside her. She groaned under the weight.</p>
+    <p class="now">So she made a thing. Grey adamant, the hardest stuff there was, shaped into a sickle with jagged teeth. She showed it to her children and asked who would use it. Only the youngest answered.</p>
+    <p class="later">Kronos waited in ambush. His father came down with the night. The boy reached out with his left hand.</p>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <div class="eyebrow">Family check</div>
+    <div class="title" style="font-size:22px">Who forged the sickle?</div>
+    <button class="opt" onclick="pick(this,false)">Kronos</button>
+    <button class="opt" onclick="pick(this,true)">Gaia</button>
+    <button class="opt" onclick="pick(this,false)">Ouranos</button>
+    <button class="opt" onclick="pick(this,false)">Hephaistos</button>
+    <p id="why" class="meta" hidden style="margin:12px 0 0">Gaia made it and asked her children to use it. Kronos only took it. <span class="cite">Theogony 159-172</span></p>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <div class="eyebrow">Two versions</div>
+    <div class="title" style="font-size:22px">Where does Aphrodite come from?</div>
+    <div class="fork">
+      <div class="side"><b>Hesiod</b>From the foam around what Kronos threw into the sea. She walks ashore at Cyprus.<div class="cite">Theogony 188-200</div></div>
+      <div class="side"><b>Homer</b>Daughter of Zeus and Dione. Wounded at Troy, she runs to her mother.<div class="cite">Iliad 5.370-372</div></div>
+    </div>
+    <p class="meta" style="margin:12px 0 0">You are not asked to pick. The recall card will ask "in Hesiod" or "in Homer".</p>
+  </section>
+
+  <section class="card" style="margin-top:12px">
+    <div class="eyebrow">Recall · 3 cards</div>
+    <div class="row"><div class="g">🪨</div><div class="t"><b>What did Rhea hand Kronos?</b><span>From chapter 3, yesterday</span></div></div>
+    <div class="row"><div class="g">🌊</div><div class="t"><b>In Hesiod, Aphrodite comes from</b><span>New tonight</span></div></div>
+    <div class="row"><div class="g">🔪</div><div class="t"><b>Who forged the sickle?</b><span>New tonight</span></div></div>
+    <div class="actions"><button class="btn primary">Start recall</button></div>
+  </section>
+</main>
+<script>
+function pick(el, right) {
+  el.classList.add(right ? 'right' : 'wrong');
+  if (right) document.getElementById('why').hidden = false;
+}
+</script>
+</body></html>

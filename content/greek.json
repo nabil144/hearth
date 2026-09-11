@@ -1,0 +1,78 @@
+{
+  "traditions": [
+    { "id": "greek", "name": "Greek", "sensitivity": "literary" },
+    { "id": "norse", "name": "Norse", "sensitivity": "literary" },
+    { "id": "egyptian", "name": "Egyptian", "sensitivity": "literary" },
+    { "id": "hindu", "name": "Hindu", "sensitivity": "do-not-ship" }
+  ],
+
+  "sources": [
+    { "id": "theog-116-138", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 116-138", "paraphrase": "First Chaos, then Gaia. Gaia bears Ouranos, then the Titans with him, Kronos last." },
+    { "id": "theog-154-210", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 154-210", "paraphrase": "Ouranos hides his children inside Gaia. She forges a sickle. Kronos ambushes his father and cuts. Blood makes the Erinyes and Giants. Foam makes Aphrodite." },
+    { "id": "theog-453-491", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 453-491", "paraphrase": "Rhea bears Kronos six children. He swallows each. She bears Zeus in Crete and hands Kronos a stone." },
+    { "id": "theog-492-506", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 492-506", "paraphrase": "Zeus grows. Kronos vomits the stone, then the children. Zeus frees the Cyclopes, who give him thunder." },
+    { "id": "theog-617-735", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 617-735", "paraphrase": "Ten years of war. Zeus frees the Hundred-Handers. The Titans lose and go under Tartarus." },
+    { "id": "theog-270-283", "tradition": "greek", "work": "Hesiod, Theogony", "locator": "lines 270-283", "paraphrase": "Phorkys and Keto bear the Gorgons. Medusa alone is mortal. Poseidon lies with her in a meadow. From her cut neck spring Chrysaor and Pegasus." },
+    { "id": "iliad-5-370", "tradition": "greek", "work": "Homer, Iliad", "locator": "book 5, lines 370-372", "paraphrase": "Wounded Aphrodite runs to her mother Dione." },
+    { "id": "iliad-15-187", "tradition": "greek", "work": "Homer, Iliad", "locator": "book 15, lines 187-193", "paraphrase": "Poseidon says the three sons of Kronos drew lots. Sea to him, underworld to Hades, sky to Zeus. Earth and Olympus shared." },
+    { "id": "wd-60-105", "tradition": "greek", "work": "Hesiod, Works and Days", "locator": "lines 60-105", "paraphrase": "Zeus orders a woman made. Pandora opens the jar. Hope stays inside." },
+    { "id": "ovid-met-4-790", "tradition": "greek", "work": "Ovid, Metamorphoses", "locator": "book 4, lines 790-803", "paraphrase": "Medusa was famous for her hair. Neptune violates her in Minerva's temple. Minerva turns the hair to snakes." },
+    { "id": "erasmus-adagia", "tradition": "greek", "work": "Erasmus, Adagia", "locator": "1508 edition, entry on Pandora", "paraphrase": "Erasmus renders Hesiod's pithos (a storage jar) as pyxis (a box). The box is his." },
+    { "id": "gylf-34", "tradition": "norse", "work": "Snorri Sturluson, Prose Edda, Gylfaginning", "locator": "chapter 34", "paraphrase": "Loki's children with Angrboda. The gods bind Fenrir with Gleipnir. Tyr loses his hand." }
+  ],
+
+  "entities": [
+    { "id": "chaos", "kind": "place", "name": "Chaos", "parents": [] },
+    { "id": "gaia", "kind": "god", "name": "Gaia", "parents": [] },
+    { "id": "ouranos", "kind": "god", "name": "Ouranos", "parents": ["gaia"] },
+    { "id": "kronos", "kind": "god", "name": "Kronos", "parents": ["gaia", "ouranos"] },
+    { "id": "rhea", "kind": "god", "name": "Rhea", "parents": ["gaia", "ouranos"] },
+    { "id": "hestia", "kind": "god", "name": "Hestia", "parents": ["kronos", "rhea"] },
+    { "id": "demeter", "kind": "god", "name": "Demeter", "parents": ["kronos", "rhea"] },
+    { "id": "hera", "kind": "god", "name": "Hera", "parents": ["kronos", "rhea"] },
+    { "id": "hades", "kind": "god", "name": "Hades", "parents": ["kronos", "rhea"] },
+    { "id": "poseidon", "kind": "god", "name": "Poseidon", "parents": ["kronos", "rhea"] },
+    { "id": "zeus", "kind": "god", "name": "Zeus", "parents": ["kronos", "rhea"] },
+    { "id": "aphrodite", "kind": "god", "name": "Aphrodite", "parents": [] },
+    { "id": "medusa", "kind": "monster", "name": "Medusa", "parents": ["phorkys", "keto"] },
+    { "id": "phorkys", "kind": "god", "name": "Phorkys", "parents": [] },
+    { "id": "keto", "kind": "god", "name": "Keto", "parents": [] },
+    { "id": "sickle", "kind": "object", "name": "The adamant sickle", "parents": [] },
+    { "id": "stone", "kind": "object", "name": "The swaddled stone", "parents": [] },
+    { "id": "jar", "kind": "object", "name": "Pandora's jar", "parents": [] }
+  ],
+
+  "claims": [
+    { "id": "c-siblings", "confidence": "attested", "source": "theog-453-491", "entities": ["hestia", "demeter", "hera", "hades", "poseidon", "zeus"], "text": "Rhea bore Kronos six children: Hestia, Demeter, Hera, Hades, Poseidon, and Zeus, in that order." },
+    { "id": "c-stone", "confidence": "attested", "source": "theog-453-491", "entities": ["stone", "kronos", "rhea"], "text": "Rhea gave Kronos a stone wrapped in swaddling. He swallowed it thinking it was Zeus." },
+    { "id": "c-sickle", "confidence": "attested", "source": "theog-154-210", "entities": ["sickle", "gaia", "kronos", "ouranos"], "text": "Gaia made a sickle of adamant. Kronos took it and cut his father Ouranos from ambush." },
+    { "id": "c-aphrodite-foam", "confidence": "attested", "source": "theog-154-210", "entities": ["aphrodite", "ouranos"], "text": "Aphrodite grew from the foam around Ouranos's severed flesh and came ashore at Cyprus." },
+    { "id": "c-aphrodite-dione", "confidence": "attested", "source": "iliad-5-370", "entities": ["aphrodite", "zeus"], "text": "Aphrodite is the daughter of Zeus and Dione." },
+    { "id": "c-lots", "confidence": "attested", "source": "iliad-15-187", "entities": ["zeus", "poseidon", "hades"], "text": "The three brothers drew lots. Zeus got the sky, Poseidon the sea, Hades the dark below." },
+    { "id": "c-medusa-born", "confidence": "attested", "source": "theog-270-283", "entities": ["medusa", "poseidon"], "text": "Medusa was born a Gorgon, one of three sisters, and the only mortal one." },
+    { "id": "c-medusa-made", "confidence": "common-version", "source": "ovid-met-4-790", "entities": ["medusa", "poseidon"], "text": "Medusa was a beautiful woman until Athena turned her hair to snakes." },
+    { "id": "c-jar", "confidence": "attested", "source": "wd-60-105", "entities": ["jar"], "text": "Pandora opened a jar, not a box. Only Hope stayed inside." },
+    { "id": "c-box", "confidence": "later-invention", "source": "erasmus-adagia", "entities": ["jar"], "text": "Pandora's box is a sixteenth-century Latin slip. Hesiod wrote pithos, a jar taller than a person." }
+  ],
+
+  "variants": [
+    { "id": "v-aphrodite", "question": "Where does Aphrodite come from?", "claims": ["c-aphrodite-foam", "c-aphrodite-dione"], "note": "Hesiod and Homer disagree. Neither is the correction of the other. Both are the product." },
+    { "id": "v-medusa", "question": "Was Medusa born a monster?", "claims": ["c-medusa-born", "c-medusa-made"], "note": "The version most people know is Roman and seven centuries later than Hesiod." },
+    { "id": "v-pandora", "question": "Box or jar?", "claims": ["c-jar", "c-box"], "note": "A translation slip that outlived the text it was translating." }
+  ],
+
+  "lessons": [
+    { "id": "greek-01", "n": 1, "tradition": "greek", "title": "Before there were gods", "hook": "The first thing was not a god. It was a gap.", "minutes": 5, "sources": ["theog-116-138"], "claims": [], "check": null },
+    { "id": "greek-02", "n": 2, "tradition": "greek", "title": "The sickle", "hook": "The sky would not stop. His mother handed his son a blade.", "minutes": 5, "sources": ["theog-154-210"], "claims": ["c-sickle", "c-aphrodite-foam"], "variant": "v-aphrodite", "check": { "claim": "c-sickle", "prompt": "Who forged the sickle?", "options": ["Kronos", "Gaia", "Ouranos", "Hephaistos"], "answer": 1 } },
+    { "id": "greek-03", "n": 3, "tradition": "greek", "title": "The father who ate", "hook": "Kronos had heard a prophecy. He solved it at dinner.", "minutes": 5, "sources": ["theog-453-491"], "claims": ["c-siblings", "c-stone"], "check": { "claim": "c-stone", "prompt": "What did Rhea hand Kronos instead of the baby?", "options": ["A goat", "A stone in swaddling", "Nothing", "A different baby"], "answer": 1 } },
+    { "id": "greek-04", "n": 4, "tradition": "greek", "title": "Zeus's siblings", "hook": "Most people can't name them. They ruled the world.", "minutes": 5, "sources": ["theog-453-491", "theog-492-506"], "claims": ["c-siblings"], "check": { "claim": "c-siblings", "prompt": "Which of these is not a child of Kronos and Rhea?", "options": ["Hestia", "Hera", "Athena", "Hades"], "answer": 2 } },
+    { "id": "greek-05", "n": 5, "tradition": "greek", "title": "Ten years of war", "hook": "The old gods lost. Then they were buried.", "minutes": 6, "sources": ["theog-617-735"], "claims": [], "check": null },
+    { "id": "greek-06", "n": 6, "tradition": "greek", "title": "The lots", "hook": "Three brothers. One world. They gambled for it.", "minutes": 4, "sources": ["iliad-15-187"], "claims": ["c-lots"], "check": { "claim": "c-lots", "prompt": "In the Iliad, how did the brothers divide the world?", "options": ["Zeus chose", "They fought", "They drew lots", "Kronos willed it"], "answer": 2 } },
+    { "id": "greek-07", "n": 7, "tradition": "greek", "title": "Fire", "hook": "Prometheus stole it in a fennel stalk.", "minutes": 5, "sources": [], "claims": [], "check": null },
+    { "id": "greek-08", "n": 8, "tradition": "greek", "title": "The jar", "hook": "There was never a box.", "minutes": 5, "sources": ["wd-60-105", "erasmus-adagia"], "claims": ["c-jar", "c-box"], "variant": "v-pandora", "check": { "claim": "c-jar", "prompt": "What did Pandora open?", "options": ["A box", "A jar", "A door", "A chest"], "answer": 1 } },
+    { "id": "greek-09", "n": 9, "tradition": "greek", "title": "The headache", "hook": "Zeus swallowed a wife. Then his skull split.", "minutes": 5, "sources": [], "claims": [], "check": null },
+    { "id": "greek-10", "n": 10, "tradition": "greek", "title": "The mother who stopped the harvest", "hook": "Demeter did not fight the gods. She starved them.", "minutes": 6, "sources": [], "claims": [], "check": null },
+    { "id": "greek-11", "n": 11, "tradition": "greek", "title": "The Medusa you know is late", "hook": "Hesiod's Medusa was born that way. Ovid's was punished.", "minutes": 5, "sources": ["theog-270-283", "ovid-met-4-790"], "claims": ["c-medusa-born", "c-medusa-made"], "variant": "v-medusa", "check": { "claim": "c-medusa-born", "prompt": "In Hesiod, not in Ovid, Medusa is", "options": ["A punished priestess", "A Gorgon from birth", "A daughter of Athena", "A sea nymph"], "answer": 1 } },
+    { "id": "greek-12", "n": 12, "tradition": "greek", "title": "Battle. The family", "hook": "Timed. Every wrong answer shows you the line.", "minutes": 3, "sources": [], "claims": ["c-siblings", "c-stone", "c-sickle", "c-lots", "c-jar"], "check": null }
+  ]
+}
