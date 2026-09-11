@@ -1,0 +1,40 @@
+.screen.lesson { padding-top: 48px; padding-bottom: 40px; }
+.screen.tonight, .screen.done { padding-bottom: 40px; }
+.dots { display: flex; gap: 4px; margin: 0 0 10px; }
+.dots i { flex: 1; height: 3px; border-radius: 2px; background: var(--line); }
+.dots i.done { background: var(--gold); }
+.dots i.now { background: var(--ember); }
+.mini {
+  display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;
+  color: var(--muted); font-size: 14px; margin: 0 0 14px;
+}
+.mini b { color: var(--text); }
+.still {
+  position: relative; aspect-ratio: 4 / 5; border-radius: 22px; overflow: hidden;
+  border: 1px solid var(--line);
+  width: min(100%, calc(38dvh * 4 / 5));
+  max-height: 38dvh;
+  margin-inline: auto;
+  background: radial-gradient(circle at 50% 62%, #5a3d24, #1a120c 72%);
+}
+.still img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.still .label {
+  position: absolute; top: 14px; left: 16px; font-size: 12px;
+  color: rgba(243, 233, 216, 0.7); text-transform: uppercase; letter-spacing: 0.1em;
+}
+.still .tap { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; }
+.caption {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 18px; line-height: 1.4; margin: 16px 4px 6px;
+}
+.credit { font-size: 12px; color: var(--muted); margin: 0 4px 8px; }
+.credit a { color: var(--gold); }
+.audio-note { text-align: center; margin-top: 10px; }
+.spoken { margin: 0 0 10px; }
+.title.q { font-size: 22px; }
+.held { color: var(--ok); margin: 12px 0 0; }
+.why { margin: 12px 0 0; font-size: 15px; }
+button.play {
+  width: 100%; border: 0; color: inherit; font: inherit; text-align: left; cursor: pointer;
+}
+.warm { padding: 4px 20px; }
