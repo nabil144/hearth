@@ -7,7 +7,6 @@ const voice = process.env.CARTESIA_VOICE_ID ?? 'db6b0ed5-d5d3-463d-ae85-518a07d3
 const model = process.env.CARTESIA_MODEL ?? 'sonic-3.5';
 const headers = { Authorization: `Bearer ${key}`, 'Cartesia-Version': '2026-03-01', 'Content-Type': 'application/json' };
 const args = process.argv.slice(2);
-process.on('unhandledRejection', (e) => { console.error(e.message); process.exit(1); });
 
 if (!key) {
   console.error('Set CARTESIA_API_KEY (sk_car_...). Optional: CARTESIA_VOICE_ID, CARTESIA_MODEL.');
