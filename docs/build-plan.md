@@ -51,12 +51,14 @@ What does not carry over. Life is a Game has no server and one user. Hearth has 
 
 **Month 12. Decision.** Egyptian or Mesopotamian next, or point the same reader and quiz compiler at the game-lore plan.
 
-## The first week, concretely
+## The POC, concretely
 
-1. Open Hesiod. Fill chapters 1, 5, 7, 9, and 10 in `content/greek.json`, which are still empty of claims. Run the check.
-2. Write the chapter 4 script, "Zeus's siblings", first. It is the hook chapter and the one the shorts point at.
-3. Record it once on a phone. Play it back against `design/lesson.html`. If the five minutes drag, cut the script, not the format.
-4. Push. The Pages URL is the waitlist.
+Done on 2026-09-12: chapters 3, 4, 5 written as beats in `content/greek.json`, Met CC0 stills per beat, the web player in `app/`, and the Cartesia generator in `tools/tts.mjs`.
+
+1. Set `CARTESIA_API_KEY`, pick a voice with `node tools/tts.mjs --voices`, generate, commit `app/audio/`.
+2. Listen to chapter 4 end to end on a phone from the Pages URL. Cut any paragraph that drags in `greek.json`, re-run tts.
+3. Five strangers, three nights. Finished chapter 3, opened chapter 4 the next night. Those two numbers decide whether chapters 1, 2, and 6 to 12 get written.
+4. In parallel, the ten shorts. `design/today-c.html` is the link under each video.
 
 ## What is not decided
 

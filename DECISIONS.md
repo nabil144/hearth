@@ -17,8 +17,17 @@ One entry per decision that shaped the work, newest at the bottom.
 
 - The first Lesson mock was a scrolling transcript. Wrong. The plan says a Lesson is "original script, audio, original stills," which is Paladin's format, a voice over a sequence of pictures with quiz cards cut in. The transcript hid the one thing Paladin does well. Lesson is now a stills player. Nine slides for chapter 2: six stills, the family check, the variant fork, the recall set. Tap right to advance, left to go back. Transcript is a toggle. Stills are emoji placeholders until there is a drawing budget. Spec rule 2 changed to match.
 
+- POC scope is three chapters, 3, 4, 5, not twelve. Three nights is the smallest test of a nightly habit, and chapter 4 is the hook the shorts point at. Chapters 1, 2, and 6 to 12 stay outlined with empty `beats` until strangers have heard these three.
+- A Lesson is now a list of beats. `still` (one picture, one spoken paragraph), `check` (a card, the voice pauses), `variant` (two claims side by side), `recall` (last, always). One audio clip per beat, `app/audio/<lesson>/<beat>.mp3`, so the player never syncs timestamps against a five-minute file. It plays clip N over still N and advances on `ended`. Cheaper to build, cheaper to re-record one paragraph, and the check pause is free.
+- Recall questions live in a top-level `cards` list bound to claims, not inside lessons. A card asked as tonight's check is the same object that comes back next week in recall. `check.mjs` still refuses a check whose claim the chapter never says.
+- Voice is Cartesia TTS, not the owner's voice, for the POC. `tools/tts.mjs` generates one MP3 per beat from `greek.json`, keyed by a hash of model, voice, and text, so re-running only touches beats whose words changed. The plan wants a face people recognize for the shorts; the app voice can be synthetic while the test is "do they come back", and swapped later without touching the player. Verified against the API up to the auth wall (401 with a fake key, request shape accepted).
+- Stills come from the Met's Open Access collection, CC0, downloaded by `tools/stills.mjs` from a manifest of object IDs in `content/stills.json`. Real vases and marbles for free, with a credit line, instead of placeholder art or something scraped. Original drawings replace them when there is a drawing budget; the beat shape does not change.
+- Fourth variant added while writing chapter 4. How Zeus got the sky. Hesiod 883-885 has the gods ask him; Iliad 15.187-193 has the brothers draw lots. Same century, two answers. Exactly the kind of fork the product exists to keep open.
+
 ## Checkpoints that need the owner
 
 - Pick a Tonight layout after a week on the phone. Delete the other two.
-- Decide whose voice records chapter 4. The plan wants a face people recognize.
-- Read chapters 1, 5, 7, 9, and 10 against the texts and fill their claims. The check will stay green with empty claims, which is a gap in the check, on purpose for now.
+- Cartesia key. `CARTESIA_API_KEY=sk_car_... node tools/tts.mjs --voices` to pick a voice, then `CARTESIA_VOICE_ID=... node tools/tts.mjs` to generate the three chapters. Commit `app/audio/`.
+- Listen to chapter 4 once end to end before anyone else does. If a paragraph drags, cut words in `greek.json` and re-run tts; only that beat regenerates.
+- Read chapters 3 to 5 against the Theogony lines cited. The claims are mine from the text, not from a translation the owner has checked.
+- Five strangers, three nights. Two numbers: finished chapter 3, opened chapter 4 the next night.
