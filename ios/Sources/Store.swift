@@ -8,6 +8,11 @@ enum Screen: Equatable {
     case done
 }
 
+enum Tab: Equatable {
+    case tonight
+    case family
+}
+
 enum Feedback: Equatable {
     case held
     case miss(text: String, cite: String)
@@ -19,6 +24,8 @@ final class Store {
     var corpus: Corpus
     var progress: Memory
     var screen: Screen = .tonight
+    var tab: Tab = .tonight
+    var focus: String?
     var queue: [Card] = []
     var i = 0
     var held = 0
@@ -52,6 +59,7 @@ final class Store {
 
     var tonight: Lesson? { corpus.nextLesson(heard: progress.heard) }
     var warm: [Lesson] { corpus.written.filter { progress.heard[$0.id] != nil } }
+    var family: Family { Family.of(corpus: corpus, heard: progress.heard, focus: focus) }
 
     var chapterCount: Int {
         let tradition = corpus.written.first?.tradition ?? "greek"
@@ -91,6 +99,22 @@ final class Store {
         resetSession()
         reviewing = false
         screen = .tonight
+        tab = .tonight
+    }
+
+    func inspect(_ id: String) {
+        focus = id
+        tab = .family
+    }
+
+    func showTab(_ tab: Tab) {
+        self.tab = tab
+    }
+
+    func openFamily(focus: String? = nil) {
+        screen = .tonight
+        tab = .family
+        if let focus { self.focus = focus }
     }
 
     func togglePause() {

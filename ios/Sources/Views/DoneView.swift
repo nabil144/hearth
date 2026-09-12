@@ -17,9 +17,16 @@ struct DoneView: View {
             Text("\(store.held) held · \(store.missed) missed")
                 .font(.subheadline)
                 .foregroundStyle(Ink.muted)
+            Button("See the family") {
+                store.openFamily(focus: store.family.portrait?.id)
+            }
+            .buttonStyle(EmberButton())
+            .padding(.top, 12)
             Button("Back to tonight") { store.goHome() }
-                .buttonStyle(EmberButton())
-                .padding(.top, 12)
+                .font(.headline)
+                .foregroundStyle(Ink.gold)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 14)
             Spacer()
         }
         .padding(.horizontal, 24)
