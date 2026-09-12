@@ -12,7 +12,7 @@ public struct CardRecord: Codable, Sendable, Equatable {
     }
 }
 
-public struct Progress: Codable, Sendable, Equatable {
+public struct Memory: Codable, Sendable, Equatable {
     public var heard: [String: String]
     public var cards: [String: CardRecord]
 
@@ -36,21 +36,21 @@ public enum CalendarDay {
 }
 
 public enum Review {
-    public static func gradeHeld(_ progress: inout Progress, cardId: String, today: String = CalendarDay.ymd()) {
+    public static func gradeHeld(_ progress: inout Memory, cardId: String, today: String = CalendarDay.ymd()) {
         var r = progress.cards[cardId] ?? CardRecord(due: today)
         r.held += 1
         r.due = CalendarDay.plus(days: CalendarDay.gaps[min(r.held - 1, 3)])
         progress.cards[cardId] = r
     }
 
-    public static func gradeMissed(_ progress: inout Progress, cardId: String, today: String = CalendarDay.ymd()) {
+    public static func gradeMissed(_ progress: inout Memory, cardId: String, today: String = CalendarDay.ymd()) {
         var r = progress.cards[cardId] ?? CardRecord(due: today)
         r.missed += 1
         r.due = CalendarDay.plus(days: 1)
         progress.cards[cardId] = r
     }
 
-    public static func pickRecall(corpus: Corpus, lesson: Lesson, progress: Progress, today: String = CalendarDay.ymd(), limit: Int = 3) -> [Card] {
+    public static func pickRecall(corpus: Corpus, lesson: Lesson, progress: Memory, today: String = CalendarDay.ymd(), limit: Int = 3) -> [Card] {
         let skip = lesson.beats.compactMap { beat -> String? in
             if case .check(let id, _) = beat { return id }
             return nil

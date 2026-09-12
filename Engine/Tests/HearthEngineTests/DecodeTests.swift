@@ -45,12 +45,12 @@ final class ProgressTests: XCTestCase {
     }
 
     func testHeldGapsAndMissTomorrow() {
-        var p = Progress()
+        var p = Memory()
         Review.gradeHeld(&p, cardId: "k-stone", today: "2026-09-12")
         XCTAssertEqual(p.cards["k-stone"]?.due, CalendarDay.plus(days: 1))
         Review.gradeHeld(&p, cardId: "k-stone", today: "2026-09-12")
         XCTAssertEqual(p.cards["k-stone"]?.held, 2)
-        var miss = Progress()
+        var miss = Memory()
         Review.gradeMissed(&miss, cardId: "k-stone", today: "2026-09-12")
         XCTAssertEqual(miss.cards["k-stone"]?.due, CalendarDay.plus(days: 1))
         XCTAssertEqual(miss.cards["k-stone"]?.missed, 1)
@@ -62,7 +62,7 @@ final class ProgressTests: XCTestCase {
             .appendingPathComponent("content/greek.json")
         let corpus = try Corpus.decode(Data(contentsOf: url))
         let lesson = try XCTUnwrap(corpus.lessonsById["greek-04"])
-        let picked = Review.pickRecall(corpus: corpus, lesson: lesson, progress: Progress())
+        let picked = Review.pickRecall(corpus: corpus, lesson: lesson, progress: Memory())
         XCTAssertEqual(picked.count, 3)
         XCTAssertFalse(picked.contains { $0.id == "k-siblings" })
     }

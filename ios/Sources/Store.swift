@@ -16,7 +16,7 @@ enum Feedback: Equatable {
 @Observable
 final class Store {
     var corpus: Corpus
-    var progress: Progress
+    var progress: Memory
     var screen: Screen = .tonight
     var queue: [Card] = []
     var i = 0
@@ -213,15 +213,15 @@ final class Store {
         try? data.write(to: fileURL, options: .atomic)
     }
 
-    private static func load(from url: URL) -> Progress {
-        guard let data = try? Data(contentsOf: url) else { return Progress() }
+    private static func load(from url: URL) -> Memory {
+        guard let data = try? Data(contentsOf: url) else { return Memory() }
         do {
-            return try JSONDecoder().decode(Progress.self, from: data)
+            return try JSONDecoder().decode(Memory.self, from: data)
         } catch {
             let aside = url.deletingLastPathComponent()
                 .appendingPathComponent("progress.broken-\(Int(Date().timeIntervalSince1970)).json")
             try? FileManager.default.moveItem(at: url, to: aside)
-            return Progress()
+            return Memory()
         }
     }
 }
