@@ -8,7 +8,7 @@ The app opens on Tonight. One card. The next unheard written lesson. Listen star
 
 ## Changes
 
-- `App/Sources/Views/TonightView.swift`. Eyebrow, title, hook, source line, Listen.
+- `app/Sources/Views/TonightView.swift`. Eyebrow, title, hook, source line, Listen.
 - `RootView` switches on a screen enum: `tonight`, `lesson`, `done`. Same three screens as `app/app.js`.
 
 No tab bar. Family and Mythologies are out of this POC.

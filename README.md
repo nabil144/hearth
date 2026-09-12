@@ -18,7 +18,7 @@ The repo holds the plan, the mockups, a web player, and a SwiftUI iOS shell that
 - `tools/tts.mjs` generates one MP3 per beat with Cartesia. Idempotent by text hash.
 - `app/` the player. Vanilla HTML, CSS, and JS. Reads `content/greek.json`, plays `app/audio/`, keeps progress in local storage, installs to a phone home screen.
 - `Engine/` pure Swift package. Decodes the corpus and owns progress and recall rules. Tests run on Linux.
-- `App/` SwiftUI shell. Tonight, Lesson, Done. One JSON progress file. No server.
+- `app/Sources/` SwiftUI shell. Tonight, Lesson, Done. One JSON progress file. No server. Lives next to the web player because a Mac disk treats `App` and `app` as the same folder.
 - `project.yml` XcodeGen definition. `xcodegen generate` produces the Xcode project.
 - `docs/ios-poc/` how the iOS shell is sequenced.
 - `DECISIONS.md` why things are the way they are.

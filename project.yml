@@ -26,7 +26,7 @@ targets:
     type: application
     platform: iOS
     sources:
-      - path: App/Sources
+      - path: app/Sources
       - path: content/greek.json
         type: file
         buildPhase: resources
@@ -39,7 +39,7 @@ targets:
     dependencies:
       - package: HearthEngine
     info:
-      path: App/Info.plist
+      path: app/Info.plist
       properties:
         CFBundleDisplayName: Hearth
         CFBundleShortVersionString: $(MARKETING_VERSION)

@@ -2,6 +2,19 @@ import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { createHash } from 'node:crypto';
 
 const root = new URL('../', import.meta.url);
+const envFile = new URL('.env', root);
+if (existsSync(envFile)) {
+  for (const line of readFileSync(envFile, 'utf8').split('\n')) {
+    const t = line.trim();
+    if (!t || t.startsWith('#')) continue;
+    const i = t.indexOf('=');
+    if (i < 0) continue;
+    const k = t.slice(0, i).trim();
+    const v = t.slice(i + 1).trim().replace(/^['"]|['"]$/g, '');
+    if (k && process.env[k] == null) process.env[k] = v;
+  }
+}
+
 const key = process.env.CARTESIA_API_KEY;
 const voice = process.env.CARTESIA_VOICE_ID ?? 'db6b0ed5-d5d3-463d-ae85-518a07d3c2b4';
 const model = process.env.CARTESIA_MODEL ?? 'sonic-3.5';
@@ -23,7 +36,18 @@ if (args[0] === '--voices') {
 }
 
 const only = new Set(args.filter((a) => !a.startsWith('--')));
+if (args.includes('--sample')) only.add('greek-04/0');
 const force = args.includes('--force');
+const onlyLesson = new Set();
+const onlyBeat = new Map();
+for (const x of only) {
+  const [id, n] = x.split('/');
+  onlyLesson.add(id);
+  if (n !== undefined) {
+    if (!onlyBeat.has(id)) onlyBeat.set(id, new Set());
+    onlyBeat.get(id).add(Number(n));
+  }
+}
 const c = JSON.parse(readFileSync(new URL('content/greek.json', root), 'utf8'));
 const cards = new Map(c.cards.map((k) => [k.id, k]));
 
@@ -47,11 +71,12 @@ async function synth(text, out) {
 
 let made = 0, kept = 0;
 for (const l of c.lessons) {
-  if (!l.beats.length || (only.size && !only.has(l.id))) continue;
+  if (!l.beats.length || (only.size && !onlyLesson.has(l.id))) continue;
   const dir = new URL(`app/audio/${l.id}/`, root);
   mkdirSync(dir, { recursive: true });
   for (const [i, b] of l.beats.entries()) {
     if (b.kind === 'recall') continue;
+    if (onlyBeat.has(l.id) && !onlyBeat.get(l.id).has(i)) continue;
     const text = spoken(b);
     const hash = createHash('sha1').update(`${model}|${voice}|${text}`).digest('hex').slice(0, 12);
     const mp3 = new URL(`${i}.mp3`, dir), tag = new URL(`${i}.sha1`, dir);

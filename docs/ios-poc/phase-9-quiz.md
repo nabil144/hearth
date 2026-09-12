@@ -8,7 +8,7 @@ The rest of the nightly loop. A check pauses the voice. A wrong answer shows the
 
 ## Changes
 
-- `App/Sources/Views/CardView.swift`. Four options, Held, miss-plus-cite, Continue.
+- `app/Sources/Views/CardView.swift`. Four options, Held, miss-plus-cite, Continue.
 - Variant layout from `design/lesson.html` fork. Side label is the first word of the source work.
 - Recall uses `pickRecall` from the engine. Done copy from the web player. "Tomorrow:" plus the next title.
 
