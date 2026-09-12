@@ -1,5 +1,6 @@
 import AVFoundation
 
+@MainActor
 final class Voice: NSObject, AVAudioPlayerDelegate {
     private var player: AVAudioPlayer?
     var onEnded: (() -> Void)?
@@ -26,7 +27,9 @@ final class Voice: NSObject, AVAudioPlayerDelegate {
         player = nil
     }
 
-    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
-        onEnded?()
+    nonisolated func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+        Task { @MainActor [weak self] in
+            self?.onEnded?()
+        }
     }
 }

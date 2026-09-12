@@ -13,6 +13,7 @@ enum Feedback: Equatable {
     case miss(text: String, cite: String)
 }
 
+@MainActor
 @Observable
 final class Store {
     var corpus: Corpus
@@ -26,7 +27,7 @@ final class Store {
     var feedback: Feedback?
     var reviewing = false
     var silent = false
-    private var holdAdvance: DispatchWorkItem?
+    private var holdAdvance: Task<Void, Never>?
     private let fileURL: URL
     let voice = Voice()
 
@@ -43,7 +44,7 @@ final class Store {
         progress = Self.load(from: fileURL)
         voice.activate()
         voice.onEnded = { [weak self] in
-            DispatchQueue.main.async { self?.audioEnded() }
+            self?.audioEnded()
         }
     }
 
@@ -133,9 +134,11 @@ final class Store {
             held += 1
             feedback = .held
             save()
-            let work = DispatchWorkItem { [weak self] in self?.forward() }
-            holdAdvance = work
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.2, execute: work)
+            holdAdvance = Task { [weak self] in
+                try? await Task.sleep(for: .seconds(1.2))
+                guard !Task.isCancelled else { return }
+                self?.forward()
+            }
         } else {
             Review.gradeMissed(&progress, cardId: card.id)
             missed += 1
