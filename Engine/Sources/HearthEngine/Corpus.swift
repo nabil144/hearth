@@ -158,6 +158,7 @@ public struct Corpus: Codable, Sendable, Equatable {
 
     public var traditionsById: [String: Tradition] { Dictionary(uniqueKeysWithValues: traditions.map { ($0.id, $0) }) }
     public var sourcesById: [String: Source] { Dictionary(uniqueKeysWithValues: sources.map { ($0.id, $0) }) }
+    public var entitiesById: [String: Entity] { Dictionary(uniqueKeysWithValues: entities.map { ($0.id, $0) }) }
     public var claimsById: [String: Claim] { Dictionary(uniqueKeysWithValues: claims.map { ($0.id, $0) }) }
     public var variantsById: [String: Variant] { Dictionary(uniqueKeysWithValues: variants.map { ($0.id, $0) }) }
     public var cardsById: [String: Card] { Dictionary(uniqueKeysWithValues: cards.map { ($0.id, $0) }) }
