@@ -83,7 +83,8 @@ final class FamilyTests: XCTestCase {
         XCTAssertEqual(family.met, 0)
         XCTAssertEqual(family.total, 15)
         XCTAssertEqual(family.rows.map { $0.map(\.id) }, [
-            ["chaos", "gaia"],
+            ["chaos"],
+            ["gaia"],
             ["ouranos"],
             ["kronos", "rhea", "hundred-handers"],
             ["demeter", "hades", "hera", "hestia", "poseidon", "zeus"],
@@ -96,10 +97,10 @@ final class FamilyTests: XCTestCase {
     func testChapterThreeLightsTheHouseOfKronos() throws {
         let family = Family.of(corpus: try corpus, heard: ["greek-03": "2026-09-13"], focus: nil)
         XCTAssertEqual(family.met, 10)
-        XCTAssertEqual(family.rows[0].first { $0.id == "gaia" }?.meet, .met)
         XCTAssertEqual(family.rows[0].first { $0.id == "chaos" }?.meet, .unmet)
-        XCTAssertEqual(try XCTUnwrap(family.rows[3].first { $0.id == "zeus" }).generation, 3)
-        XCTAssertEqual(try XCTUnwrap(family.rows[3].first { $0.id == "zeus" }).meet, .met)
+        XCTAssertEqual(family.rows[1].first { $0.id == "gaia" }?.meet, .met)
+        XCTAssertEqual(try XCTUnwrap(family.rows[4].first { $0.id == "zeus" }).generation, 4)
+        XCTAssertEqual(try XCTUnwrap(family.rows[4].first { $0.id == "zeus" }).meet, .met)
         XCTAssertEqual(family.portrait?.id, "gaia")
         XCTAssertEqual(family.portrait?.cite, "Hesiod, Theogony lines 453-491")
         XCTAssertEqual(Set(family.loose.map(\.id)), ["v-aphrodite", "v-kingship"])

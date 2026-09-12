@@ -47,9 +47,7 @@ public struct Family: Sendable, Equatable {
         let orphan = Set(people.filter { Self.isVariantOrphan($0, corpus: corpus, people: people) }.map(\.id))
         let tree = people.filter { !orphan.contains($0.id) }
         let gens = Self.generations(tree)
-        let spineIds = Self.component(from: "gaia", in: tree).union(
-            tree.contains(where: { $0.id == "chaos" }) ? ["chaos"] : []
-        )
+        let spineIds = Self.component(from: "gaia", in: tree)
         let spine = tree.filter { spineIds.contains($0.id) }
         let other = tree.filter { !spineIds.contains($0.id) }
         let rows = Self.rows(of: spine, gens: gens, metIds: metIds)
