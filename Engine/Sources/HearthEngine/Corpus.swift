@@ -130,6 +130,24 @@ public struct Lesson: Codable, Sendable, Equatable, Identifiable {
 }
 
 public struct Corpus: Codable, Sendable, Equatable {
+    public init(
+        traditions: [Tradition] = [],
+        sources: [Source] = [],
+        entities: [Entity] = [],
+        claims: [Claim] = [],
+        variants: [Variant] = [],
+        cards: [Card] = [],
+        lessons: [Lesson] = []
+    ) {
+        self.traditions = traditions
+        self.sources = sources
+        self.entities = entities
+        self.claims = claims
+        self.variants = variants
+        self.cards = cards
+        self.lessons = lessons
+    }
+
     public var traditions: [Tradition]
     public var sources: [Source]
     public var entities: [Entity]

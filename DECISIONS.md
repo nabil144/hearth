@@ -24,10 +24,11 @@ One entry per decision that shaped the work, newest at the bottom.
 - Stills come from the Met's Open Access collection, CC0, downloaded by `tools/stills.mjs` from a manifest of object IDs in `content/stills.json`. Real vases and marbles for free, with a credit line, instead of placeholder art or something scraped. Original drawings replace them when there is a drawing budget; the beat shape does not change.
 - Fourth variant added while writing chapter 4. How Zeus got the sky. Hesiod 883-885 has the gods ask him; Iliad 15.187-193 has the brothers draw lots. Same century, two answers. Exactly the kind of fork the product exists to keep open.
 
+- iOS pulled forward as a personal shell in this same repo. Engine decodes `greek.json`. App is SwiftUI, layout A, one `progress.json`, no SwiftData, no type named Path. CI copies the Life is a Game three-job workflow with every `LifeIsAGame` string renamed. Splice login 503s on this laptop, so the Mac plus a free Apple ID is the install that works today. Audio is in git. `.env` is not.
+
 ## Checkpoints that need the owner
 
 - Pick a Tonight layout after a week on the phone. Delete the other two.
-- Cartesia key. `CARTESIA_API_KEY=sk_car_... node tools/tts.mjs --voices` to pick a voice, then `CARTESIA_VOICE_ID=... node tools/tts.mjs` to generate the three chapters. Commit `app/audio/`.
-- Listen to chapter 4 once end to end before anyone else does. If a paragraph drags, cut words in `greek.json` and re-run tts; only that beat regenerates.
+- On the Mac: clone, `xcodegen generate`, pick a team, Run. Hear chapter 4. If a paragraph drags, cut words in `greek.json` and re-run tts; only that beat regenerates.
 - Read chapters 3 to 5 against the Theogony lines cited. The claims are mine from the text, not from a translation the owner has checked.
 - Five strangers, three nights. Two numbers: finished chapter 3, opened chapter 4 the next night.
