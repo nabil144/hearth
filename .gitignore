@@ -1,2 +1,11 @@
 .DS_Store
 node_modules/
+.env
+.toolchain/
+Engine/.build/
+build/
+Payload/
+*.ipa
+*.xcodeproj/
+App/Info.plist
+artifacts/

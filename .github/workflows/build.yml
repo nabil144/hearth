@@ -1,0 +1,92 @@
+name: build
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "**.md"
+  workflow_dispatch:
+
+jobs:
+  engine-tests:
+    name: Engine tests
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.0.app || sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+      - name: swift test
+        working-directory: Engine
+        run: swift test
+
+  simulator:
+    name: Build, run in Simulator, screenshot
+    runs-on: macos-15
+    needs: engine-tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.0.app || sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Pick a simulator
+        id: sim
+        run: |
+          UDID=$(xcrun simctl list devices available -j | python3 -c '
+          import json, sys
+          d = json.load(sys.stdin)["devices"]
+          runtimes = sorted((k for k in d if ".iOS-" in k), key=lambda k: [int(p) for p in k.rsplit("iOS-", 1)[1].split("-")], reverse=True)
+          print(next(x["udid"] for k in runtimes for x in d[k] if x["name"].startswith("iPhone 1")))
+          ')
+          echo "udid=$UDID" >> "$GITHUB_OUTPUT"
+          xcrun simctl boot "$UDID" || true
+          xcrun simctl bootstatus "$UDID" -b
+      - name: Build for Simulator
+        run: |
+          xcodebuild build \
+            -project Hearth.xcodeproj -scheme Hearth \
+            -destination "id=${{ steps.sim.outputs.udid }}" \
+            -derivedDataPath build/sim CODE_SIGNING_ALLOWED=NO | xcpretty || true
+          test -d build/sim/Build/Products/Debug-iphonesimulator/Hearth.app
+      - name: Install, launch, screenshot
+        run: |
+          APP=build/sim/Build/Products/Debug-iphonesimulator/Hearth.app
+          xcrun simctl install "${{ steps.sim.outputs.udid }}" "$APP"
+          xcrun simctl launch "${{ steps.sim.outputs.udid }}" com.nabil.Hearth
+          sleep 4
+          xcrun simctl io "${{ steps.sim.outputs.udid }}" screenshot screenshot.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: simulator-screenshot
+          path: screenshot.png
+
+  device-ipa:
+    name: Unsigned .ipa for Splice
+    runs-on: macos-15
+    needs: engine-tests
+    steps:
+      - uses: actions/checkout@v4
+      - name: Select Xcode
+        run: sudo xcode-select -s /Applications/Xcode_26.0.app || sudo xcode-select -s "$(ls -d /Applications/Xcode*.app | sort -V | tail -1)"
+      - name: Install XcodeGen
+        run: brew install xcodegen
+      - name: Generate project
+        run: xcodegen generate
+      - name: Build for device, signing disabled
+        run: |
+          xcodebuild build \
+            -project Hearth.xcodeproj -scheme Hearth \
+            -sdk iphoneos -configuration Release \
+            -derivedDataPath build/device \
+            CODE_SIGNING_ALLOWED=NO CODE_SIGNING_REQUIRED=NO CODE_SIGN_IDENTITY=""
+      - name: Package .ipa
+        run: |
+          APP=$(find build/device/Build/Products -maxdepth 2 -name "*.app" | head -n 1)
+          mkdir -p Payload && cp -R "$APP" Payload/
+          zip -qr Hearth-unsigned.ipa Payload
+      - uses: actions/upload-artifact@v4
+        with:
+          name: Hearth-unsigned-ipa
+          path: Hearth-unsigned.ipa
