@@ -32,13 +32,13 @@ async function fetchOk(url) {
   }
 }
 
-mkdirSync(new URL('app/stills/', root), { recursive: true });
+mkdirSync(new URL('web/stills/', root), { recursive: true });
 for (const { key, id, beat } of stills) {
   const o = await (await fetchOk(`${API}${id}`)).json();
   if (o.isPublicDomain !== true) throw new Error(`${key}: object ${id} "${o.title}" is not public domain`);
   if (!o.primaryImageSmall) throw new Error(`${key}: object ${id} "${o.title}" has no primaryImageSmall`);
   const src = `stills/${key.replace('/', '-')}.jpg`;
-  const file = new URL(`app/${src}`, root);
+  const file = new URL(`web/${src}`, root);
   if (!existsSync(file)) writeFileSync(file, Buffer.from(await (await fetchOk(o.primaryImageSmall)).arrayBuffer()));
   beat.still = {
     src,

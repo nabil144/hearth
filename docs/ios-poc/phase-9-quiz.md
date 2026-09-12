@@ -8,11 +8,11 @@ The rest of the nightly loop. A check pauses the voice. A wrong answer shows the
 
 ## Changes
 
-- `app/Sources/Views/CardView.swift`. Four options, Held, miss-plus-cite, Continue.
+- `ios/Sources/Views/CardView.swift`. Four options, Held, miss-plus-cite, Continue.
 - Variant layout from `design/lesson.html` fork. Side label is the first word of the source work.
 - Recall uses `pickRecall` from the engine. Done copy from the web player. "Tomorrow:" plus the next title.
 
-`app/app.js` is the behavior spec. Port the rules, not the DOM.
+`web/app.js` is the behavior spec. Port the rules, not the DOM.
 
 ## Data structures
 

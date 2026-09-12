@@ -26,20 +26,20 @@ targets:
     type: application
     platform: iOS
     sources:
-      - path: app/Sources
+      - path: ios/Sources
       - path: content/greek.json
         type: file
         buildPhase: resources
-      - path: app/stills
+      - path: web/stills
         type: folder
         buildPhase: resources
-      - path: app/audio
+      - path: web/audio
         type: folder
         buildPhase: resources
     dependencies:
       - package: HearthEngine
     info:
-      path: app/Info.plist
+      path: ios/Info.plist
       properties:
         CFBundleDisplayName: Hearth
         CFBundleShortVersionString: $(MARKETING_VERSION)

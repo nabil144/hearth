@@ -72,7 +72,7 @@ async function synth(text, out) {
 let made = 0, kept = 0;
 for (const l of c.lessons) {
   if (!l.beats.length || (only.size && !onlyLesson.has(l.id))) continue;
-  const dir = new URL(`app/audio/${l.id}/`, root);
+  const dir = new URL(`web/audio/${l.id}/`, root);
   mkdirSync(dir, { recursive: true });
   for (const [i, b] of l.beats.entries()) {
     if (b.kind === 'recall') continue;

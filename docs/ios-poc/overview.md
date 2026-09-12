@@ -4,7 +4,7 @@ The plan is the deliverable. Do not implement until the owner says to start.
 
 ## Context
 
-The web player at `app/` already tells three Greek chapters. Stills, Cartesia audio, checks, variants, and recall all work in a browser. The owner wants that loop on an iPhone they can hold, the same way [life-is-a-game](https://github.com/nabil144/life-is-a-game) went from HTML mockups to an unsigned `.ipa` on the phone.
+The web player at `web/` already tells three Greek chapters. Stills, Cartesia audio, checks, variants, and recall all work in a browser. The owner wants that loop on an iPhone they can hold, the same way [life-is-a-game](https://github.com/nabil144/life-is-a-game) went from HTML mockups to an unsigned `.ipa` on the phone.
 
 `docs/build-plan.md` had parked iOS in "month 4, after paying users." That was right for an App Store listing. It is the wrong gate for a personal install. The content has earned a shell. The shorts have not earned a store page.
 
@@ -19,7 +19,7 @@ The web player at `app/` already tells three Greek chapters. Stills, Cartesia au
 - No Mac on the desk for everyday builds. Build on `macos-15` runners. `splice` is on PATH here and `splice login` currently dies with HTTP 503 from Apple, then segfaults. Life is a Game already hit this. The unsigned `.ipa` is still the CI artifact. The working install, until Splice is back, is Xcode on a Mac with a free Apple ID, or a later Splice retry. Do not declare the POC done on a green Actions badge.
 - Public repo on `nabil144`, `github-personal` SSH alias, per-repo identity. Free macOS minutes. Work account stays out.
 - iOS 26 / Xcode 26 / Swift 6, same as `life-is-a-game/project.yml`. Copy those numbers, do not invent new ones.
-- Content is `content/greek.json`. Stills are `app/stills/*.jpg` (~2.6 MB) and already in git. Audio is `app/audio/<lesson>/<n>.mp3` (~8.3 MB, 25 clips), on disk, **not committed**. The runner will not see it until `app/audio/` is added. Both fit in the `.ipa` once they are in the tree.
+- Content is `content/greek.json`. Stills are `web/stills/*.jpg` (~2.6 MB) and already in git. Audio is `web/audio/<lesson>/<n>.mp3` (~8.3 MB, 25 clips), on disk, **not committed**. The runner will not see it until `web/audio/` is added. Both fit in the `.ipa` once they are in the tree.
 - `node content/check.mjs` stays the content gate. Swift does not reimplement it. Swift decodes what the check already accepted.
 - This laptop has no iOS control skill. Runtime proof is the Actions Simulator screenshot plus the owner tapping the phone after `splice install`. Flag that on every UI phase.
 

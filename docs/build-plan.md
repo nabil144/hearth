@@ -53,9 +53,9 @@ What does not carry over. Life is a Game has no server and one user. Hearth has 
 
 ## The POC, concretely
 
-Done on 2026-09-12: chapters 3, 4, 5 written as beats in `content/greek.json`, Met CC0 stills per beat, the web player in `app/`, and the Cartesia generator in `tools/tts.mjs`.
+Done on 2026-09-12: chapters 3, 4, 5 written as beats in `content/greek.json`, Met CC0 stills per beat, the web player in `web/`, and the Cartesia generator in `tools/tts.mjs`.
 
-1. Set `CARTESIA_API_KEY`, pick a voice with `node tools/tts.mjs --voices`, generate, commit `app/audio/`.
+1. Set `CARTESIA_API_KEY`, pick a voice with `node tools/tts.mjs --voices`, generate, commit `web/audio/`.
 2. Listen to chapter 4 end to end on a phone from the Pages URL. Cut any paragraph that drags in `greek.json`, re-run tts.
 3. Five strangers, three nights. Finished chapter 3, opened chapter 4 the next night. Those two numbers decide whether chapters 1, 2, and 6 to 12 get written.
 4. In parallel, the ten shorts. `design/today-c.html` is the link under each video.

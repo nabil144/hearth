@@ -8,8 +8,8 @@ A still beat shows the Met picture, the spoken caption, the credit line, and pla
 
 ## Changes
 
-- `app/Sources/Views/LessonView.swift`. Dots, chapter line, still frame, caption.
-- `app/Sources/Voice.swift`. One player. Stop on beat change. The `onended` bug from the web review must not return. Only still beats auto-advance.
+- `ios/Sources/Views/LessonView.swift`. Dots, chapter line, still frame, caption.
+- `ios/Sources/Voice.swift`. One player. Stop on beat change. The `onended` bug from the web review must not return. Only still beats auto-advance.
 
 ## Data structures
 

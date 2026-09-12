@@ -4,7 +4,7 @@ Back to [overview](overview.md).
 
 ## Before the first ipa that should speak
 
-`git ls-files app/audio` must list the 25 MP3s. If it prints nothing, the runner has no voice. Commit those files on purpose. They are not a secret. `.env` stays untracked.
+`git ls-files web/audio` must list the 25 MP3s. If it prints nothing, the runner has no voice. Commit those files on purpose. They are not a secret. `.env` stays untracked.
 
 ## Always
 

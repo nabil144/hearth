@@ -16,16 +16,16 @@ The repo holds the plan, the mockups, a web player, and a SwiftUI iOS shell that
 - `content/check.mjs` proves every claim has a source, every check asks only what its chapter said, every written lesson ends in recall, and no `do-not-ship` tradition has a lesson.
 - `tools/stills.mjs` downloads the CC0 pictures from the Met and writes their credits into `greek.json`.
 - `tools/tts.mjs` generates one MP3 per beat with Cartesia. Idempotent by text hash.
-- `app/` the player. Vanilla HTML, CSS, and JS. Reads `content/greek.json`, plays `app/audio/`, keeps progress in local storage, installs to a phone home screen.
+- `web/` the player. Vanilla HTML, CSS, and JS. Reads `content/greek.json`, plays `web/audio/`, keeps progress in local storage.
 - `Engine/` pure Swift package. Decodes the corpus and owns progress and recall rules. Tests run on Linux.
-- `app/Sources/` SwiftUI shell. Tonight, Lesson, Done. One JSON progress file. No server. Lives next to the web player because a Mac disk treats `App` and `app` as the same folder.
+- `ios/` SwiftUI shell. Tonight, Lesson, Done. Separate from `web/` because a Mac disk treats `App` and `app` as the same folder.
 - `project.yml` XcodeGen definition. `xcodegen generate` produces the Xcode project.
 - `docs/ios-poc/` how the iOS shell is sequenced.
 - `DECISIONS.md` why things are the way they are.
 
 ## Run the player
 
-On the web: https://nabil144.github.io/hearth/app/
+On the web: https://nabil144.github.io/hearth/web/
 
 Locally:
 
@@ -33,7 +33,7 @@ Locally:
 cd ~/hearth && python3 -m http.server 8000
 ```
 
-Then open http://localhost:8000/app/ in a phone-width window. `?lesson=greek-04&beat=5` opens a beat directly.
+Then open http://localhost:8000/web/ in a phone-width window. `?lesson=greek-04&beat=5` opens a beat directly.
 
 Without audio files the player shows "no audio yet" and you tap through. To generate the audio:
 
@@ -55,6 +55,8 @@ node content/check.mjs
 Prints the counts and exits 0, or lists every unbound id and exits 1. GitHub Actions runs it on every push.
 
 ## Run the iOS app on a Mac
+
+If you already cloned when the folder was called `App`, delete that clone. A Mac will not rename `App` to `app`. Start from a fresh directory.
 
 ```sh
 git clone git@github-personal:nabil144/hearth.git

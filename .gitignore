@@ -7,5 +7,5 @@ build/
 Payload/
 *.ipa
 *.xcodeproj/
-app/Info.plist
+ios/Info.plist
 artifacts/

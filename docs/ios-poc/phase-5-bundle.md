@@ -8,10 +8,10 @@ The app target contains `greek.json`, the 21 still JPEGs, and the 25 MP3s. On la
 
 ## Changes
 
-- `project.yml` resource folders for `content/greek.json`, `app/stills`, and `app/audio`. Folder references, not file lists, so a new clip is a git add and not a project edit.
+- `project.yml` resource folders for `content/greek.json`, `web/stills`, and `web/audio`. Folder references, not file lists, so a new clip is a git add and not a project edit.
 - A tiny `Bundle+Corpus` loader in the app that asks `HearthEngine` to decode the bundled JSON. Keep the loader in the app. The engine stays file-agnostic.
 
-Do not copy media into `Engine/`. Do not add a download step. Commit `app/audio/` in this phase or the one before it. Stills are already tracked. The MP3s are not. A bundle step that only lists folders in `project.yml` will ship a silent ipa from CI.
+Do not copy media into `Engine/`. Do not add a download step. Commit `web/audio/` in this phase or the one before it. Stills are already tracked. The MP3s are not. A bundle step that only lists folders in `project.yml` will ship a silent ipa from CI.
 
 ## Data structures
 

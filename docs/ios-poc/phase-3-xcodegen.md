@@ -9,8 +9,8 @@ Back to [overview](overview.md).
 ## Changes
 
 - `project.yml`. Copy structure from `~/life-is-a-game/project.yml`. Rename to Hearth. Bundle id `com.nabil.Hearth`. Display name Hearth. Portrait only. `UIBackgroundModes` is `audio`, not `fetch`. Empty `DEVELOPMENT_TEAM`. Signing automatic, disabled later in CI.
-- `app/Sources/HearthApp.swift` and a stub `RootView`. No Settings split yet. Do not name any type `Path`.
-- `app/Info.plist` generated via the `info` block, same as Life is a Game.
+- `ios/Sources/HearthApp.swift` and a stub `RootView`. No Settings split yet. Do not name any type `Path`.
+- `ios/Info.plist` generated via the `info` block, same as Life is a Game.
 
 ## Data structures
 
