@@ -8,23 +8,27 @@ struct CardView: View {
     let spoken: String?
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            if let spoken, !spoken.isEmpty {
-                Text(spoken).font(.subheadline).foregroundStyle(Ink.muted)
-            }
-            VStack(alignment: .leading, spacing: 10) {
+        VStack(alignment: .leading, spacing: 10) {
                 Text(eyebrow)
                     .font(.caption.weight(.bold))
                     .tracking(1.2)
                     .foregroundStyle(Ink.ember)
+                if let spoken, !spoken.isEmpty {
+                    Text(spoken)
+                        .font(.subheadline)
+                        .foregroundStyle(Ink.muted)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 Text(card.prompt)
                     .font(Ink.question)
                     .foregroundStyle(Ink.text)
+                    .fixedSize(horizontal: false, vertical: true)
                 ForEach(card.options.indices, id: \.self) { n in
                     Button { store.grade(card, option: n) } label: {
                         Text(card.options[n])
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(14)
+                            .padding(.horizontal, 14)
+                            .padding(.vertical, 12)
                             .background(Ink.card2, in: RoundedRectangle(cornerRadius: 14))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 14)

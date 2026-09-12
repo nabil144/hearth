@@ -21,6 +21,16 @@ final class Voice: NSObject, AVAudioPlayerDelegate {
         return player?.play() ?? false
     }
 
+    var isPlaying: Bool { player?.isPlaying == true }
+
+    func pause() {
+        player?.pause()
+    }
+
+    func resume() -> Bool {
+        player?.play() ?? false
+    }
+
     func stop() {
         player?.delegate = nil
         player?.stop()

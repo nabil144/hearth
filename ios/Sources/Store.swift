@@ -27,7 +27,9 @@ final class Store {
     var feedback: Feedback?
     var reviewing = false
     var silent = false
+    var paused = false
     private var holdAdvance: Task<Void, Never>?
+    private var pageGap: Task<Void, Never>?
     private let fileURL: URL
     let voice = Voice()
 
@@ -84,17 +86,33 @@ final class Store {
 
     func goHome() {
         holdAdvance?.cancel()
+        pageGap?.cancel()
         voice.stop()
         resetSession()
         reviewing = false
         screen = .tonight
     }
 
+    func togglePause() {
+        if voice.isPlaying {
+            voice.pause()
+            paused = true
+            pageGap?.cancel()
+            return
+        }
+        if paused {
+            paused = false
+            if !voice.resume() { playCurrent() }
+        }
+    }
+
     func forward() {
         holdAdvance?.cancel()
+        pageGap?.cancel()
         choice = nil
         feedback = nil
         silent = false
+        paused = false
         if reviewing || isRecall {
             i += 1
             if i >= queue.count { finish(); return }
@@ -110,9 +128,11 @@ final class Store {
 
     func back() {
         holdAdvance?.cancel()
+        pageGap?.cancel()
         choice = nil
         feedback = nil
         silent = false
+        paused = false
         if reviewing {
             if i > 0 { i -= 1 }
             else { goHome() }
@@ -190,6 +210,8 @@ final class Store {
 
     private func playCurrent() {
         silent = false
+        paused = false
+        pageGap?.cancel()
         voice.stop()
         guard !reviewing, case .lesson(let lessonId, let beat) = screen, let kind = currentBeat else { return }
         if case .recall = kind { return }
@@ -197,11 +219,17 @@ final class Store {
     }
 
     private func audioEnded() {
-        if case .still = currentBeat { forward() }
+        guard case .still = currentBeat, !paused else { return }
+        pageGap = Task { [weak self] in
+            try? await Task.sleep(for: .milliseconds(700))
+            guard !Task.isCancelled else { return }
+            self?.forward()
+        }
     }
 
     private func resetSession() {
         holdAdvance?.cancel()
+        pageGap?.cancel()
         queue = []
         i = 0
         held = 0
@@ -209,6 +237,7 @@ final class Store {
         choice = nil
         feedback = nil
         silent = false
+        paused = false
     }
 
     private func save() {
