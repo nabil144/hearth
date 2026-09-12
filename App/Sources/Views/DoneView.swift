@@ -15,13 +15,16 @@ struct DoneView: View {
             Text(tomorrow)
                 .foregroundStyle(Ink.muted)
             Text("\(store.held) held · \(store.missed) missed")
+                .font(.subheadline)
                 .foregroundStyle(Ink.muted)
             Button("Back to tonight") { store.goHome() }
                 .buttonStyle(EmberButton())
                 .padding(.top, 12)
             Spacer()
         }
-        .padding(24)
+        .padding(.horizontal, 24)
+        .padding(.top, 56)
+        .padding(.bottom, 40)
     }
 
     private var tomorrow: String {

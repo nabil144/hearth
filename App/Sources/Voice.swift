@@ -1,5 +1,4 @@
 import AVFoundation
-import HearthEngine
 
 final class Voice: NSObject, AVAudioPlayerDelegate {
     private var player: AVAudioPlayer?
@@ -7,16 +6,18 @@ final class Voice: NSObject, AVAudioPlayerDelegate {
 
     func activate() {
         let session = AVAudioSession.sharedInstance()
-        try? session.setCategory(.playback, mode: .spokenAudio)
+        try? session.setCategory(.playback)
         try? session.setActive(true)
     }
 
-    func play(lesson: String, beat: Int) {
+    @discardableResult
+    func play(lesson: String, beat: Int) -> Bool {
         stop()
-        guard let url = BundleCorpus.audioURL(lesson: lesson, beat: beat) else { return }
-        player = try? AVAudioPlayer(contentsOf: url)
+        guard let url = BundleCorpus.audioURL(lesson: lesson, beat: beat) else { return false }
+        guard let next = try? AVAudioPlayer(contentsOf: url) else { return false }
+        player = next
         player?.delegate = self
-        player?.play()
+        return player?.play() ?? false
     }
 
     func stop() {

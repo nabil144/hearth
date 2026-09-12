@@ -6,11 +6,15 @@ struct RootView: View {
     var body: some View {
         ZStack {
             Ink.bg.ignoresSafeArea()
-            switch store.screen {
-            case .tonight: TonightView()
-            case .lesson: LessonView()
-            case .done: DoneView()
+            Group {
+                switch store.screen {
+                case .tonight: TonightView()
+                case .lesson: LessonView()
+                case .done: DoneView()
+                }
             }
+            .frame(maxWidth: 430)
+            .frame(maxWidth: .infinity)
         }
         .preferredColorScheme(.dark)
     }

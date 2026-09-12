@@ -6,31 +6,42 @@ struct LessonView: View {
     @Environment(Store.self) private var store
 
     var body: some View {
-        VStack(spacing: 12) {
+        VStack(alignment: .leading, spacing: 10) {
             if !store.reviewing, let lesson = store.currentLesson, case .lesson(_, let beat) = store.screen {
                 dots(count: lesson.beats.count, now: beat)
-                HStack {
-                    Text("Chapter \(lesson.n) of \(store.corpus.lessons.count) · \(lesson.title)")
+                HStack(alignment: .top) {
+                    (Text("Chapter \(lesson.n) of \(store.chapterCount) · ") + Text(lesson.title).bold())
                         .font(.subheadline)
                         .foregroundStyle(Ink.muted)
-                    Spacer()
+                    Spacer(minLength: 12)
                     Text("\(beat + 1) / \(lesson.beats.count)")
                         .font(.subheadline)
                         .foregroundStyle(Ink.muted)
                 }
             }
             ScrollView {
-                content.padding(.bottom, 24)
+                VStack(alignment: .leading, spacing: 12) {
+                    content
+                    if store.silent {
+                        Text("no audio yet, tap to continue")
+                            .font(.subheadline)
+                            .foregroundStyle(Ink.muted)
+                            .frame(maxWidth: .infinity)
+                            .padding(.top, 4)
+                    }
+                }
+                .padding(.bottom, 24)
             }
         }
         .padding(.horizontal, 16)
         .padding(.top, 12)
+        .padding(.bottom, 16)
     }
 
     @ViewBuilder
     private var content: some View {
-        if let card = store.currentCard, store.reviewing || store.isRecall {
-            CardView(card: card, eyebrow: "Recall · \(store.queueIndex + 1) of \(store.queue.count)", spoken: nil)
+        if store.isRecall, let card = store.currentCard {
+            CardView(card: card, eyebrow: "Recall · \(store.i + 1) of \(store.queue.count)", spoken: nil)
         } else if let beat = store.currentBeat {
             switch beat {
             case .still(let art, let text):
@@ -43,20 +54,22 @@ struct LessonView: View {
                 variant(id, spoken)
             case .recall:
                 if let card = store.currentCard {
-                    CardView(card: card, eyebrow: "Recall · \(store.queueIndex + 1) of \(store.queue.count)", spoken: nil)
+                    CardView(card: card, eyebrow: "Recall · \(store.i + 1) of \(store.queue.count)", spoken: nil)
                 }
             }
         }
     }
 
     private func still(_ art: StillArt?, _ text: String) -> some View {
-        VStack(alignment: .leading, spacing: 12) {
+        VStack(alignment: .leading, spacing: 8) {
             ZStack {
                 Ink.card
                 if let art, let url = BundleCorpus.stillURL(art.src), let img = UIImage(contentsOfFile: url.path) {
-                    Image(uiImage: img).resizable().scaledToFill()
+                    Image(uiImage: img)
+                        .resizable()
+                        .scaledToFill()
                 } else {
-                    Text("Still").foregroundStyle(Ink.muted)
+                    Text("Still").font(.caption).foregroundStyle(Ink.muted)
                 }
                 HStack(spacing: 0) {
                     Color.clear.contentShape(Rectangle()).onTapGesture { store.back() }
@@ -64,16 +77,31 @@ struct LessonView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .frame(height: 320)
+            .aspectRatio(4 / 5, contentMode: .fit)
+            .frame(maxHeight: 340)
             .clipShape(RoundedRectangle(cornerRadius: 22))
+            .overlay(RoundedRectangle(cornerRadius: 22).stroke(Ink.line))
             Text(text)
-                .font(.system(.title3, design: .serif))
+                .font(.system(size: 18, design: .serif))
                 .foregroundStyle(Ink.text)
+                .padding(.top, 8)
             if let art {
-                Text("\(art.title), \(art.credit)")
-                    .font(.caption)
-                    .foregroundStyle(Ink.gold)
+                credit(art)
             }
+        }
+    }
+
+    @ViewBuilder
+    private func credit(_ art: StillArt) -> some View {
+        let label = [art.title, art.credit].filter { !$0.isEmpty }.joined(separator: ", ")
+        if let url = URL(string: art.url), !art.url.isEmpty {
+            Link(label, destination: url)
+                .font(.caption)
+                .foregroundStyle(Ink.gold)
+        } else if !label.isEmpty {
+            Text(label)
+                .font(.caption)
+                .foregroundStyle(Ink.muted)
         }
     }
 
@@ -87,14 +115,24 @@ struct LessonView: View {
                     .tracking(1.2)
                     .foregroundStyle(Ink.ember)
                 Text(v?.question ?? "")
-                    .font(.system(.title2, design: .serif).weight(.bold))
+                    .font(Ink.question)
                     .foregroundStyle(Ink.text)
                 HStack(alignment: .top, spacing: 10) {
                     ForEach(v?.claims ?? [], id: \.self) { cid in
                         VStack(alignment: .leading, spacing: 6) {
-                            Text(store.corpus.sideName(cid)).font(.caption.weight(.bold)).foregroundStyle(Ink.gold)
-                            Text(store.corpus.claimsById[cid]?.text ?? "").font(.subheadline).foregroundStyle(Ink.text)
-                            Text(store.corpus.cite(cid)).font(.caption).foregroundStyle(Ink.gold)
+                            Text(store.corpus.sideName(cid))
+                                .font(.caption.weight(.bold))
+                                .tracking(0.8)
+                                .foregroundStyle(Ink.gold)
+                            Text(store.corpus.claimsById[cid]?.text ?? "")
+                                .font(.subheadline)
+                                .foregroundStyle(Ink.text)
+                            Text(store.corpus.cite(cid))
+                                .font(.caption)
+                                .padding(.horizontal, 8)
+                                .padding(.vertical, 3)
+                                .overlay(RoundedRectangle(cornerRadius: 8).stroke(Ink.line))
+                                .foregroundStyle(Ink.gold)
                         }
                         .padding(14)
                         .frame(maxWidth: .infinity, alignment: .leading)
@@ -104,17 +142,19 @@ struct LessonView: View {
                 Text(v?.note ?? "").font(.subheadline).foregroundStyle(Ink.muted)
                 Button("Continue") { store.forward() }
                     .buttonStyle(EmberButton())
+                    .padding(.top, 8)
             }
             .padding(20)
             .background(Ink.card, in: RoundedRectangle(cornerRadius: 22))
+            .overlay(RoundedRectangle(cornerRadius: 22).stroke(Ink.line))
         }
     }
 
     private func dots(count: Int, now: Int) -> some View {
         HStack(spacing: 4) {
-            ForEach(0..<count, id: \.self) { i in
+            ForEach(0..<count, id: \.self) { n in
                 Capsule()
-                    .fill(i < now ? Ink.gold : i == now ? Ink.ember : Ink.line)
+                    .fill(n < now ? Ink.gold : n == now ? Ink.ember : Ink.line)
                     .frame(height: 3)
             }
         }

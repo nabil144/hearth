@@ -8,16 +8,18 @@ struct TonightView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 16) {
                 Text("Tonight")
-                    .font(Ink.serif)
+                    .font(Ink.display)
                     .foregroundStyle(Ink.text)
                 Text(dateLine)
                     .font(.subheadline)
                     .foregroundStyle(Ink.muted)
+                    .padding(.bottom, 4)
                 if let lesson = store.tonight {
-                    card(lesson)
+                    telling(lesson)
                 } else {
                     Text("You have heard everything written so far. More is being written.")
                         .foregroundStyle(Ink.muted)
+                        .multilineTextAlignment(.center)
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 28)
                     Button("Review") { store.review() }
@@ -27,7 +29,7 @@ struct TonightView: View {
                     Text("Still warm")
                         .font(.title3.weight(.bold))
                         .foregroundStyle(Ink.text)
-                        .padding(.top, 8)
+                        .padding(.top, 10)
                     VStack(alignment: .leading, spacing: 0) {
                         ForEach(store.warm) { lesson in
                             HStack {
@@ -39,20 +41,22 @@ struct TonightView: View {
                             }
                             .padding(.vertical, 14)
                             if lesson.id != store.warm.last?.id {
-                                Divider().overlay(Ink.line)
+                                Ink.line.frame(height: 1)
                             }
                         }
                     }
                     .padding(.horizontal, 20)
                     .background(Ink.card, in: RoundedRectangle(cornerRadius: 22))
+                    .overlay(RoundedRectangle(cornerRadius: 22).stroke(Ink.line))
                 }
             }
-            .padding(16)
-            .padding(.top, 24)
+            .padding(.horizontal, 16)
+            .padding(.top, 40)
+            .padding(.bottom, 40)
         }
     }
 
-    private func card(_ lesson: Lesson) -> some View {
+    private func telling(_ lesson: Lesson) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("TONIGHT'S TELLING")
                 .font(.caption.weight(.bold))
@@ -69,13 +73,16 @@ struct TonightView: View {
                 .foregroundStyle(Ink.muted)
             Button { store.listen(lesson.id) } label: {
                 HStack(spacing: 14) {
-                    Text("▶").font(.title2).frame(width: 52, height: 52)
+                    Text("▶")
+                        .font(.title2)
+                        .frame(width: 52, height: 52)
                         .background(Ink.ember, in: Circle())
-                        .foregroundStyle(Color(red: 26 / 255, green: 15 / 255, blue: 6 / 255))
-                    VStack(alignment: .leading) {
+                        .foregroundStyle(Ink.onEmber)
+                    VStack(alignment: .leading, spacing: 2) {
                         Text("Listen").bold().foregroundStyle(Ink.text)
                         Text("One family check halfway. Three recall cards after.")
-                            .font(.subheadline).foregroundStyle(Ink.muted)
+                            .font(.subheadline)
+                            .foregroundStyle(Ink.muted)
                     }
                     Spacer()
                 }
@@ -87,30 +94,29 @@ struct TonightView: View {
         }
         .padding(20)
         .background(Ink.card, in: RoundedRectangle(cornerRadius: 22))
+        .overlay(RoundedRectangle(cornerRadius: 22).stroke(Ink.line))
     }
 
     private var dateLine: String {
-        let day = Date.now.formatted(.dateTime.weekday(.wide).day().month(.wide))
+        let day = Date.now.formatted(
+            .dateTime.weekday(.wide).day().month(.wide).locale(Locale(identifier: "en_GB"))
+        )
         if let lesson = store.tonight {
-            return "\(day) · Greek, chapter \(lesson.n) of \(store.corpus.lessons.count)"
+            return "\(day) · Greek, chapter \(lesson.n) of \(store.chapterCount)"
         }
         return day
     }
 
     private func heardLine(_ lesson: Lesson) -> String {
-        let iso = store.progress.heard[lesson.id] ?? ""
-        return iso == CalendarDay.ymd() ? "Today" : iso
-    }
-}
-
-struct EmberButton: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            .font(.headline)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 14)
-            .background(Ink.ember, in: RoundedRectangle(cornerRadius: 14))
-            .foregroundStyle(Color(red: 26 / 255, green: 15 / 255, blue: 6 / 255))
-            .opacity(configuration.isPressed ? 0.8 : 1)
+        guard let iso = store.progress.heard[lesson.id] else { return "" }
+        if iso == CalendarDay.ymd() { return "Today" }
+        let parts = iso.split(separator: "-").compactMap { Int($0) }
+        guard parts.count == 3 else { return iso }
+        var comps = DateComponents()
+        comps.year = parts[0]
+        comps.month = parts[1]
+        comps.day = parts[2]
+        guard let date = Calendar.current.date(from: comps) else { return iso }
+        return date.formatted(.dateTime.day().month(.abbreviated).locale(Locale(identifier: "en_GB")))
     }
 }

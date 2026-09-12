@@ -4,7 +4,7 @@ import HearthEngine
 
 enum Screen: Equatable {
     case tonight
-    case lesson(id: String, beat: Int)
+    case lesson(lessonId: String, beat: Int)
     case done
 }
 
@@ -19,12 +19,13 @@ final class Store {
     var progress: Progress
     var screen: Screen = .tonight
     var queue: [Card] = []
-    var queueIndex = 0
+    var i = 0
     var held = 0
     var missed = 0
     var choice: Int?
     var feedback: Feedback?
     var reviewing = false
+    var silent = false
     private var holdAdvance: DispatchWorkItem?
     private let fileURL: URL
     let voice = Voice()
@@ -33,7 +34,7 @@ final class Store {
         if let corpus {
             self.corpus = corpus
         } else {
-            self.corpus = (try? BundleCorpus.load()) ?? Corpus(traditions: [], sources: [], entities: [], claims: [], variants: [], cards: [], lessons: [])
+            self.corpus = (try? BundleCorpus.load()) ?? Corpus()
         }
         let base = directory ?? FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
             .appendingPathComponent("Hearth", isDirectory: true)
@@ -49,34 +50,41 @@ final class Store {
     var tonight: Lesson? { corpus.nextLesson(heard: progress.heard) }
     var warm: [Lesson] { corpus.written.filter { progress.heard[$0.id] != nil } }
 
-    func listen(_ id: String) {
-        clearSession()
+    var chapterCount: Int {
+        let tradition = corpus.written.first?.tradition ?? "greek"
+        let n = corpus.lessons.filter { $0.tradition == tradition }.count
+        return n == 0 ? 12 : n
+    }
+
+    func listen(_ lessonId: String) {
+        resetSession()
         reviewing = false
-        screen = .lesson(id: id, beat: 0)
+        screen = .lesson(lessonId: lessonId, beat: 0)
         playCurrent()
     }
 
     func review() {
+        let today = CalendarDay.ymd()
         let allowed = Set(progress.heard.keys.flatMap { corpus.lessonsById[$0]?.claims ?? [] })
         let due = progress.cards
             .filter { rec in
-                rec.value.due <= CalendarDay.ymd()
+                rec.value.due <= today
                     && corpus.cardsById[rec.key] != nil
                     && allowed.contains(corpus.cardsById[rec.key]!.claim)
             }
             .sorted { $0.value.due < $1.value.due }
             .compactMap { corpus.cardsById[$0.key] }
         guard !due.isEmpty else { return }
-        clearSession()
+        resetSession()
         reviewing = true
         queue = Array(due.prefix(3))
-        screen = .lesson(id: tonight?.id ?? corpus.written.last?.id ?? "", beat: 0)
+        screen = .lesson(lessonId: "", beat: 0)
     }
 
     func goHome() {
         holdAdvance?.cancel()
         voice.stop()
-        clearSession()
+        resetSession()
         reviewing = false
         screen = .tonight
     }
@@ -85,15 +93,16 @@ final class Store {
         holdAdvance?.cancel()
         choice = nil
         feedback = nil
+        silent = false
         if reviewing || isRecall {
-            queueIndex += 1
-            if queueIndex >= queue.count { finish(); return }
+            i += 1
+            if i >= queue.count { finish(); return }
             playCurrent()
             return
         }
-        guard case .lesson(let id, let beat) = screen, let lesson = corpus.lessonsById[id] else { return }
+        guard case .lesson(let lessonId, let beat) = screen, let lesson = corpus.lessonsById[lessonId] else { return }
         let next = min(lesson.beats.count - 1, beat + 1)
-        screen = .lesson(id: id, beat: next)
+        screen = .lesson(lessonId: lessonId, beat: next)
         if case .recall = lesson.beats[next] { armRecall(lesson) }
         playCurrent()
     }
@@ -102,16 +111,17 @@ final class Store {
         holdAdvance?.cancel()
         choice = nil
         feedback = nil
+        silent = false
         if reviewing {
-            if queueIndex > 0 { queueIndex -= 1 }
+            if i > 0 { i -= 1 }
             else { goHome() }
             return
         }
         if isRecall {
-            if queueIndex > 0 { queueIndex -= 1; return }
+            if i > 0 { i -= 1; return }
         }
-        guard case .lesson(let id, let beat) = screen else { return }
-        screen = .lesson(id: id, beat: max(0, beat - 1))
+        guard case .lesson(let lessonId, let beat) = screen else { return }
+        screen = .lesson(lessonId: lessonId, beat: max(0, beat - 1))
         playCurrent()
     }
 
@@ -136,17 +146,19 @@ final class Store {
     }
 
     var currentLesson: Lesson? {
-        guard case .lesson(let id, _) = screen else { return nil }
-        return corpus.lessonsById[id]
+        guard case .lesson(let lessonId, _) = screen else { return nil }
+        return corpus.lessonsById[lessonId]
     }
 
     var currentBeat: Beat? {
-        guard case .lesson(_, let beat) = screen else { return nil }
-        return currentLesson?.beats[safe: beat]
+        guard case .lesson(_, let beat) = screen, let beats = currentLesson?.beats, beats.indices.contains(beat) else {
+            return nil
+        }
+        return beats[beat]
     }
 
     var currentCard: Card? {
-        if reviewing || isRecall { return queue[safe: queueIndex] }
+        if reviewing || isRecall { return queue.indices.contains(i) ? queue[i] : nil }
         if case .check(let id, _) = currentBeat { return corpus.cardsById[id] }
         return nil
     }
@@ -160,38 +172,40 @@ final class Store {
     private func armRecall(_ lesson: Lesson) {
         if !queue.isEmpty { return }
         queue = Review.pickRecall(corpus: corpus, lesson: lesson, progress: progress)
-        queueIndex = 0
+        i = 0
         if queue.isEmpty { finish() }
     }
 
     private func finish() {
         voice.stop()
-        if !reviewing, case .lesson(let id, _) = screen {
-            progress.heard[id] = CalendarDay.ymd()
+        if !reviewing, case .lesson(let lessonId, _) = screen, !lessonId.isEmpty {
+            progress.heard[lessonId] = CalendarDay.ymd()
             save()
         }
         screen = .done
     }
 
     private func playCurrent() {
+        silent = false
         voice.stop()
-        guard !reviewing, case .lesson(let id, let beat) = screen, let kind = currentBeat else { return }
+        guard !reviewing, case .lesson(let lessonId, let beat) = screen, let kind = currentBeat else { return }
         if case .recall = kind { return }
-        voice.play(lesson: id, beat: beat)
+        silent = !voice.play(lesson: lessonId, beat: beat)
     }
 
     private func audioEnded() {
         if case .still = currentBeat { forward() }
     }
 
-    private func clearSession() {
+    private func resetSession() {
         holdAdvance?.cancel()
         queue = []
-        queueIndex = 0
+        i = 0
         held = 0
         missed = 0
         choice = nil
         feedback = nil
+        silent = false
     }
 
     private func save() {
@@ -209,11 +223,5 @@ final class Store {
             try? FileManager.default.moveItem(at: url, to: aside)
             return Progress()
         }
-    }
-}
-
-private extension Array {
-    subscript(safe i: Int) -> Element? {
-        indices.contains(i) ? self[i] : nil
     }
 }

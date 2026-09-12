@@ -18,28 +18,33 @@ struct CardView: View {
                     .tracking(1.2)
                     .foregroundStyle(Ink.ember)
                 Text(card.prompt)
-                    .font(.system(.title2, design: .serif).weight(.bold))
+                    .font(Ink.question)
                     .foregroundStyle(Ink.text)
-                ForEach(card.options.indices, id: \.self) { i in
-                    Button { store.grade(card, option: i) } label: {
-                        Text(card.options[i])
+                ForEach(card.options.indices, id: \.self) { n in
+                    Button { store.grade(card, option: n) } label: {
+                        Text(card.options[n])
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(14)
                             .background(Ink.card2, in: RoundedRectangle(cornerRadius: 14))
                             .overlay(
                                 RoundedRectangle(cornerRadius: 14)
-                                    .stroke(border(i), lineWidth: store.choice == i ? 2 : 0)
+                                    .stroke(border(n), lineWidth: store.choice == n ? 2 : 1)
                             )
-                            .foregroundStyle(store.choice == i && store.feedback != .held ? Ink.bad : Ink.text)
+                            .foregroundStyle(ink(n))
                     }
                     .buttonStyle(.plain)
                     .disabled(store.choice != nil)
                 }
                 if store.feedback == .held {
-                    Text("Held.").foregroundStyle(Ink.ok)
+                    Text("Held.")
+                        .foregroundStyle(Ink.ok)
+                        .padding(.top, 4)
                 }
                 if case .miss(let text, let cite) = store.feedback {
-                    Text(text).foregroundStyle(Ink.text)
+                    Text(text)
+                        .font(.subheadline)
+                        .foregroundStyle(Ink.text)
+                        .padding(.top, 4)
                     Text(cite)
                         .font(.caption)
                         .padding(.horizontal, 8)
@@ -48,15 +53,22 @@ struct CardView: View {
                         .foregroundStyle(Ink.gold)
                     Button("Continue") { store.forward() }
                         .buttonStyle(EmberButton())
+                        .padding(.top, 8)
                 }
             }
             .padding(20)
             .background(Ink.card, in: RoundedRectangle(cornerRadius: 22))
+            .overlay(RoundedRectangle(cornerRadius: 22).stroke(Ink.line))
         }
     }
 
-    private func border(_ i: Int) -> Color {
-        guard store.choice == i else { return .clear }
+    private func border(_ n: Int) -> Color {
+        guard store.choice == n else { return Ink.line }
         return store.feedback == .held ? Ink.ok : Ink.bad
+    }
+
+    private func ink(_ n: Int) -> Color {
+        if store.choice == n, store.feedback != .held { return Ink.bad }
+        return Ink.text
     }
 }
