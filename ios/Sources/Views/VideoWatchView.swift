@@ -48,11 +48,19 @@ struct VideoWatchView: View {
             player.play()
             playing = true
             Task {
-                try? await Task.sleep(for: .seconds(6))
-                if item.status == .readyToPlay {
-                    note = ""
-                } else {
-                    note = "Cannot reach the film. Same Wi-Fi as this computer, allow local network, and keep python3 tools/serve-film.py running."
+                for _ in 0..<80 {
+                    if item.status == .readyToPlay {
+                        note = ""
+                        return
+                    }
+                    if item.status == .failed {
+                        note = "Cannot reach the film. Same Wi-Fi as this computer, allow local network, and keep python3 tools/serve-film.py running."
+                        return
+                    }
+                    try? await Task.sleep(for: .milliseconds(250))
+                }
+                if item.status != .readyToPlay {
+                    note = "Still loading, or this computer is not reachable on Wi-Fi."
                 }
             }
         }

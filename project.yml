@@ -53,6 +53,7 @@ targets:
         ITSAppUsesNonExemptEncryption: false
         NSLocalNetworkUsageDescription: Hearth plays tonight's film from your computer on the local network.
         NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
           NSAllowsLocalNetworking: true
     settings:
       base:
