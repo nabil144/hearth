@@ -9,13 +9,16 @@ The repo holds the plan, the mockups, a web player, and a SwiftUI iOS shell that
 - `docs/plan.md` why this and not game lore, who already sits here, the money, the phases. Written first.
 - `docs/spec.md` one page. What phase 1 is and is not.
 - `docs/screens-and-flows.md` five screens, the first night, a normal night, Sunday.
+- `docs/STATUS.md` where the project is right now. Read this in a new session.
+- `docs/first-video.md` cartoon stills through Fal, then the first chapter-4 short.
 - `docs/build-plan.md` what this borrows from `life-is-a-game` and the order of work.
 - `design/` static HTML mockups. Three Tonight layouts behind a switcher, plus Lesson, Family, Battle, and Mythologies.
 - `content/greek.json` the data. Traditions, sources with locators, entities with parents, claims, variants, recall cards, and twelve chapters. Chapters 3, 4, and 5 have their spoken beats written.
 - `content/stills.json` which Met Open Access object illustrates which beat.
 - `content/check.mjs` proves every claim has a source, every check asks only what its chapter said, every written lesson ends in recall, and no `do-not-ship` tradition has a lesson.
 - `tools/stills.mjs` downloads the CC0 pictures from the Met and writes their credits into `greek.json`.
-- `tools/tts.mjs` generates one MP3 per beat with Cartesia. Idempotent by text hash.
+- `tools/tts.mjs` generates one MP3 per beat with Cartesia. Idempotent by text hash. `--short` writes the first-video hook clips from `content/prompts.json`.
+- `tools/assemble.mjs` cuts those stills and clips into `web/shorts/short-siblings.mp4`. `tools/short.mjs` runs voice then assemble.
 - `web/` the player. Vanilla HTML, CSS, and JS. Reads `content/greek.json`, plays `web/audio/`, keeps progress in local storage.
 - `Engine/` pure Swift package. Decodes the corpus and owns progress and recall rules. Tests run on Linux.
 - `ios/` SwiftUI shell. Tonight, Lesson, Done. Separate from `web/` because a Mac disk treats `App` and `app` as the same folder.
@@ -46,6 +49,14 @@ node tools/tts.mjs greek-04            # one chapter
 
 Re-running only regenerates beats whose text, voice, or model changed.
 
+The chapter-4 short, after the cartoon stills are in `web/shorts/`:
+
+```sh
+node tools/short.mjs
+```
+
+That synthesizes each shot's `spoken` line, then cuts `web/shorts/short-siblings.mp4`. Re-running skips unchanged voice clips.
+
 ## Check the content
 
 ```sh
@@ -66,7 +77,7 @@ xcodegen generate
 open Hearth.xcodeproj
 ```
 
-In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate".
+In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate". Watch plays bundled films: chapter 4 (`greek-04-poc.mp4`) and the Metis short (`became-father-imagegen-v1.mp4`) on The headache. Pause and seek are the system player. Exit is top right.
 
 Engine tests on this Linux laptop:
 

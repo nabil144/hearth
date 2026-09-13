@@ -1,0 +1,285 @@
+{
+  "style": "Flat painted illustration. Bold contour, limited earth palette, no photoreal skin, no cinematic lighting, no Marvel or God of War armor, no modern clothes. Figures in profile or three-quarter like a Greek vase that someone cleaned up. Night interior, warm dark ground.",
+  "forbid": [
+    "photoreal",
+    "3d render",
+    "movie still",
+    "marvel",
+    "god of war",
+    "percy jackson",
+    "hyper detailed eyes",
+    "superhero lightning pose"
+  ],
+  "model": "fal-ai/recraft-20b",
+  "imageSize": "portrait_16_9",
+  "firstVideo": {
+    "id": "short-siblings",
+    "lesson": "greek-04",
+    "targetSeconds": 50,
+    "file": "web/shorts/short-siblings.mp4",
+    "link": "https://nabil144.github.io/hearth/web/?lesson=greek-04",
+    "shots": [
+      {
+        "id": "siblings-0",
+        "file": "web/shorts/siblings-0.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa47ef/B-RSLImwJe8jcOD_u65Ws_dnOqIzHX.webp",
+        "spoken": "Everyone knows Zeus. Ask a room who his brothers and sisters are and the room goes quiet.",
+        "prompt": "A seated king of the sky, eagle at his side, no thunderbolt hero pose, Greek vase profile, night hall, other seats around him empty."
+      },
+      {
+        "id": "siblings-1",
+        "file": "web/shorts/siblings-1.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4813/-3JD8o2t-NhLLYRZtu5-X_7qC2jDPi.webp",
+        "spoken": "Hesiod names six in one breath. Hestia, Demeter, Hera, Hades, Poseidon, Zeus. Each of them took a piece of the world.",
+        "prompt": "Six adult gods in a row, eldest to youngest left to right, hearth, grain, crown, dark helm, wave, and a younger sky king, same clothes language, no Roman names on the picture."
+      },
+      {
+        "id": "siblings-2",
+        "file": "web/shorts/siblings-2.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa47f1/1a5FXd66U4mOPBHdQiGvo_hj1cMW79.webp",
+        "spoken": "Most people cannot name them. Can you? Five minutes. The line is in the Theogony.",
+        "prompt": "A closed papyrus or stone tablet, Greek letters suggested not readable English, dark hearth light, no UI chrome, no phone, no logo."
+      }
+    ]
+  },
+  "pocVideo": {
+    "id": "greek-04-poc",
+    "lesson": "greek-04",
+    "file": "web/shorts/greek-04-poc.mp4",
+    "shots": [
+      {
+        "id": "greek-04-0",
+        "beat": 0,
+        "file": "web/shorts/greek-04-0.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa487c/RZVTUR_O5CPxriKNYCtQO_BI6w0ZOL.webp",
+        "audio": "web/audio/greek-04/0.mp3",
+        "prompt": "A dark columned night hall with six stone seats in a shallow curve. Five seats empty. On the rightmost seat a younger bearded sky king sits in three-quarter view, rust cloak, cream tunic, bronze circlet, hands empty in his lap, no thunderbolt. A single eagle perches on a stone beside him. Warm dark floor, night sky through the columns, quiet and still."
+      },
+      {
+        "id": "greek-04-1",
+        "beat": 1,
+        "file": "web/shorts/greek-04-1.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4864/qmeLow5Yf2fi-6Tb_cxLa_NIx7ePtQ.webp",
+        "audio": "web/audio/greek-04/1.mp3",
+        "prompt": "Interior of a simple Greek house at night. A woman in profile, hair bound, cream and rust drapery, kneels at a low round hearth in the center of the room. A small steady orange flame. She pours a thin libation toward the fire. No armor, no jewelry crown, no other people. Warm dark ground, clay walls, one doorway into night."
+      },
+      {
+        "id": "greek-04-2",
+        "beat": 2,
+        "file": "web/shorts/greek-04-2.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa487e/NQWEJ7dSOzy83N2dIAb-F_sgTcNIjy.webp",
+        "audio": "web/audio/greek-04/2.mp3",
+        "prompt": "A woman in three-quarter view standing in a night field of dry grain. She holds a heavy sheaf of wheat against her shoulder. Earth-colored drapery, no crown, no modern tools, no tractor. Behind her the field looks stopped, half-grown. Warm dark ground, thin moon, bold contour."
+      },
+      {
+        "id": "greek-04-3",
+        "beat": 3,
+        "file": "web/shorts/greek-04-3.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4866/297DePHyJ4IoL1WsELVab_f9f9h5Yz.webp",
+        "audio": "web/audio/greek-04/3.mp3",
+        "prompt": "A woman standing in a night hall, three-quarter view, a simple thin gold circlet, rust and cream drapery that reads as older sister not bride. Calm face, no peacock spectacle, no wedding veil, no armor. A second empty taller seat behind her. Warm dark floor, stone columns, limited earth palette."
+      },
+      {
+        "id": "greek-04-4",
+        "beat": 4,
+        "file": "web/shorts/greek-04-4.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4866/ptSMfAn0wuFUVWKsj6nTv_bl1T2MR4.webp",
+        "audio": "web/audio/greek-04/4.mp3",
+        "prompt": "A man in a dark helm standing in an underground hall, three-quarter view, heavy brow, rust-black cloak, empty hands, no two-pronged spear hero pose. Rock walls, a low opening up toward a tiny scrap of night. Warm dark ground, pitiless calm, one figure only."
+      },
+      {
+        "id": "greek-04-6",
+        "beat": 6,
+        "file": "web/shorts/greek-04-6.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4867/NWweJsNerDTmxD5vorTMc_NbD7sAI4.webp",
+        "audio": "web/audio/greek-04/6.mp3",
+        "prompt": "A bearded man in three-quarter view at a dark shoreline at night. A curling wave climbs his shins. Cracked stone under one foot. Cream and sea-dark drapery, no trident superhero pose, maybe a plain staff planted in the water. No ship, no modern clothes. Warm dark ground meeting black water."
+      },
+      {
+        "id": "greek-04-7",
+        "beat": 7,
+        "file": "web/shorts/greek-04-7.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4868/J1c5bhnS8-urmyloezmTs_8chFHywm.webp",
+        "audio": "web/audio/greek-04/7.mp3",
+        "prompt": "A younger bearded man standing at the mouth of a Cretan cave at night, three-quarter view, cream cloak, bronze circlet, empty hands, no thunderbolt. Behind him the cave is dark. At his feet three small unmarked lots or pebbles on the warm dark ground. Quiet, not a battle."
+      },
+      {
+        "id": "greek-04-9",
+        "beat": 9,
+        "file": "web/shorts/greek-04-9.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4869/JUgSHV7dv4pJ5PQ-eCjwJ_Q6VXnRE4.webp",
+        "audio": "web/audio/greek-04/9.mp3",
+        "prompt": "Close view of a closed papyrus scroll and a stone tablet on a dark table, hearth firelight from one side. Suggested Greek letter shapes only, not readable English, not Latin names, not a logo, no phone, no UI. Night interior, warm dark ground, no people."
+      }
+    ]
+  },
+  "turningPoint": {
+    "id": "turning-stone",
+    "lesson": "greek-03",
+    "targetSeconds": 60,
+    "file": "web/shorts/turning-stone.mp4",
+    "link": "https://nabil144.github.io/hearth/web/?lesson=greek-03",
+    "voice": "ef191366-f52f-447a-a398-ed8c0f2943a1",
+    "voiceName": "Archie",
+    "speed": 0.9,
+    "shots": [
+      {
+        "id": "turning-0",
+        "file": "web/shorts/turning-0.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4bb1/sPYENU3K5hp_IIzH1j2pE_amIMrAPB.webp",
+        "spoken": "Zeus was supposed to be swallowed. That is how his father solved a prophecy. Five children already gone. Then his mother handed the king a stone.",
+        "prompt": "Flat poster illustration, simple geometric shapes, cream rust terracotta navy. Ancient Greek night hall interior, no sky, no moon, no planets, no orbs. Four stone columns, dark warm floor. Old bearded king sits on a stone seat in a long red cloak and cream tunic, empty hands. Empty stone seats beside him. No armor, no modern clothes, no food."
+      },
+      {
+        "id": "turning-1",
+        "file": "web/shorts/turning-1.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4ba3/fHKpbNMi_L9ONyQf_dMPP_svVyboZ6.webp",
+        "spoken": "Kronos had it from Earth and Sky. A son of his would take the throne. He had already done that to his own father. So as each child reached Rhea's knees, he ate it. Whole.",
+        "prompt": "Flat poster illustration, simple geometric shapes, cream rust terracotta navy. Ancient Greek empty stone hall at night. A woman in long rust draped cloth stands alone, head bowed, barefoot. Bare room, stone floor, two columns. No pots, no bowls, no plants, no furniture, no cactus, no modern clothes."
+      },
+      {
+        "id": "turning-2",
+        "file": "web/shorts/turning-2.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4b99/ypysO7W5OBUYmCc1QcIUI_hP63oUut.webp",
+        "spoken": "They sent her to Crete. At night. Gaia hid the sixth baby in a cave on a wooded mountain. The next king of the gods started life in a hole in the ground. With his grandmother.",
+        "prompt": "Flat poster illustration, simple geometric shapes, cream rust terracotta navy. Mediterranean brown hillside at night. A dark rocky cave opening. Three tall cypress trees. One thin crescent moon, a few stars. Rocky path. No house, no door, no windows, no snow, no pine, no planets, no orbs, no people, no globe."
+      },
+      {
+        "id": "turning-3",
+        "file": "web/shorts/turning-3.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4bab/PiLLg5nm98JmwFt-Jhl3S_JGBGT5Yk.webp",
+        "spoken": "Rhea went home with a rock in swaddling clothes. Kronos pushed it down. Hesiod says he did not notice. The son was already growing.",
+        "prompt": "Flat poster illustration, simple geometric shapes, cream rust terracotta navy. A woman in long cream draped cloth holds a rough grey stone in both hands against her chest. Ancient Greek night hall, two columns. The grey stone is large and obvious. No bowl, no pot, no baby, no planet."
+      },
+      {
+        "id": "turning-4",
+        "file": "web/shorts/turning-4.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4baa/6qgqW_5J7oGQkBlbgG8yX_ydn6ud22.webp",
+        "spoken": "When Zeus came back, the stone came up first. He set it in the ground at Pytho, under Parnassos. The first monument in Greek myth is a rock a god was fooled into swallowing. Can you name the five he saved?",
+        "prompt": "Flat poster illustration, simple geometric shapes, cream rust terracotta navy. Brown Greek hills at night. Tiny stars only, no moon, no planets, no orbs, no spheres. A rough grey standing stone planted in the dirt as a marker. Two cypress trees. No temple, no columns, no building, no person, no desert dunes."
+      }
+    ]
+  },
+  "becameFather": {
+    "id": "became-father",
+    "lesson": "greek-09",
+    "targetSeconds": 70,
+    "file": "web/shorts/became-father.mp4",
+    "link": "https://nabil144.github.io/hearth/web/?watch=greek-09",
+    "voice": "ef191366-f52f-447a-a398-ed8c0f2943a1",
+    "voiceName": "Archie",
+    "speed": 0.9,
+    "model": "fal-ai/recraft-20b",
+    "style": "digital_illustration/engraving_color",
+    "imageSize": "portrait_16_9",
+    "colors": [
+      {
+        "r": 232,
+        "g": 214,
+        "b": 184
+      },
+      {
+        "r": 163,
+        "g": 72,
+        "b": 46
+      },
+      {
+        "r": 184,
+        "g": 92,
+        "b": 58
+      },
+      {
+        "r": 32,
+        "g": 28,
+        "b": 36
+      }
+    ],
+    "shots": [
+      {
+        "id": "metis-0",
+        "file": "web/shorts/metis-0.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4d36/JOCxBCtplHgVQIjj9DUq4_fRW6y06q.webp",
+        "spoken": "Zeus married Metis first. Hesiod says she was the wisest among gods and among men. She was about to bear a daughter equal to him, and after that a son who would be king of gods and men.",
+        "prompt": "Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior of a stone Greek hall, clay walls, two pale columns, warm dark floor. A woman stands in the left third of the frame, three-quarter view, looking toward a seated man. She wears a long cream chiton and a rust himation over one shoulder, hair bound with a simple ribbon, bare feet, empty hands, calm closed mouth. The man sits on a low stone seat in the right third, older, short dark beard, rust cloak over a cream tunic, bronze circlet, hands empty in his lap, no weapon. One oil lamp on a stand between them, light from the left, soft shadow on the back wall. Tall portrait crop, figures from knees up, quiet and still."
+      },
+      {
+        "id": "metis-1",
+        "file": "web/shorts/metis-1.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4d12/bMv932VbsXTdxCsSzBZKF_QHmLKkrq.webp",
+        "spoken": "Earth and Sky told him so, the same two who had warned his father.",
+        "prompt": "Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior of a stone Greek hall, four columns receding, warm dark floor. A seated bearded king occupies the lower center on a stone seat, rust cloak, cream tunic, bronze circlet, hands on his knees, listening. Two older standing figures face him from the middle distance: a woman in heavy earth-brown drapery on the left, a man in pale-grey drapery on the right, both in profile, mouths slightly open as if speaking. No sky visible through the columns, only dark wall. One oil lamp at the left edge. Tall portrait crop, the king larger in the frame than the two advisors, grave and still."
+      },
+      {
+        "id": "metis-2",
+        "file": "web/shorts/metis-2.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4d2c/sKa6n9M73DRW40d6J66ys_GGsuGTfR.webp",
+        "spoken": "Kronos had swallowed his children to stop that prophecy, and Zeus had overthrown him for it. Then Zeus sat on the same seat and did the same thing.",
+        "prompt": "Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, a shallow curve of six stone seats, five of them empty. A bearded king sits alone on the rightmost seat, rust cloak, cream tunic, bronze circlet, empty hands in his lap, looking down. Behind him, tall columns and a dark doorway. Warm dark floor, one oil lamp on the left, long quiet shadows. Tall portrait crop, the empty seats take the left half of the frame, the king the right. Lonely, still, no feast."
+      },
+      {
+        "id": "metis-3",
+        "file": "web/shorts/metis-3.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4d13/-9fmyPahob3lwNHT-pb_w_Z1CnWVus.webp",
+        "spoken": "He tricked Metis with soft words and put her in his belly, so no son of hers would ever take the throne. She stays there. Hesiod's line is that she thinks for him now, for good and for evil.",
+        "prompt": "Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, close enough to read two faces. A woman in a cream chiton stands at the left, three-quarter view, offering both open hands toward a seated bearded king. The king sits at the right in a rust cloak, leaning slightly forward, both hands raised to receive hers, mouth closed. One oil lamp behind them. No food, no wound, no open belly. Tall portrait crop at the waist, the space between their hands is the center of the picture. Intimate and wrong."
+      },
+      {
+        "id": "metis-4",
+        "file": "web/shorts/metis-4.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4d24/vVuIK3BrdNq9Vw0nNtQd6_10jz7L1R.webp",
+        "spoken": "The son never arrives. The daughter does: Athena comes out of his head. The man who escaped being eaten became the father who eats.",
+        "prompt": "Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, two columns, warm dark floor. A seated bearded king fills the lower half, rust cloak, cream tunic, head tilted back, a thin bright seam of lamp-light across his brow. A younger woman stands behind and above his right shoulder, three-quarter view, cream chiton, a plain bronze helm, empty hands, no spear, no shield, grey eyes looking out. One oil lamp on the left. Tall portrait crop. She is the new thing in the room."
+      }
+    ]
+  },
+  "becameFatherImagegenV1": {
+    "id": "became-father-imagegen-v1",
+    "lesson": "greek-09",
+    "targetSeconds": 70,
+    "file": "web/shorts/became-father-imagegen-v1.mp4",
+    "link": "https://nabil144.github.io/hearth/web/?watch=greek-09",
+    "voice": "ef191366-f52f-447a-a398-ed8c0f2943a1",
+    "voiceName": "Archie",
+    "speed": 0.9,
+    "model": "built-in image_gen",
+    "style": "Flat gouache and colored woodcut, Attic vase inspired, earth palette",
+    "imageSize": "portrait_16_9",
+    "shots": [
+      {
+        "id": "metis-0",
+        "file": "web/shorts/metis-imagegen-v1/metis-0.png",
+        "spoken": "Zeus married Metis first. Hesiod says she was the wisest among gods and among men. She was about to bear a daughter equal to him, and after that a son who would be king of gods and men.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: Zeus married Metis first. Hesiod says she was the wisest among gods and among men. She was about to bear a daughter equal to him, and after that a son who would be king of gods and men. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior of a stone Greek hall, clay walls, two pale columns, warm dark floor. A woman stands in the left third of the frame, three-quarter view, looking toward a seated man. She wears a long cream chiton and a rust himation over one shoulder, hair bound with a simple ribbon, bare feet, empty hands, calm closed mouth. The man sits on a low stone seat in the right third, older, short dark beard, rust cloak over a cream tunic, bronze circlet, hands empty in his lap, no weapon. One oil lamp on a stand between them, light from the left, soft shadow on the back wall. Tall portrait crop, figures from knees up, quiet and still.",
+        "audio": "web/shorts/metis-0.mp3"
+      },
+      {
+        "id": "metis-1",
+        "file": "web/shorts/metis-imagegen-v1/metis-1.png",
+        "spoken": "Earth and Sky told him so, the same two who had warned his father.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: Earth and Sky told him so, the same two who had warned his father. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior of a stone Greek hall, four columns receding, warm dark floor. A seated bearded king occupies the lower center on a stone seat, rust cloak, cream tunic, bronze circlet, hands on his knees, listening. Two older standing figures face him from the middle distance: a woman in heavy earth-brown drapery on the left, a man in pale-grey drapery on the right, both in profile, mouths slightly open as if speaking. No sky visible through the columns, only dark wall. One oil lamp at the left edge. Tall portrait crop, the king larger in the frame than the two advisors, grave and still.",
+        "audio": "web/shorts/metis-1.mp3"
+      },
+      {
+        "id": "metis-2",
+        "file": "web/shorts/metis-imagegen-v1/metis-2.png",
+        "spoken": "Kronos had swallowed his children to stop that prophecy, and Zeus had overthrown him for it. Then Zeus sat on the same seat and did the same thing.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: Kronos had swallowed his children to stop that prophecy, and Zeus had overthrown him for it. Then Zeus sat on the same seat and did the same thing. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, a shallow curve of six stone seats, five of them empty. A bearded king sits alone on the rightmost seat, rust cloak, cream tunic, bronze circlet, empty hands in his lap, looking down. Behind him, tall columns and a dark doorway. Warm dark floor, one oil lamp on the left, long quiet shadows. Tall portrait crop, the empty seats take the left half of the frame, the king the right. Lonely, still, no feast.",
+        "audio": "web/shorts/metis-2.mp3"
+      },
+      {
+        "id": "metis-3",
+        "file": "web/shorts/metis-imagegen-v1/metis-3.png",
+        "spoken": "He tricked Metis with soft words and put her in his belly, so no son of hers would ever take the throne. She stays there. Hesiod's line is that she thinks for him now, for good and for evil.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: He tricked Metis with soft words and put her in his belly, so no son of hers would ever take the throne. She stays there. Hesiod's line is that she thinks for him now, for good and for evil. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, close enough to read two faces. A woman in a cream chiton stands at the left, three-quarter view, offering both open hands toward a seated bearded king. The king sits at the right in a rust cloak, leaning slightly forward, both hands raised to receive hers, mouth closed. One oil lamp behind them. No food, no wound, no open belly. Tall portrait crop at the waist, the space between their hands is the center of the picture. Intimate and wrong.",
+        "audio": "web/shorts/metis-3.mp3"
+      },
+      {
+        "id": "metis-4",
+        "file": "web/shorts/metis-imagegen-v1/metis-4.png",
+        "spoken": "The son never arrives. The daughter does: Athena comes out of his head. The man who escaped being eaten became the father who eats.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: The son never arrives. The daughter does: Athena comes out of his head. The man who escaped being eaten became the father who eats. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, two columns, warm dark floor. A seated bearded king fills the lower half, rust cloak, cream tunic, head tilted back, a thin bright seam of lamp-light across his brow. A younger woman stands behind and above his right shoulder, three-quarter view, cream chiton, a plain bronze helm, empty hands, no spear, no shield, grey eyes looking out. One oil lamp on the left. Tall portrait crop. She is the new thing in the room.",
+        "audio": "web/shorts/metis-4.mp3"
+      }
+    ]
+  }
+}

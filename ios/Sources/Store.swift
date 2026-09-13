@@ -5,7 +5,13 @@ import HearthEngine
 enum Screen: Equatable {
     case tonight
     case lesson(lessonId: String, beat: Int)
+    case watch(String)
     case done
+}
+
+enum Tab: Equatable {
+    case tonight
+    case family
 }
 
 enum Feedback: Equatable {
@@ -19,6 +25,8 @@ final class Store {
     var corpus: Corpus
     var progress: Memory
     var screen: Screen = .tonight
+    var tab: Tab = .tonight
+    var focus: String?
     var queue: [Card] = []
     var i = 0
     var held = 0
@@ -52,6 +60,10 @@ final class Store {
 
     var tonight: Lesson? { corpus.nextLesson(heard: progress.heard) }
     var warm: [Lesson] { corpus.written.filter { progress.heard[$0.id] != nil } }
+    var films: [Lesson] {
+        corpus.lessons.filter { BundleCorpus.filmURL(lesson: $0.id) != nil }
+    }
+    var family: Family { Family.of(corpus: corpus, heard: progress.heard, focus: focus) }
 
     var chapterCount: Int {
         let tradition = corpus.written.first?.tradition ?? "greek"
@@ -64,6 +76,16 @@ final class Store {
         reviewing = false
         screen = .lesson(lessonId: lessonId, beat: 0)
         playCurrent()
+    }
+
+    func watch(_ lessonId: String) {
+        guard BundleCorpus.filmURL(lesson: lessonId) != nil else { return }
+        holdAdvance?.cancel()
+        pageGap?.cancel()
+        voice.stop()
+        resetSession()
+        reviewing = false
+        screen = .watch(lessonId)
     }
 
     func review() {
@@ -91,6 +113,22 @@ final class Store {
         resetSession()
         reviewing = false
         screen = .tonight
+        tab = .tonight
+    }
+
+    func inspect(_ id: String) {
+        focus = id
+        tab = .family
+    }
+
+    func showTab(_ tab: Tab) {
+        self.tab = tab
+    }
+
+    func openFamily(focus: String? = nil) {
+        screen = .tonight
+        tab = .family
+        if let focus { self.focus = focus }
     }
 
     func togglePause() {

@@ -1,6 +1,7 @@
 .DS_Store
 node_modules/
 .env
+.cursor/mcp.json
 .toolchain/
 Engine/.build/
 build/
@@ -9,3 +10,7 @@ Payload/
 *.xcodeproj/
 ios/Info.plist
 artifacts/
+web/shorts/*.mp4
+!web/shorts/became-father.mp4
+!web/shorts/became-father-imagegen-v1.mp4
+!web/shorts/greek-04-poc.mp4

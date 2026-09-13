@@ -1,0 +1,20 @@
+---
+description: Hearth project state. Read before any work in this repo.
+alwaysApply: true
+---
+
+# Hearth
+
+Read `docs/STATUS.md` before you plan or edit. If the work is cartoon stills, Fal, or the first short, also read `docs/first-video.md` and `content/prompts.json`.
+
+This is a mythology habit in the shape of Paladin. One chapter a night, voice over stills, a check, a variant, recall with cites, a family graph. Not a quiz database.
+
+Do not write chapters 1, 2, or 6 to 12 until STATUS says the stranger-and-shorts gate moved. Do not add Battle, Mythologies, or Hearth+. Do not replace the in-app lesson with one video.
+
+Media in the app is files in `web/stills/` and `web/audio/`, bundled onto the phone. Do not invent a streaming backend.
+
+Never read or commit `.env`. Never put `FAL_KEY` or a Cartesia key in git or in a project `mcp.json`.
+
+Family lives on branch `family-tab` as PR 1 until it is merged. Do not assume `main` has that tab.
+
+The folders are `ios/` and `web/`. Do not create `App/` or `app/`.

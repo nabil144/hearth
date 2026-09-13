@@ -67,3 +67,53 @@ final class ProgressTests: XCTestCase {
         XCTAssertFalse(picked.contains { $0.id == "k-siblings" })
     }
 }
+
+final class FamilyTests: XCTestCase {
+    var corpus: Corpus {
+        get throws {
+            let url = URL(fileURLWithPath: #filePath)
+                .deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent().deletingLastPathComponent()
+                .appendingPathComponent("content/greek.json")
+            return try Corpus.decode(Data(contentsOf: url))
+        }
+    }
+
+    func testEmptyHearingLeavesTheLineDim() throws {
+        let family = Family.of(corpus: try corpus, heard: [:], focus: nil)
+        XCTAssertEqual(family.met, 0)
+        XCTAssertEqual(family.total, 15)
+        XCTAssertEqual(family.rows.map { $0.map(\.id) }, [
+            ["chaos"],
+            ["gaia"],
+            ["ouranos"],
+            ["kronos", "rhea", "hundred-handers"],
+            ["demeter", "hades", "hera", "hestia", "poseidon", "zeus"],
+        ])
+        XCTAssertFalse(family.rows.flatMap { $0 }.contains { $0.id == "aphrodite" })
+        XCTAssertEqual(family.portrait?.id, "chaos")
+        XCTAssertTrue(family.loose.isEmpty)
+    }
+
+    func testChapterThreeLightsTheHouseOfKronos() throws {
+        let family = Family.of(corpus: try corpus, heard: ["greek-03": "2026-09-13"], focus: nil)
+        XCTAssertEqual(family.met, 10)
+        XCTAssertEqual(family.rows[0].first { $0.id == "chaos" }?.meet, .unmet)
+        XCTAssertEqual(family.rows[1].first { $0.id == "gaia" }?.meet, .met)
+        XCTAssertEqual(try XCTUnwrap(family.rows[4].first { $0.id == "zeus" }).generation, 4)
+        XCTAssertEqual(try XCTUnwrap(family.rows[4].first { $0.id == "zeus" }).meet, .met)
+        XCTAssertEqual(family.portrait?.id, "gaia")
+        XCTAssertEqual(family.portrait?.cite, "Hesiod, Theogony lines 453-491")
+        XCTAssertEqual(Set(family.loose.map(\.id)), ["v-aphrodite", "v-kingship"])
+        XCTAssertEqual(family.branches.map { $0.map(\.id) }, [
+            ["keto", "phorkys"],
+            ["medusa"],
+        ])
+        XCTAssertTrue(family.branches.flatMap { $0 }.allSatisfy { $0.meet == .unmet })
+    }
+
+    func testFocusPicksThePortraitAndCanOpenAHiddenFork() throws {
+        let family = Family.of(corpus: try corpus, heard: [:], focus: "medusa")
+        XCTAssertEqual(family.portrait?.id, "medusa")
+        XCTAssertTrue(family.loose.contains { $0.id == "v-medusa" })
+    }
+}

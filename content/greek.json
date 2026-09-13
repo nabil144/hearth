@@ -139,7 +139,9 @@
       "id": "gaia",
       "kind": "god",
       "name": "Gaia",
-      "parents": []
+      "parents": [
+        "chaos"
+      ]
     },
     {
       "id": "ouranos",

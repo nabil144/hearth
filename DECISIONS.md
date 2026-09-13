@@ -33,3 +33,14 @@ One entry per decision that shaped the work, newest at the bottom.
 - On the Mac: clone, `xcodegen generate`, pick a team, Run. Hear chapter 4. If a paragraph drags, cut words in `greek.json` and re-run tts; only that beat regenerates.
 - Read chapters 3 to 5 against the Theogony lines cited. The claims are mine from the text, not from a translation the owner has checked.
 - Five strangers, three nights. Two numbers: finished chapter 3, opened chapter 4 the next night.
+
+## 2026-09-13
+
+- First MVP story is Family, not Battle, not Mythologies, not one-chapter-a-night. The POC already tells a chapter. Paladin's missing piece here is the house you can walk after you hear it. The plan said audio, variants, and a graph, and that quiz apps fake the graph. So the graph is the slice.
+- The graph is derived in Engine (`Family.of`) from `entities[].parents` plus claims on heard lessons. iOS does not walk parents. Aphrodite stays off the tree because her parents are the fork. Gaia now names Chaos as a parent so the spine is data, not a hardcoded union.
+- Home is `Screen` × `Tab`. Lesson and Done stay full screen. Tab bar is Tonight and Family only.
+
+- First video work is a short, not an in-app film. Cartoon stills come from Fal. Prompts live in `content/prompts.json`. The nightly player stays beat-by-beat so the family check still has a pause. `docs/STATUS.md` is the file a new session reads first.
+- Assemble is ffmpeg on this machine, not CapCut. CapCut has no official MCP and no public editing API. Community servers write desktop draft files and still need a person to export. This box is Linux, so those drafts would not open here. `tools/assemble.mjs` cuts 1080x1920 and Ken Burns portraits. A leftover landscape still would pan; new stills stay `portrait_16_9` so a short is one frame size. `tools/tts.mjs --short` owns the hook voice. `tools/short.mjs` runs both.
+- While testing, Fal image jobs use a cheap illustration model (`fal-ai/recraft-20b`), not Recraft V3/Pro. Every still in a short is the same size (`imageSize` in `content/prompts.json`). Mixed landscape was a one-off to fit six figures and broke the "real short" cut.
+- The chapter-4 film stays on this machine. GitHub rejects 100 MB+ files, and a 111 MB mp4 does not belong in the ipa. Watch streams it over the LAN. `tools/serve-film.py` binds the Wi-Fi address only and serves one allow-listed file behind a token path. iOS reads `content/films.json`. Not public HTTPS. Same Wi-Fi, not the internet.
