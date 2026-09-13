@@ -23,14 +23,15 @@ enum BundleCorpus {
     }
 
     static func filmURL(lesson: String) -> URL? {
-        if let remote = remoteFilmURL(lesson) { return remote }
         let stem = lesson == "greek-04" ? "greek-04-poc" : lesson
         if let url = Bundle.main.url(forResource: stem, withExtension: "mp4") {
             return url
         }
-        guard let root = Bundle.main.resourcePath else { return nil }
-        let url = URL(fileURLWithPath: root).appendingPathComponent("shorts/\(stem).mp4")
-        return FileManager.default.fileExists(atPath: url.path) ? url : nil
+        if let root = Bundle.main.resourcePath {
+            let bundled = URL(fileURLWithPath: root).appendingPathComponent("shorts/\(stem).mp4")
+            if FileManager.default.fileExists(atPath: bundled.path) { return bundled }
+        }
+        return remoteFilmURL(lesson)
     }
 
     private struct FilmsManifest: Decodable {

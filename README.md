@@ -77,7 +77,7 @@ xcodegen generate
 open Hearth.xcodeproj
 ```
 
-In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate". Watch streams the chapter-4 film from this Linux box. On that box, leave `python3 tools/serve-film.py` running. Phone and computer on the same Wi-Fi. Allow local network when iOS asks. The film URL and token live in `content/films.json`. The mp4 is not in the app bundle.
+In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate". Watch plays `web/shorts/greek-04-poc.mp4` from the app bundle. Pause and seek are the system player. Exit is top right.
 
 Engine tests on this Linux laptop:
 
