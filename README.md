@@ -77,7 +77,7 @@ xcodegen generate
 open Hearth.xcodeproj
 ```
 
-In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate". Watch plays bundled films: chapter 4 (`greek-04-poc.mp4`) and the Metis short (`became-father.mp4`) on The headache. Pause and seek are the system player. Exit is top right.
+In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate". Watch plays bundled films: chapter 4 (`greek-04-poc.mp4`) and the Metis short (`became-father-imagegen-v1.mp4`) on The headache. Pause and seek are the system player. Exit is top right.
 
 Engine tests on this Linux laptop:
 

@@ -42,7 +42,7 @@ targets:
       - path: web/shorts/greek-04-poc.mp4
         type: file
         buildPhase: resources
-      - path: web/shorts/became-father.mp4
+      - path: web/shorts/became-father-imagegen-v1.mp4
         type: file
         buildPhase: resources
     dependencies:

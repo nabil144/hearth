@@ -10,6 +10,8 @@ Hearth is a Paladin-shaped mythology habit: one chapter a night, voice over stil
 
 ## Now
 
+- Watch for The headache now plays `web/shorts/became-father-imagegen-v1.mp4` (47.6s, bundled). Same story as the Recraft cut, new stills. Rebuild with `node tools/assemble.mjs becameFatherImagegenV1`. The older `became-father.mp4` stays in the repo.
+
 - New Watch film `becameFather` / `web/shorts/became-father.mp4` (~48s): Zeus swallows Metis, Athena from his head. Chapter 9, The headache. Archie, Recraft 20b `engraving_color`, earth RGB lock. Wired in `content/films.json`, web Tonight, and the iOS bundle (`project.yml`). Lesson audio and `web/stills/` unchanged. `node tools/tts.mjs --short becameFather` then `node tools/assemble.mjs becameFather`.
 - New short `turningPoint` / `web/shorts/turning-stone.mp4`: Zeus's turning point from chapter 3 (the swaddled stone). Five stills, Archie (Cartesia `ef191366-…`, speed 0.9) instead of Skylar. Recraft 20b, `portrait_16_9`. Lesson audio and `web/stills/` unchanged. `node tools/tts.mjs --short turningPoint` then `node tools/assemble.mjs turningPoint`.
 - Watch plays bundled films. The phone does not need this Linux box. Exit is top right. The embedded player owns pause and seek. LAN serve is a fallback only. The Met stills and the beat player are unchanged.

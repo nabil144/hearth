@@ -173,10 +173,26 @@
     "style": "digital_illustration/engraving_color",
     "imageSize": "portrait_16_9",
     "colors": [
-      {"r": 232, "g": 214, "b": 184},
-      {"r": 163, "g": 72, "b": 46},
-      {"r": 184, "g": 92, "b": 58},
-      {"r": 32, "g": 28, "b": 36}
+      {
+        "r": 232,
+        "g": 214,
+        "b": 184
+      },
+      {
+        "r": 163,
+        "g": 72,
+        "b": 46
+      },
+      {
+        "r": 184,
+        "g": 92,
+        "b": 58
+      },
+      {
+        "r": 32,
+        "g": 28,
+        "b": 36
+      }
     ],
     "shots": [
       {
@@ -213,6 +229,56 @@
         "falUrl": "https://v3b.fal.media/files/b/0aaa4d24/vVuIK3BrdNq9Vw0nNtQd6_10jz7L1R.webp",
         "spoken": "The son never arrives. The daughter does: Athena comes out of his head. The man who escaped being eaten became the father who eats.",
         "prompt": "Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, two columns, warm dark floor. A seated bearded king fills the lower half, rust cloak, cream tunic, head tilted back, a thin bright seam of lamp-light across his brow. A younger woman stands behind and above his right shoulder, three-quarter view, cream chiton, a plain bronze helm, empty hands, no spear, no shield, grey eyes looking out. One oil lamp on the left. Tall portrait crop. She is the new thing in the room."
+      }
+    ]
+  },
+  "becameFatherImagegenV1": {
+    "id": "became-father-imagegen-v1",
+    "lesson": "greek-09",
+    "targetSeconds": 70,
+    "file": "web/shorts/became-father-imagegen-v1.mp4",
+    "link": "https://nabil144.github.io/hearth/web/?watch=greek-09",
+    "voice": "ef191366-f52f-447a-a398-ed8c0f2943a1",
+    "voiceName": "Archie",
+    "speed": 0.9,
+    "model": "built-in image_gen",
+    "style": "Flat gouache and colored woodcut, Attic vase inspired, earth palette",
+    "imageSize": "portrait_16_9",
+    "shots": [
+      {
+        "id": "metis-0",
+        "file": "web/shorts/metis-imagegen-v1/metis-0.png",
+        "spoken": "Zeus married Metis first. Hesiod says she was the wisest among gods and among men. She was about to bear a daughter equal to him, and after that a son who would be king of gods and men.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: Zeus married Metis first. Hesiod says she was the wisest among gods and among men. She was about to bear a daughter equal to him, and after that a son who would be king of gods and men. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior of a stone Greek hall, clay walls, two pale columns, warm dark floor. A woman stands in the left third of the frame, three-quarter view, looking toward a seated man. She wears a long cream chiton and a rust himation over one shoulder, hair bound with a simple ribbon, bare feet, empty hands, calm closed mouth. The man sits on a low stone seat in the right third, older, short dark beard, rust cloak over a cream tunic, bronze circlet, hands empty in his lap, no weapon. One oil lamp on a stand between them, light from the left, soft shadow on the back wall. Tall portrait crop, figures from knees up, quiet and still.",
+        "audio": "web/shorts/metis-0.mp3"
+      },
+      {
+        "id": "metis-1",
+        "file": "web/shorts/metis-imagegen-v1/metis-1.png",
+        "spoken": "Earth and Sky told him so, the same two who had warned his father.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: Earth and Sky told him so, the same two who had warned his father. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior of a stone Greek hall, four columns receding, warm dark floor. A seated bearded king occupies the lower center on a stone seat, rust cloak, cream tunic, bronze circlet, hands on his knees, listening. Two older standing figures face him from the middle distance: a woman in heavy earth-brown drapery on the left, a man in pale-grey drapery on the right, both in profile, mouths slightly open as if speaking. No sky visible through the columns, only dark wall. One oil lamp at the left edge. Tall portrait crop, the king larger in the frame than the two advisors, grave and still.",
+        "audio": "web/shorts/metis-1.mp3"
+      },
+      {
+        "id": "metis-2",
+        "file": "web/shorts/metis-imagegen-v1/metis-2.png",
+        "spoken": "Kronos had swallowed his children to stop that prophecy, and Zeus had overthrown him for it. Then Zeus sat on the same seat and did the same thing.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: Kronos had swallowed his children to stop that prophecy, and Zeus had overthrown him for it. Then Zeus sat on the same seat and did the same thing. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, a shallow curve of six stone seats, five of them empty. A bearded king sits alone on the rightmost seat, rust cloak, cream tunic, bronze circlet, empty hands in his lap, looking down. Behind him, tall columns and a dark doorway. Warm dark floor, one oil lamp on the left, long quiet shadows. Tall portrait crop, the empty seats take the left half of the frame, the king the right. Lonely, still, no feast.",
+        "audio": "web/shorts/metis-2.mp3"
+      },
+      {
+        "id": "metis-3",
+        "file": "web/shorts/metis-imagegen-v1/metis-3.png",
+        "spoken": "He tricked Metis with soft words and put her in his belly, so no son of hers would ever take the throne. She stays there. Hesiod's line is that she thinks for him now, for good and for evil.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: He tricked Metis with soft words and put her in his belly, so no son of hers would ever take the throne. She stays there. Hesiod's line is that she thinks for him now, for good and for evil. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, close enough to read two faces. A woman in a cream chiton stands at the left, three-quarter view, offering both open hands toward a seated bearded king. The king sits at the right in a rust cloak, leaning slightly forward, both hands raised to receive hers, mouth closed. One oil lamp behind them. No food, no wound, no open belly. Tall portrait crop at the waist, the space between their hands is the center of the picture. Intimate and wrong.",
+        "audio": "web/shorts/metis-3.mp3"
+      },
+      {
+        "id": "metis-4",
+        "file": "web/shorts/metis-imagegen-v1/metis-4.png",
+        "spoken": "The son never arrives. The daughter does: Athena comes out of his head. The man who escaped being eaten became the father who eats.",
+        "prompt": "Use case: illustration-story. Asset type: vertical 9:16 voice-over video still, single image, no collage. Flat painted gouache and colored woodcut illustration inspired by ancient Attic vase art. Bold charcoal contours, restrained engraved texture, cream #e8d6b8, rust #a3482e, terracotta #b85c3a, charcoal #201c24. Consistent Zeus: middle-aged man, short curly dark hair and short dark beard, bronze circlet, rust cloak and cream tunic. Consistent Metis: adult woman, dark hair bound with ribbon, cream chiton, rust shoulder drape. No text, watermark, photorealism, modern clothes, superhero armor, gore. Illustrate this narrative context: The son never arrives. The daughter does: Athena comes out of his head. The man who escaped being eaten became the father who eats. Scene direction: Gouache illustration with bold dark contour, like a cleaned-up Attic vase painting. Night interior, two columns, warm dark floor. A seated bearded king fills the lower half, rust cloak, cream tunic, head tilted back, a thin bright seam of lamp-light across his brow. A younger woman stands behind and above his right shoulder, three-quarter view, cream chiton, a plain bronze helm, empty hands, no spear, no shield, grey eyes looking out. One oil lamp on the left. Tall portrait crop. She is the new thing in the room.",
+        "audio": "web/shorts/metis-4.mp3"
       }
     ]
   }
