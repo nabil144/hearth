@@ -39,3 +39,5 @@ One entry per decision that shaped the work, newest at the bottom.
 - First MVP story is Family, not Battle, not Mythologies, not one-chapter-a-night. The POC already tells a chapter. Paladin's missing piece here is the house you can walk after you hear it. The plan said audio, variants, and a graph, and that quiz apps fake the graph. So the graph is the slice.
 - The graph is derived in Engine (`Family.of`) from `entities[].parents` plus claims on heard lessons. iOS does not walk parents. Aphrodite stays off the tree because her parents are the fork. Gaia now names Chaos as a parent so the spine is data, not a hardcoded union.
 - Home is `Screen` × `Tab`. Lesson and Done stay full screen. Tab bar is Tonight and Family only.
+
+- First video work is a short, not an in-app film. Cartoon stills come from Fal. Prompts live in `content/prompts.json`. The nightly player stays beat-by-beat so the family check still has a pause. `docs/STATUS.md` is the file a new session reads first.

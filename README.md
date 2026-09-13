@@ -9,6 +9,8 @@ The repo holds the plan, the mockups, a web player, and a SwiftUI iOS shell that
 - `docs/plan.md` why this and not game lore, who already sits here, the money, the phases. Written first.
 - `docs/spec.md` one page. What phase 1 is and is not.
 - `docs/screens-and-flows.md` five screens, the first night, a normal night, Sunday.
+- `docs/STATUS.md` where the project is right now. Read this in a new session.
+- `docs/first-video.md` cartoon stills through Fal, then the first chapter-4 short.
 - `docs/build-plan.md` what this borrows from `life-is-a-game` and the order of work.
 - `design/` static HTML mockups. Three Tonight layouts behind a switcher, plus Lesson, Family, Battle, and Mythologies.
 - `content/greek.json` the data. Traditions, sources with locators, entities with parents, claims, variants, recall cards, and twelve chapters. Chapters 3, 4, and 5 have their spoken beats written.

@@ -1,0 +1,43 @@
+{
+  "style": "Flat painted illustration. Bold contour, limited earth palette, no photoreal skin, no cinematic lighting, no Marvel or God of War armor, no modern clothes. Figures in profile or three-quarter like a Greek vase that someone cleaned up. Night interior, warm dark ground.",
+  "forbid": [
+    "photoreal",
+    "3d render",
+    "movie still",
+    "marvel",
+    "god of war",
+    "percy jackson",
+    "hyper detailed eyes",
+    "superhero lightning pose"
+  ],
+  "model": "",
+  "firstVideo": {
+    "id": "short-siblings",
+    "lesson": "greek-04",
+    "targetSeconds": 50,
+    "link": "https://nabil144.github.io/hearth/web/?lesson=greek-04",
+    "shots": [
+      {
+        "id": "siblings-0",
+        "file": null,
+        "falUrl": null,
+        "spoken": "Everyone knows Zeus. Ask a room who his brothers and sisters are and the room goes quiet.",
+        "prompt": "A seated king of the sky, eagle at his side, no thunderbolt hero pose, Greek vase profile, night hall, other seats around him empty."
+      },
+      {
+        "id": "siblings-1",
+        "file": null,
+        "falUrl": null,
+        "spoken": "Hesiod names six in one breath. Hestia, Demeter, Hera, Hades, Poseidon, Zeus. Each of them took a piece of the world.",
+        "prompt": "Six adult gods in a row, eldest to youngest left to right, hearth, grain, crown, dark helm, wave, and a younger sky king, same clothes language, no Roman names on the picture."
+      },
+      {
+        "id": "siblings-2",
+        "file": null,
+        "falUrl": null,
+        "spoken": "Most people cannot name them. Can you? Five minutes. The line is in the Theogony.",
+        "prompt": "A closed papyrus or stone tablet, Greek letters suggested not readable English, dark hearth light, no UI chrome, no phone, no logo."
+      }
+    ]
+  }
+}
