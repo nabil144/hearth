@@ -61,7 +61,7 @@ final class Store {
     var tonight: Lesson? { corpus.nextLesson(heard: progress.heard) }
     var warm: [Lesson] { corpus.written.filter { progress.heard[$0.id] != nil } }
     var films: [Lesson] {
-        corpus.written.filter { BundleCorpus.filmURL(lesson: $0.id) != nil }
+        corpus.lessons.filter { BundleCorpus.filmURL(lesson: $0.id) != nil }
     }
     var family: Family { Family.of(corpus: corpus, heard: progress.heard, focus: focus) }
 

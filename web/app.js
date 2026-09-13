@@ -44,7 +44,11 @@ function lesson() { return lessons.get(state.lessonId); }
 function beat() { return lesson()?.beats[state.beat]; }
 function voice() { return document.getElementById('voice'); }
 function film() { return document.getElementById('film'); }
-function filmSrc(id) { return id === 'greek-04' ? 'shorts/greek-04-poc.mp4' : ''; }
+const FILMS = {
+  'greek-04': 'shorts/greek-04-poc.mp4',
+  'greek-09': 'shorts/became-father.mp4',
+};
+function filmSrc(id) { return FILMS[id] || ''; }
 
 function worksOf(l) {
   return [...new Set(l.sources.map(id => sources.get(id)?.work).filter(Boolean))].join(', ');
@@ -354,7 +358,7 @@ function tonightHTML() {
   } else {
     main = `<p class="quiet">You have heard everything written so far. More is being written.</p><div class="actions"><button class="btn primary" data-act="review">Review</button></div>`;
   }
-  const otherFilms = written.filter(l => filmSrc(l.id) && l.id !== next?.id);
+  const otherFilms = [...lessons.values()].filter(l => filmSrc(l.id) && l.id !== next?.id);
   const films = otherFilms.length
     ? `<div class="section">Watch</div><section class="card">${otherFilms.map(l => `<div class="eyebrow">${esc(l.title)}</div>${watchPlay(l.id)}`).join('')}</section>`
     : '';

@@ -11,3 +11,5 @@ Payload/
 ios/Info.plist
 artifacts/
 web/shorts/*.mp4
+!web/shorts/became-father.mp4
+!web/shorts/greek-04-poc.mp4

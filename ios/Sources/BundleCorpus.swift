@@ -22,18 +22,6 @@ enum BundleCorpus {
         return FileManager.default.fileExists(atPath: nested.path) ? nested : nil
     }
 
-    static func filmURL(lesson: String) -> URL? {
-        let stem = lesson == "greek-04" ? "greek-04-poc" : lesson
-        if let url = Bundle.main.url(forResource: stem, withExtension: "mp4") {
-            return url
-        }
-        if let root = Bundle.main.resourcePath {
-            let bundled = URL(fileURLWithPath: root).appendingPathComponent("shorts/\(stem).mp4")
-            if FileManager.default.fileExists(atPath: bundled.path) { return bundled }
-        }
-        return remoteFilmURL(lesson)
-    }
-
     private struct FilmsManifest: Decodable {
         var scheme: String
         var host: String
@@ -42,12 +30,32 @@ enum BundleCorpus {
         var lessons: [String: String]
     }
 
-    private static func remoteFilmURL(_ lesson: String) -> URL? {
+    private static let filmsManifest: FilmsManifest? = {
         guard let url = Bundle.main.url(forResource: "films", withExtension: "json"),
-              let data = try? Data(contentsOf: url),
-              let films = try? JSONDecoder().decode(FilmsManifest.self, from: data),
-              let file = films.lessons[lesson]
+              let data = try? Data(contentsOf: url)
         else { return nil }
+        return try? JSONDecoder().decode(FilmsManifest.self, from: data)
+    }()
+
+    static func filmURL(lesson: String) -> URL? {
+        let file = filmsManifest?.lessons[lesson] ?? (lesson == "greek-04" ? "greek-04-poc.mp4" : nil)
+        if let file {
+            let stem = URL(fileURLWithPath: file).deletingPathExtension().lastPathComponent
+            if let url = Bundle.main.url(forResource: stem, withExtension: "mp4") {
+                return url
+            }
+            if let root = Bundle.main.resourcePath {
+                for rel in [file, "shorts/\(file)", "shorts/\(stem).mp4"] {
+                    let bundled = URL(fileURLWithPath: root).appendingPathComponent(rel)
+                    if FileManager.default.fileExists(atPath: bundled.path) { return bundled }
+                }
+            }
+        }
+        return remoteFilmURL(lesson)
+    }
+
+    private static func remoteFilmURL(_ lesson: String) -> URL? {
+        guard let films = filmsManifest, let file = films.lessons[lesson] else { return nil }
         var c = URLComponents()
         c.scheme = films.scheme
         c.host = films.host

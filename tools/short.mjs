@@ -10,4 +10,5 @@ function run(file, args) {
 }
 
 run(`${here}tts.mjs`, ['--short', ...extra]);
-run(`${here}assemble.mjs`, []);
+const key = extra.find((a, i) => !a.startsWith('-') && extra[i - 1] !== '--voice') ?? 'firstVideo';
+run(`${here}assemble.mjs`, [key]);
