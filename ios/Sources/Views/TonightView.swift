@@ -25,6 +25,9 @@ struct TonightView: View {
                     Button("Review") { store.review() }
                         .buttonStyle(EmberButton())
                 }
+                ForEach(store.films.filter { $0.id != store.tonight?.id }) { lesson in
+                    watchCard(lesson)
+                }
                 if !store.warm.isEmpty {
                     Text("Still warm")
                         .font(.title3.weight(.bold))
@@ -38,6 +41,11 @@ struct TonightView: View {
                                     Text(heardLine(lesson)).font(.subheadline).foregroundStyle(Ink.muted)
                                 }
                                 Spacer()
+                                if BundleCorpus.filmURL(lesson: lesson.id) != nil {
+                                    Button("Watch") { store.watch(lesson.id) }
+                                        .font(.subheadline.weight(.semibold))
+                                        .foregroundStyle(Ink.gold)
+                                }
                             }
                             .padding(.vertical, 14)
                             if lesson.id != store.warm.last?.id {
@@ -81,6 +89,65 @@ struct TonightView: View {
                     VStack(alignment: .leading, spacing: 2) {
                         Text("Listen").bold().foregroundStyle(Ink.text)
                         Text("One family check halfway. Three recall cards after.")
+                            .font(.subheadline)
+                            .foregroundStyle(Ink.muted)
+                    }
+                    Spacer()
+                }
+                .padding(14)
+                .background(Ink.card2, in: RoundedRectangle(cornerRadius: 16))
+            }
+            .buttonStyle(.plain)
+            .padding(.top, 8)
+            if store.films.contains(where: { $0.id == lesson.id }) {
+                Button { store.watch(lesson.id) } label: {
+                    HStack(spacing: 14) {
+                        Text("▣")
+                            .font(.title2)
+                            .frame(width: 52, height: 52)
+                            .background(Ink.card, in: Circle())
+                            .foregroundStyle(Ink.gold)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text("Watch").bold().foregroundStyle(Ink.text)
+                            Text("Cartoon stills, pause, skip ten seconds.")
+                                .font(.subheadline)
+                                .foregroundStyle(Ink.muted)
+                        }
+                        Spacer()
+                    }
+                    .padding(14)
+                    .background(Ink.card2, in: RoundedRectangle(cornerRadius: 16))
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .padding(20)
+        .background(Ink.card, in: RoundedRectangle(cornerRadius: 22))
+        .overlay(RoundedRectangle(cornerRadius: 22).stroke(Ink.line))
+    }
+
+    private func watchCard(_ lesson: Lesson) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("WATCH")
+                .font(.caption.weight(.bold))
+                .tracking(1.2)
+                .foregroundStyle(Ink.ember)
+            Text(lesson.title)
+                .font(Ink.serif)
+                .foregroundStyle(Ink.text)
+            Text(lesson.hook)
+                .font(Ink.hook)
+                .foregroundStyle(Ink.muted)
+            Button { store.watch(lesson.id) } label: {
+                HStack(spacing: 14) {
+                    Text("▣")
+                        .font(.title2)
+                        .frame(width: 52, height: 52)
+                        .background(Ink.card, in: Circle())
+                        .foregroundStyle(Ink.gold)
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text("Watch").bold().foregroundStyle(Ink.text)
+                        Text("Cartoon stills, pause, skip ten seconds.")
                             .font(.subheadline)
                             .foregroundStyle(Ink.muted)
                     }

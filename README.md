@@ -17,7 +17,8 @@ The repo holds the plan, the mockups, a web player, and a SwiftUI iOS shell that
 - `content/stills.json` which Met Open Access object illustrates which beat.
 - `content/check.mjs` proves every claim has a source, every check asks only what its chapter said, every written lesson ends in recall, and no `do-not-ship` tradition has a lesson.
 - `tools/stills.mjs` downloads the CC0 pictures from the Met and writes their credits into `greek.json`.
-- `tools/tts.mjs` generates one MP3 per beat with Cartesia. Idempotent by text hash.
+- `tools/tts.mjs` generates one MP3 per beat with Cartesia. Idempotent by text hash. `--short` writes the first-video hook clips from `content/prompts.json`.
+- `tools/assemble.mjs` cuts those stills and clips into `web/shorts/short-siblings.mp4`. `tools/short.mjs` runs voice then assemble.
 - `web/` the player. Vanilla HTML, CSS, and JS. Reads `content/greek.json`, plays `web/audio/`, keeps progress in local storage.
 - `Engine/` pure Swift package. Decodes the corpus and owns progress and recall rules. Tests run on Linux.
 - `ios/` SwiftUI shell. Tonight, Lesson, Done. Separate from `web/` because a Mac disk treats `App` and `app` as the same folder.
@@ -48,6 +49,14 @@ node tools/tts.mjs greek-04            # one chapter
 
 Re-running only regenerates beats whose text, voice, or model changed.
 
+The chapter-4 short, after the cartoon stills are in `web/shorts/`:
+
+```sh
+node tools/short.mjs
+```
+
+That synthesizes each shot's `spoken` line, then cuts `web/shorts/short-siblings.mp4`. Re-running skips unchanged voice clips.
+
 ## Check the content
 
 ```sh
@@ -68,7 +77,7 @@ xcodegen generate
 open Hearth.xcodeproj
 ```
 
-In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate".
+In Xcode, pick your development team under Signing, then Run on the Simulator or a plugged-in iPhone. The first launch should show Tonight with "The father who ate". Watch streams the chapter-4 film from this Linux box. On that box, leave `python3 tools/serve-film.py` running. Phone and computer on the same Wi-Fi. Allow local network when iOS asks. The film URL and token live in `content/films.json`. The mp4 is not in the app bundle.
 
 Engine tests on this Linux laptop:
 

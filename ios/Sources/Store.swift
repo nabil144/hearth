@@ -5,6 +5,7 @@ import HearthEngine
 enum Screen: Equatable {
     case tonight
     case lesson(lessonId: String, beat: Int)
+    case watch(String)
     case done
 }
 
@@ -59,6 +60,9 @@ final class Store {
 
     var tonight: Lesson? { corpus.nextLesson(heard: progress.heard) }
     var warm: [Lesson] { corpus.written.filter { progress.heard[$0.id] != nil } }
+    var films: [Lesson] {
+        corpus.written.filter { BundleCorpus.filmURL(lesson: $0.id) != nil }
+    }
     var family: Family { Family.of(corpus: corpus, heard: progress.heard, focus: focus) }
 
     var chapterCount: Int {
@@ -72,6 +76,16 @@ final class Store {
         reviewing = false
         screen = .lesson(lessonId: lessonId, beat: 0)
         playCurrent()
+    }
+
+    func watch(_ lessonId: String) {
+        guard BundleCorpus.filmURL(lesson: lessonId) != nil else { return }
+        holdAdvance?.cancel()
+        pageGap?.cancel()
+        voice.stop()
+        resetSession()
+        reviewing = false
+        screen = .watch(lessonId)
     }
 
     func review() {

@@ -43,6 +43,8 @@ function nextLesson() { return written.find(l => !progress.heard[l.id]); }
 function lesson() { return lessons.get(state.lessonId); }
 function beat() { return lesson()?.beats[state.beat]; }
 function voice() { return document.getElementById('voice'); }
+function film() { return document.getElementById('film'); }
+function filmSrc(id) { return id === 'greek-04' ? 'shorts/greek-04-poc.mp4' : ''; }
 
 function worksOf(l) {
   return [...new Set(l.sources.map(id => sources.get(id)?.work).filter(Boolean))].join(', ');
@@ -111,6 +113,45 @@ function stopAudio() {
   audioKey = '';
 }
 
+function stopFilm() {
+  const el = film();
+  if (!el) return;
+  el.pause();
+  el.removeAttribute('src');
+  el.load();
+  el.classList.remove('up');
+  el.hidden = true;
+}
+
+function startWatch(id) {
+  if (!filmSrc(id)) return;
+  clearTimeout(session.timer);
+  stopAudio();
+  session = blank();
+  state = { screen: 'watch', lessonId: id, beat: 0 };
+  render();
+  const el = film();
+  el.hidden = false;
+  el.classList.add('up');
+  el.src = filmSrc(id);
+  el.play().catch(() => {}).finally(() => render());
+}
+
+function jumpFilm(n) {
+  const el = film();
+  if (!el?.src) return;
+  const end = Number.isFinite(el.duration) ? el.duration : 0;
+  el.currentTime = Math.max(0, Math.min(end, el.currentTime + n));
+}
+
+function toggleFilm() {
+  const el = film();
+  if (!el?.src) return;
+  if (el.paused) el.play().catch(() => {});
+  else el.pause();
+  render();
+}
+
 function showAudioNote() {
   session.silent = true;
   const n = document.getElementById('ano');
@@ -151,6 +192,7 @@ function startReview() {
 function goHome() {
   clearTimeout(session.timer);
   stopAudio();
+  stopFilm();
   session = blank();
   state = { screen: 'tonight', lessonId: null, beat: 0 };
   render();
@@ -232,6 +274,9 @@ function onClick(e) {
   if (!el) return;
   const a = el.dataset.act;
   if (a === 'listen') startLesson(el.dataset.id);
+  else if (a === 'watch') startWatch(el.dataset.id);
+  else if (a === 'toggle-film') toggleFilm();
+  else if (a === 'jump') jumpFilm(+el.dataset.n);
   else if (a === 'review') startReview();
   else if (a === 'home') goHome();
   else if (a === 'fwd') go(1);
@@ -294,26 +339,40 @@ function variantHTML(b) {
   return `<p class="meta spoken">${esc(b.text)}</p><div class="card"><div class="eyebrow">Two versions</div><div class="title q">${esc(v?.question || '')}</div><div class="fork">${sides}</div><p class="meta">${esc(v?.note || '')}</p><div class="actions"><button class="btn primary" data-act="fwd">Continue</button></div></div>${note()}`;
 }
 
+function watchPlay(id) {
+  return `<button class="play" data-act="watch" data-id="${esc(id)}"><div class="disc">▣</div><div class="t"><b>Watch</b><span>Cartoon stills. Pause, skip ten seconds, exit.</span></div></button>`;
+}
+
 function tonightHTML() {
   const next = nextLesson();
   const warm = written.filter(l => progress.heard[l.id]);
   const date = next ? `${fmtLong()} · Greek, chapter ${next.n} of ${cycleN}` : fmtLong();
   let main;
   if (next) {
-    main = `<section class="card"><div class="eyebrow">Tonight's telling</div><div class="title">${esc(next.title)}</div><p class="hook">${esc(next.hook)}</p><div class="meta">${esc(worksOf(next))} · ${next.minutes} min</div><button class="play" data-act="listen" data-id="${esc(next.id)}"><div class="disc">▶</div><div class="t"><b>Listen</b><span>One family check halfway. Three recall cards after.</span></div></button></section>`;
+    const watch = filmSrc(next.id) ? watchPlay(next.id) : '';
+    main = `<section class="card"><div class="eyebrow">Tonight's telling</div><div class="title">${esc(next.title)}</div><p class="hook">${esc(next.hook)}</p><div class="meta">${esc(worksOf(next))} · ${next.minutes} min</div><button class="play" data-act="listen" data-id="${esc(next.id)}"><div class="disc">▶</div><div class="t"><b>Listen</b><span>One family check halfway. Three recall cards after.</span></div></button>${watch}</section>`;
   } else {
     main = `<p class="quiet">You have heard everything written so far. More is being written.</p><div class="actions"><button class="btn primary" data-act="review">Review</button></div>`;
   }
-  const list = warm.length
-    ? `<div class="section">Still warm</div><div class="card warm">${warm.map(l => `<div class="row"><div class="t"><b>${esc(l.title)}</b><span>${esc(fmtHeard(progress.heard[l.id]))}</span></div></div>`).join('')}</div>`
+  const otherFilms = written.filter(l => filmSrc(l.id) && l.id !== next?.id);
+  const films = otherFilms.length
+    ? `<div class="section">Watch</div><section class="card">${otherFilms.map(l => `<div class="eyebrow">${esc(l.title)}</div>${watchPlay(l.id)}`).join('')}</section>`
     : '';
-  return `<main class="screen tonight"><h1>Tonight</h1><p class="sub">${esc(date)}</p>${main}${list}</main>`;
+  const list = warm.length
+    ? `<div class="section">Still warm</div><div class="card warm">${warm.map(l => `<div class="row"><div class="t"><b>${esc(l.title)}</b><span>${esc(fmtHeard(progress.heard[l.id]))}</span></div>${filmSrc(l.id) ? `<button class="btn" data-act="watch" data-id="${esc(l.id)}">Watch</button>` : ''}</div>`).join('')}</div>`
+    : '';
+  return `<main class="screen tonight"><h1>Tonight</h1><p class="sub">${esc(date)}</p>${main}${films}${list}</main>`;
 }
 
 function doneHTML() {
   const next = nextLesson();
   const line = next ? `Tomorrow: ${next.title}` : 'You have heard everything written so far.';
   return `<main class="screen done"><div class="eyebrow">Held</div><div class="title">That is tonight.</div><p class="sub">${esc(line)}</p><p class="meta">${session.held} held · ${session.missed} missed</p><div class="actions"><button class="btn primary" data-act="home">Back to tonight</button></div></main>`;
+}
+
+function watchHTML() {
+  const paused = film()?.paused !== false;
+  return `<main class="screen watch"><div class="watch-bar"><button class="btn" data-act="home">Exit</button><button class="btn" data-act="jump" data-n="-10">-10s</button><button class="btn primary" data-act="toggle-film">${paused ? 'Play' : 'Pause'}</button><button class="btn" data-act="jump" data-n="10">+10s</button></div></main>`;
 }
 
 function lessonHTML() {
@@ -335,9 +394,11 @@ function lessonHTML() {
 function render() {
   document.getElementById('root').innerHTML =
     state.screen === 'tonight' ? tonightHTML() :
-    state.screen === 'done' ? doneHTML() : lessonHTML();
+    state.screen === 'done' ? doneHTML() :
+    state.screen === 'watch' ? watchHTML() : lessonHTML();
   if (state.screen === 'lesson') playAudio();
   else stopAudio();
+  if (state.screen !== 'watch') stopFilm();
 }
 
 async function main() {
@@ -354,8 +415,11 @@ async function main() {
   written = data.lessons.filter(l => l.beats?.length);
   cycleN = data.lessons.filter(l => l.tradition === (written[0]?.tradition || 'greek')).length || 12;
   const q = new URLSearchParams(location.search);
+  const watchId = q.get('watch');
   const id = q.get('lesson');
-  if (id && lessons.get(id)?.beats?.length) {
+  if (watchId && filmSrc(watchId)) {
+    startWatch(watchId);
+  } else if (id && lessons.get(id)?.beats?.length) {
     const n = lessons.get(id).beats.length;
     state = { screen: 'lesson', lessonId: id, beat: Math.max(0, Math.min(n - 1, Number(q.get('beat') ?? 0) || 0)) };
     if (beat()?.kind === 'recall') armRecall();

@@ -10,33 +10,106 @@
     "hyper detailed eyes",
     "superhero lightning pose"
   ],
-  "model": "",
+  "model": "fal-ai/recraft-20b",
+  "imageSize": "portrait_16_9",
   "firstVideo": {
     "id": "short-siblings",
     "lesson": "greek-04",
     "targetSeconds": 50,
+    "file": "web/shorts/short-siblings.mp4",
     "link": "https://nabil144.github.io/hearth/web/?lesson=greek-04",
     "shots": [
       {
         "id": "siblings-0",
-        "file": null,
-        "falUrl": null,
+        "file": "web/shorts/siblings-0.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa47ef/B-RSLImwJe8jcOD_u65Ws_dnOqIzHX.webp",
         "spoken": "Everyone knows Zeus. Ask a room who his brothers and sisters are and the room goes quiet.",
         "prompt": "A seated king of the sky, eagle at his side, no thunderbolt hero pose, Greek vase profile, night hall, other seats around him empty."
       },
       {
         "id": "siblings-1",
-        "file": null,
-        "falUrl": null,
+        "file": "web/shorts/siblings-1.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4813/-3JD8o2t-NhLLYRZtu5-X_7qC2jDPi.webp",
         "spoken": "Hesiod names six in one breath. Hestia, Demeter, Hera, Hades, Poseidon, Zeus. Each of them took a piece of the world.",
         "prompt": "Six adult gods in a row, eldest to youngest left to right, hearth, grain, crown, dark helm, wave, and a younger sky king, same clothes language, no Roman names on the picture."
       },
       {
         "id": "siblings-2",
-        "file": null,
-        "falUrl": null,
+        "file": "web/shorts/siblings-2.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa47f1/1a5FXd66U4mOPBHdQiGvo_hj1cMW79.webp",
         "spoken": "Most people cannot name them. Can you? Five minutes. The line is in the Theogony.",
         "prompt": "A closed papyrus or stone tablet, Greek letters suggested not readable English, dark hearth light, no UI chrome, no phone, no logo."
+      }
+    ]
+  },
+  "pocVideo": {
+    "id": "greek-04-poc",
+    "lesson": "greek-04",
+    "file": "web/shorts/greek-04-poc.mp4",
+    "shots": [
+      {
+        "id": "greek-04-0",
+        "beat": 0,
+        "file": "web/shorts/greek-04-0.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa487c/RZVTUR_O5CPxriKNYCtQO_BI6w0ZOL.webp",
+        "audio": "web/audio/greek-04/0.mp3",
+        "prompt": "A dark columned night hall with six stone seats in a shallow curve. Five seats empty. On the rightmost seat a younger bearded sky king sits in three-quarter view, rust cloak, cream tunic, bronze circlet, hands empty in his lap, no thunderbolt. A single eagle perches on a stone beside him. Warm dark floor, night sky through the columns, quiet and still."
+      },
+      {
+        "id": "greek-04-1",
+        "beat": 1,
+        "file": "web/shorts/greek-04-1.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4864/qmeLow5Yf2fi-6Tb_cxLa_NIx7ePtQ.webp",
+        "audio": "web/audio/greek-04/1.mp3",
+        "prompt": "Interior of a simple Greek house at night. A woman in profile, hair bound, cream and rust drapery, kneels at a low round hearth in the center of the room. A small steady orange flame. She pours a thin libation toward the fire. No armor, no jewelry crown, no other people. Warm dark ground, clay walls, one doorway into night."
+      },
+      {
+        "id": "greek-04-2",
+        "beat": 2,
+        "file": "web/shorts/greek-04-2.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa487e/NQWEJ7dSOzy83N2dIAb-F_sgTcNIjy.webp",
+        "audio": "web/audio/greek-04/2.mp3",
+        "prompt": "A woman in three-quarter view standing in a night field of dry grain. She holds a heavy sheaf of wheat against her shoulder. Earth-colored drapery, no crown, no modern tools, no tractor. Behind her the field looks stopped, half-grown. Warm dark ground, thin moon, bold contour."
+      },
+      {
+        "id": "greek-04-3",
+        "beat": 3,
+        "file": "web/shorts/greek-04-3.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4866/297DePHyJ4IoL1WsELVab_f9f9h5Yz.webp",
+        "audio": "web/audio/greek-04/3.mp3",
+        "prompt": "A woman standing in a night hall, three-quarter view, a simple thin gold circlet, rust and cream drapery that reads as older sister not bride. Calm face, no peacock spectacle, no wedding veil, no armor. A second empty taller seat behind her. Warm dark floor, stone columns, limited earth palette."
+      },
+      {
+        "id": "greek-04-4",
+        "beat": 4,
+        "file": "web/shorts/greek-04-4.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4866/ptSMfAn0wuFUVWKsj6nTv_bl1T2MR4.webp",
+        "audio": "web/audio/greek-04/4.mp3",
+        "prompt": "A man in a dark helm standing in an underground hall, three-quarter view, heavy brow, rust-black cloak, empty hands, no two-pronged spear hero pose. Rock walls, a low opening up toward a tiny scrap of night. Warm dark ground, pitiless calm, one figure only."
+      },
+      {
+        "id": "greek-04-6",
+        "beat": 6,
+        "file": "web/shorts/greek-04-6.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4867/NWweJsNerDTmxD5vorTMc_NbD7sAI4.webp",
+        "audio": "web/audio/greek-04/6.mp3",
+        "prompt": "A bearded man in three-quarter view at a dark shoreline at night. A curling wave climbs his shins. Cracked stone under one foot. Cream and sea-dark drapery, no trident superhero pose, maybe a plain staff planted in the water. No ship, no modern clothes. Warm dark ground meeting black water."
+      },
+      {
+        "id": "greek-04-7",
+        "beat": 7,
+        "file": "web/shorts/greek-04-7.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4868/J1c5bhnS8-urmyloezmTs_8chFHywm.webp",
+        "audio": "web/audio/greek-04/7.mp3",
+        "prompt": "A younger bearded man standing at the mouth of a Cretan cave at night, three-quarter view, cream cloak, bronze circlet, empty hands, no thunderbolt. Behind him the cave is dark. At his feet three small unmarked lots or pebbles on the warm dark ground. Quiet, not a battle."
+      },
+      {
+        "id": "greek-04-9",
+        "beat": 9,
+        "file": "web/shorts/greek-04-9.jpg",
+        "falUrl": "https://v3b.fal.media/files/b/0aaa4869/JUgSHV7dv4pJ5PQ-eCjwJ_Q6VXnRE4.webp",
+        "audio": "web/audio/greek-04/9.mp3",
+        "prompt": "Close view of a closed papyrus scroll and a stone tablet on a dark table, hearth firelight from one side. Suggested Greek letter shapes only, not readable English, not Latin names, not a logo, no phone, no UI. Night interior, warm dark ground, no people."
       }
     ]
   }

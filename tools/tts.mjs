@@ -35,23 +35,7 @@ if (args[0] === '--voices') {
   process.exit(0);
 }
 
-const only = new Set(args.filter((a) => !a.startsWith('--')));
-if (args.includes('--sample')) only.add('greek-04/0');
 const force = args.includes('--force');
-const onlyLesson = new Set();
-const onlyBeat = new Map();
-for (const x of only) {
-  const [id, n] = x.split('/');
-  onlyLesson.add(id);
-  if (n !== undefined) {
-    if (!onlyBeat.has(id)) onlyBeat.set(id, new Set());
-    onlyBeat.get(id).add(Number(n));
-  }
-}
-const c = JSON.parse(readFileSync(new URL('content/greek.json', root), 'utf8'));
-const cards = new Map(c.cards.map((k) => [k.id, k]));
-
-const spoken = (b) => (b.kind === 'check' ? `${b.text} ${cards.get(b.card).prompt}` : b.text);
 
 async function synth(text, out) {
   const r = await fetch('https://api.cartesia.ai/tts/bytes', {
@@ -68,6 +52,47 @@ async function synth(text, out) {
   if (!r.ok) throw new Error(`${out}: ${r.status} ${await r.text()}`);
   writeFileSync(out, Buffer.from(await r.arrayBuffer()));
 }
+
+if (args.includes('--short')) {
+  const shots = JSON.parse(readFileSync(new URL('content/prompts.json', root), 'utf8')).firstVideo?.shots ?? [];
+  if (!shots.length) {
+    console.error('content/prompts.json has no firstVideo.shots');
+    process.exit(2);
+  }
+  const dir = new URL('web/shorts/', root);
+  mkdirSync(dir, { recursive: true });
+  let made = 0, kept = 0;
+  for (const shot of shots) {
+    const text = shot.spoken;
+    if (!text) throw new Error(`${shot.id}: no spoken`);
+    const hash = createHash('sha1').update(`${model}|${voice}|${text}`).digest('hex').slice(0, 12);
+    const mp3 = new URL(`${shot.id}.mp3`, dir), tag = new URL(`${shot.id}.sha1`, dir);
+    if (!force && existsSync(mp3) && existsSync(tag) && readFileSync(tag, 'utf8') === hash) { kept++; continue; }
+    await synth(text, mp3);
+    writeFileSync(tag, hash);
+    made++;
+    console.log(`${shot.id}  ${text.split(/\s+/).length} words`);
+  }
+  console.log(`${made} generated, ${kept} unchanged. Voice ${voice}, model ${model}.`);
+  process.exit(0);
+}
+
+const only = new Set(args.filter((a) => !a.startsWith('--')));
+if (args.includes('--sample')) only.add('greek-04/0');
+const onlyLesson = new Set();
+const onlyBeat = new Map();
+for (const x of only) {
+  const [id, n] = x.split('/');
+  onlyLesson.add(id);
+  if (n !== undefined) {
+    if (!onlyBeat.has(id)) onlyBeat.set(id, new Set());
+    onlyBeat.get(id).add(Number(n));
+  }
+}
+const c = JSON.parse(readFileSync(new URL('content/greek.json', root), 'utf8'));
+const cards = new Map(c.cards.map((k) => [k.id, k]));
+
+const spoken = (b) => (b.kind === 'check' ? `${b.text} ${cards.get(b.card).prompt}` : b.text);
 
 let made = 0, kept = 0;
 for (const l of c.lessons) {

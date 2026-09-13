@@ -22,6 +22,39 @@ enum BundleCorpus {
         return FileManager.default.fileExists(atPath: nested.path) ? nested : nil
     }
 
+    static func filmURL(lesson: String) -> URL? {
+        if let remote = remoteFilmURL(lesson) { return remote }
+        let stem = lesson == "greek-04" ? "greek-04-poc" : lesson
+        if let url = Bundle.main.url(forResource: stem, withExtension: "mp4") {
+            return url
+        }
+        guard let root = Bundle.main.resourcePath else { return nil }
+        let url = URL(fileURLWithPath: root).appendingPathComponent("shorts/\(stem).mp4")
+        return FileManager.default.fileExists(atPath: url.path) ? url : nil
+    }
+
+    private struct FilmsManifest: Decodable {
+        var scheme: String
+        var host: String
+        var port: Int
+        var token: String
+        var lessons: [String: String]
+    }
+
+    private static func remoteFilmURL(_ lesson: String) -> URL? {
+        guard let url = Bundle.main.url(forResource: "films", withExtension: "json"),
+              let data = try? Data(contentsOf: url),
+              let films = try? JSONDecoder().decode(FilmsManifest.self, from: data),
+              let file = films.lessons[lesson]
+        else { return nil }
+        var c = URLComponents()
+        c.scheme = films.scheme
+        c.host = films.host
+        c.port = films.port
+        c.path = "/\(films.token)/\(file)"
+        return c.url
+    }
+
     static func audioURL(lesson: String, beat: Int) -> URL? {
         if let url = Bundle.main.url(forResource: "\(beat)", withExtension: "mp3", subdirectory: "audio/\(lesson)") {
             return url

@@ -10,3 +10,4 @@ Payload/
 *.xcodeproj/
 ios/Info.plist
 artifacts/
+web/shorts/*.mp4

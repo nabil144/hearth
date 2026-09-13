@@ -36,10 +36,10 @@ If the tools do not appear, the key is wrong or the server was added to the proj
 Do these in order. Tick them in [STATUS.md](STATUS.md) when they land.
 
 1. **Connect Fal MCP.** Owner. Session cannot generate until this is true.
-2. **Lock a style and a model.** One paragraph in `content/prompts.json` (`style`). One Fal `endpoint_id` after a search. Recraft or a Flux illustration endpoint, not a photoreal one. Generate two test faces of Kronos. If they do not look like kin, pick another model.
-3. **Generate the three short stills.** Prompts already drafted in `content/prompts.json` under `firstVideo.shots`. Save files to `web/shorts/siblings-0.jpg` and so on. Write the Fal URL and the local path back into the json. Do not replace `web/stills/` yet. Those Met files still run the POC.
-4. **Voice.** Prefer a dedicated hook script (the `spoken` field on each shot), not the full chapter-4 beat 0 mp3, which is a whole paragraph. Generate three short Cartesia clips into `web/shorts/` the same way `tools/tts.mjs` already works, or cut the first sentences of beat 0 if they time out near 50 seconds together.
-5. **Assemble.** CapCut on a phone, or ffmpeg on this machine. Each still holds for its clip. Slow zoom. Hard cuts. No lip sync. No image-to-video model on the first cut.
+2. **Lock a style and a model.** One paragraph in `content/prompts.json` (`style`). One Fal `endpoint_id` after a search. While testing, pick a cheap illustration endpoint (Recraft 20b, Flux schnell), not Recraft V3 or Pro. Not a photoreal one. Generate two test faces of Kronos. If they do not look like kin, pick another cheap model.
+3. **Generate the three short stills.** Prompts already drafted in `content/prompts.json` under `firstVideo.shots`. Every still in a short is the same size as a real vertical video: `imageSize` in `prompts.json`, currently `portrait_16_9` (1024x1820). Do not mix landscape into the set. Save files to `web/shorts/siblings-0.jpg` and so on. Write the Fal URL and the local path back into the json. Do not replace `web/stills/` yet. Those Met files still run the POC.
+4. **Voice.** `node tools/tts.mjs --short` reads each shot's `spoken` field and writes `web/shorts/<id>.mp3`. Same Cartesia voice and hash skip as the lesson clips. Do not use the full chapter-4 beat 0 mp3.
+5. **Assemble.** `node tools/assemble.mjs` (or `node tools/assemble.mjs pocVideo`). ffmpeg on this machine. 1080x1920. Each still holds for its clip. Zoom is slow and continuous across the whole voice (`1` to `1.16`). All shots are portrait. Hard cuts. No lip sync. No image-to-video model on the first cut. CapCut on a phone is optional polish after the mp4 exists. There is no official CapCut MCP worth adding.
 6. **Watch it.** If a face changes mid-short, regenerate that still with the same model and a tighter prompt. Do not switch models mid-set.
 7. **Only after the short exists.** Optionally generate cartoon stills for every `still` beat in chapters 3 to 5 and point `beat.still.src` at them. The player does not change. Credits become "Hearth, after the Theogony" instead of the Met line.
 
@@ -60,4 +60,4 @@ Forbidden in every prompt: photoreal, 3D render, movie still, hammer, lightning 
 
 ## When a new session picks this up
 
-Read [STATUS.md](STATUS.md). Open `content/prompts.json`. If `model` is still empty, search Fal first. If shots have `file` paths, those images exist. Generate only the shots whose `file` is null. Update STATUS when a shot lands.
+Read [STATUS.md](STATUS.md). Open `content/prompts.json`. If `model` is still empty, search Fal first. If shots have `file` paths, those images exist. Generate only the shots whose `file` is null. If `firstVideo.file` is set, the mp4 exists. Watch it before changing the model. Update STATUS when a shot or the cut lands.

@@ -10,12 +10,15 @@ Hearth is a Paladin-shaped mythology habit: one chapter a night, voice over stil
 
 ## Now
 
+- Chapter 4 POC film stays on this computer. The phone streams it. `python3 tools/serve-film.py` binds `192.168.0.121:8766` only, and only the token path in `content/films.json`. The 111 MB mp4 is not in the iOS bundle and cannot go to GitHub (100 MB limit). Watch still has pause, −10s, +10s, Exit. Same Wi-Fi, allow local network, keep the serve process running. The Met stills and the beat player are unchanged.
+- While testing, Hearth image jobs stay on cheap Fal models. Locked `fal-ai/recraft-20b` with Recraft `digital_illustration` ($0.022/image). Every short still uses the same real-short frame: `portrait_16_9` (1024x1820), stored as `imageSize` in `content/prompts.json`. Do not mix landscape into a set. Regenerated `web/shorts/siblings-0.jpg`, `siblings-1.jpg`, `siblings-2.jpg` to that size. Shot 1 still undershoots a clean six-count (five figures, wheat and hearth). Recut `web/shorts/short-siblings.mp4` from the matching stills (20.4s, all 1024x1820, zoom only).
+- First short is cut. `node tools/assemble.mjs` wrote `web/shorts/short-siblings.mp4`, 1080x1920, about 20s. That is under the 40–60s target because the three `spoken` lines are short, not because the cut is missing a shot. All stills are portrait, so they zoom in. No CapCut MCP. Next is watch it, step 6 in [first-video.md](first-video.md).
+- Fal MCP is connected. First-video steps 1 to 5 are done. Hook voice: `web/shorts/siblings-0.mp3` and so on. Do not replace `web/stills/`.
 - Working name. Hearth. Repo https://github.com/nabil144/hearth, personal account `nabil144`, SSH `github-personal`.
 - POC is playable. iOS on a Mac with a free Apple ID. Web at https://nabil144.github.io/hearth/web/
 - Three written chapters. `greek-03` The father who ate. `greek-04` Zeus's siblings. `greek-05` Ten years of war. Chapters 1, 2, 6 to 12 are outlined only.
 - iOS has Tonight, Lesson (pause, Tonight button, 0.7s gap between stills), Done, and a Family tab. Family is [PR 1](https://github.com/nabil144/hearth/pull/1) on `family-tab`, not merged to `main` yet.
 - Friends share the Pages URL, not the Xcode build. A free-team install dies in seven days and needs the Mac.
-- Next build slice is cartoon stills through Fal, then a first short from chapter 4. Plan in [first-video.md](first-video.md). Fal MCP is not connected in this repo yet. The owner has a Fal account.
 - The 90-day gate is still the plan's two numbers. Did ten shorts move. Did a stranger finish chapter 3 and open chapter 4 the next night. Do not write the remaining nine chapters until those move.
 
 ## What the app already does
@@ -33,7 +36,7 @@ Battle, Mythologies, Hearth+, accounts, one-chapter-a-night lock, replacing the 
 
 - Merge PR 1 when `main` should match the phone.
 - Read chapters 3 to 5 against the Theogony lines they cite.
-- Add Fal MCP in Cursor (see [first-video.md](first-video.md)). Do not put `FAL_KEY` in git.
+- Fal MCP is in the user `mcp.json`. Do not put `FAL_KEY` in git.
 - Five strangers, three nights. Ten shorts, face to camera or the first cartoon cut.
 
 ## How a new session starts

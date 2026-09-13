@@ -12,6 +12,12 @@ struct RootView: View {
                     home
                 case .lesson:
                     LessonView()
+                case .watch(let id):
+                    if let url = BundleCorpus.filmURL(lesson: id) {
+                        VideoWatchView(url: url)
+                    } else {
+                        TonightView()
+                    }
                 case .done:
                     DoneView()
                 }

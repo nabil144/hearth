@@ -36,6 +36,9 @@ targets:
       - path: web/audio
         type: folder
         buildPhase: resources
+      - path: content/films.json
+        type: file
+        buildPhase: resources
     dependencies:
       - package: HearthEngine
     info:
@@ -48,6 +51,9 @@ targets:
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
         UIBackgroundModes: [audio]
         ITSAppUsesNonExemptEncryption: false
+        NSLocalNetworkUsageDescription: Hearth plays tonight's film from your computer on the local network.
+        NSAppTransportSecurity:
+          NSAllowsLocalNetworking: true
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.nabil.Hearth
