@@ -11,7 +11,7 @@ CFG = json.loads((ROOT / "content" / "films.json").read_text())
 SHORTS = (ROOT / "web" / "shorts").resolve()
 TOKEN = CFG["token"]
 ALLOW = set(CFG["lessons"].values())
-HOST = CFG["host"]
+HOST = "0.0.0.0"
 PORT = int(CFG["port"])
 
 

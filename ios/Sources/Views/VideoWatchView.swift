@@ -44,6 +44,8 @@ struct VideoWatchView: View {
         }
         .onAppear {
             let item = AVPlayerItem(url: url)
+            item.preferredForwardBufferDuration = 2
+            player.automaticallyWaitsToMinimizeStalling = true
             player.replaceCurrentItem(with: item)
             player.play()
             playing = true

@@ -81,6 +81,12 @@ try {
     '-y', '-hide_banner', '-loglevel', 'error',
     '-f', 'concat', '-safe', '0', '-i', list, '-c', 'copy', dest,
   ]);
+  const primed = dest + '.faststart';
+  run('ffmpeg', [
+    '-y', '-hide_banner', '-loglevel', 'error',
+    '-i', dest, '-c', 'copy', '-movflags', '+faststart', primed,
+  ]);
+  run('mv', [primed, dest]);
   const total = durationOf(dest);
   console.log(`${dest}  ${total.toFixed(1)}s`);
 } finally {
